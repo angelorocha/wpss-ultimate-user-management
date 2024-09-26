@@ -1,0 +1,94 @@
+<?php
+
+use WpssUserManager\Admin\WPSSPluginHelper;
+use WpssUserManager\Admin\WPSSRoles;
+
+?>
+<p>
+	<?php esc_html_e( 'Define plugin settings', 'wpss-ultimate-user-management' ); ?>
+</p>
+<hr>
+
+<form action="" method="post" class="wpss-settings-tab-form">
+    <label for="wpss-default-role-select">
+		<?php esc_html_e( 'When user have no roles, assign user in this role: ', 'wpss-ultimate-user-management' ); ?>
+        <select required="required" id="wpss-default-role-select" name="wpss_default_role">
+			<?php foreach ( WPSSRoles::get_roles_names( false ) as $role => $name ):
+				$selected = WPSSPluginHelper::get_option( 'wpss_default_role' ) === $role ? 'selected' : ''; ?>
+                <option value='<?php echo esc_attr( $role ); ?>' <?php echo esc_attr( $selected ); ?>>
+					<?php echo esc_html( $name ); ?>
+                </option>
+			<?php endforeach; ?>
+        </select>
+        <p>
+            <small><?php esc_html_e( 'This option works only if the user have only one role and it was deleted.', 'wpss-ultimate-user-management' ); ?></small>
+        </p>
+    </label>
+    
+    <label for="wpss-user-entries-limit">
+		<?php esc_html_e( 'Number of entries on User Management screen: ', 'wpss-ultimate-user-management' ); ?>
+        <input type="number"
+               id="wpss-user-entries-limit"
+               name="wpss_user_entries_screen"
+               min="10"
+               value="<?php echo esc_attr( WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ) ); ?>">
+    </label>
+	
+	
+	<?php esc_html_e( 'Delete all plugin data on deactivate: ', 'wpss-ultimate-user-management' ); ?>
+    <div class="radio-container">
+		<?php
+		$radio_option_values = [
+			0 => __( 'No', 'wpss-ultimate-user-management' ),
+			1 => __( 'Yes', 'wpss-ultimate-user-management' ),
+		];
+		foreach ( $radio_option_values as $val => $label ):
+			$checked = (int) WPSSPluginHelper::get_option( 'wpss_delete_plugin_data' ) === $val ? 'checked' : ''; ?>
+            <label for="wpss-plugin-data-<?php echo esc_attr( $val ); ?>">
+                <input type='radio'
+                       name='wpss_delete_plugin_data'
+                       id='wpss-plugin-data-<?php echo esc_attr( $val ); ?>'
+                       value='<?php echo esc_attr( $val ); ?>'
+					<?php echo esc_attr( $checked ); ?>>
+				<?php echo esc_html( $label ); ?>
+            </label>
+		<?php endforeach; ?>
+    </div>
+    
+    <hr>
+    <strong>
+		<?php esc_html_e( 'Add this roles to new users:', 'wpss-ultimate-user-management' ); ?>
+    </strong>
+    <div class="new-users-roles">
+		<?php
+		$roles = WPSSRoles::get_roles_names( false );
+		if ( ! empty( $roles ) ):
+			unset( $roles['administrator'] );
+			unset( $roles['subscriber'] );
+			$get_users_roles = WPSSPluginHelper::get_option( 'wpss_roles_to_new_users' );
+			if ( ! empty( $get_users_roles ) ):
+				$get_users_roles = json_decode( $get_users_roles, true );
+			else:
+				$get_users_roles = [];
+			endif;
+			foreach ( $roles as $key => $role ): ?>
+                <label for="user-role-<?php echo esc_attr( $key ); ?>">
+                    <input type="checkbox" name="wpss_roles_to_new_users[]"
+                           id="user-role-<?php echo esc_attr( $key ); ?>"
+                           value="<?php echo esc_attr( $key ); ?>"
+						<?php echo esc_attr( checked( ! in_array( $key, $get_users_roles ), '', false ) ); ?>>
+					<?php echo esc_html( $role ); ?>
+                </label>
+			<?php endforeach; ?>
+		<?php endif; ?>
+    </div>
+    <hr>
+    <div class="settings-message d-none">
+		<?php esc_html_e( 'Options saved successfully!', 'wpss-ultimate-user-management' ); ?>
+    </div>
+    <div class="text-center">
+        <button class="button-primary">
+			<?php esc_html_e( 'Save Settings', 'wpss-ultimate-user-management' ); ?>
+        </button>
+    </div>
+</form>

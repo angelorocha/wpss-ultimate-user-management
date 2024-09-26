@@ -1,0 +1,464 @@
+@charset "UTF-8";
+
+$assets_url: '../images/';
+
+.wpss-roles-admin-container {
+  background: #FFF;
+  padding: 10px;
+  box-sizing: border-box;
+  max-width: 970px;
+  margin: 30px 0 0 0;
+
+  h3 {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 3px solid #333;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .d-none {
+    display: none;
+  }
+
+  .delete-button {
+    display: inline-block;
+    font-size: 1.2rem;
+    background: #D9352D;
+    color: #FFF;
+    line-height: 15px;
+    height: 20px;
+    width: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 600ms;
+
+    &:hover {
+      background: #333;
+    }
+  }
+
+  .content-nav {
+    display: flex;
+
+    .admin-tabs {
+      border-right: 1px solid #ECECEC;
+      width: 25%;
+      padding: 10px;
+      box-sizing: border-box;
+
+      li {
+        &:last-child {
+          a {
+            border-bottom: none;
+          }
+
+        }
+
+        a {
+          display: block;
+          text-decoration: none;
+          font-size: 1rem;
+          color: #09C;
+          transition: 600ms;
+          border-bottom: 1px solid #DDD;
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+
+          &:hover {
+            padding-left: 20px;
+            color: #333;
+          }
+
+          &:active,
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      padding: 0 0 0 15px;
+      box-sizing: border-box;
+      width: 75%;
+
+      ul.pages-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        li {
+          flex: 1 0 30%;
+
+          label {
+            display: block;
+          }
+        }
+      }
+
+      hr {
+        margin: 10px 0 10px 0;
+      }
+
+      .role-editor-messages {
+        padding: 10px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 20px;
+
+        &.success {
+          background: #BFEEFC;
+          border: 1px solid #98DEFA;
+        }
+
+        &.error {
+          background: #FFDFDF;
+          border: 1px solid #FF9C9C;
+        }
+      }
+
+      .select-all {
+        float: right;
+        margin-top: 5px;
+      }
+
+      .table-container {
+        position: relative;
+        overflow: hidden;
+
+        .table-roles {
+          transition: 600ms;
+          position: relative;
+          left: 0;
+
+          &.move-left {
+            left: -160px;
+          }
+
+          th {
+            font-weight: 600;
+
+            &:nth-child(2),
+            &:nth-child(3) {
+              @extend .text-center;
+              width: 90px;
+            }
+          }
+
+          tr {
+            td {
+              &:nth-child(2),
+              &:nth-child(3) {
+                @extend .text-center;
+              }
+
+              span {
+                @extend .delete-button;
+              }
+            }
+          }
+        }
+
+        .role-delete-confirm-msg {
+          position: absolute;
+          top: 0;
+          right: -180px;
+          width: 160px;
+          background: #FFE3E3;
+          padding: 10px;
+          box-sizing: border-box;
+          z-index: 100;
+          transition: 600ms;
+
+          &.show-box {
+            right: 0;
+          }
+        }
+      }
+
+      .form-roles {
+        float: right;
+      }
+
+      .wpss-role-select,
+      .wpss-user-select {
+        select {
+          min-width: 200px;
+        }
+      }
+
+      .table-user-roles {
+        th {
+          font-weight: 600;
+        }
+      }
+
+      .wpss-add-role-to-user {
+        margin-top: 20px;
+
+        div {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin-bottom: 20px;
+
+          label {
+            flex: 1 0 20%;
+          }
+        }
+
+        button {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+
+      .wpss-add-caps-to-role {
+        > div {
+          display: grid;
+          grid-column-start: 1;
+          column-gap: 1rem;
+          gap: 1rem;
+          grid-template-columns: 1fr 1fr 1fr;
+
+          div.caps-list {
+            > div {
+              max-height: 600px;
+              overflow: hidden;
+
+              &:hover {
+                overflow-y: scroll;
+              }
+
+              &::-webkit-scrollbar {
+                width: 5px;
+              }
+
+              &::-webkit-scrollbar-track {
+                background-color: #EFEFEF;
+                border-radius: 100px;
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background-color: #C6C6C6;
+                border-radius: 100px;
+              }
+
+              > ul {
+                margin: 0 0 10px 0;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #DDD;
+
+                .caps-container {
+                  strong {
+                    display: block;
+                    margin-bottom: 10px;
+                  }
+                }
+
+                &:last-child {
+                  margin: 0;
+                  padding-bottom: 0;
+                  border-bottom: none;
+                }
+
+                label {
+                  display: block;
+                }
+              }
+            }
+
+            .cap-filter {
+              display: block;
+              width: 100%;
+              border: 0;
+              border-bottom: 1px solid #DDD;
+              transition: 600ms;
+              cursor: pointer;
+              margin-bottom: 1rem;
+
+              &:focus {
+                box-shadow: none;
+                outline: none;
+                border-color: transparent;
+                border-bottom: 1px solid #09C;
+                cursor: text;
+              }
+            }
+          }
+        }
+
+        button {
+          display: block;
+          margin: 20px auto;
+        }
+      }
+
+      .wpss-user-role-editor-table {
+        margin-top: 20px;
+
+        span.wpss-user-edit-link {
+          display: block;
+          font-size: 0.8rem;
+          padding: 2px 10px;
+          background: #09C;
+          color: #FFF;
+          cursor: pointer;
+          transition: 300ms;
+
+          &:hover {
+            background: #333;
+          }
+        }
+
+        thead {
+          tr {
+            th {
+              font-weight: 700;
+
+              &:first-of-type {
+                @extend .text-center;
+                width: 50px;
+              }
+
+              &:last-of-type {
+                @extend .text-center;
+                width: 80px;
+              }
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              &:first-of-type,
+              &:last-of-type {
+                @extend .text-center;
+              }
+            }
+          }
+        }
+      }
+
+      .wpss-user-paginate {
+        @extend .text-center;
+
+        a, span {
+          cursor: pointer;
+          padding: 2px;
+          text-decoration: none;
+          font-size: 1rem;
+        }
+      }
+
+      .wpss-settings-tab-form {
+        label {
+          display: block;
+          margin-bottom: 20px;
+
+          input[type="number"] {
+            max-width: 80px;
+          }
+        }
+      }
+
+      .radio-container {
+        display: inline-block;
+        margin-left: 10px;
+
+        label {
+          display: inline-block;
+          margin: 0 1rem 0 0;
+        }
+      }
+
+      .new-users-roles {
+        margin-top: 1rem;
+        display: grid;
+        grid-column-start: 1;
+        column-gap: .5rem;
+        gap: .5rem;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .settings-message {
+      @extend .text-center;
+      background: #55AD55;
+      color: #FFF;
+      margin: 1rem auto;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+
+  .footer {
+    align-items: center;
+    font-size: .9rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      font-style: italic;
+
+      span {
+        font-size: 1rem;
+        color: #F64747;
+        display: inline-block;
+        margin-left: .3rem;
+      }
+
+      a {
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 .3rem 0 .3rem;
+        width: 20px;
+
+        img {
+          display: inline-block;
+          max-width: 100%;
+          transition: 600ms;
+        }
+
+        &:hover {
+          img {
+            transform: rotateY(360deg);
+          }
+        }
+      }
+
+      &.text-right {
+        justify-content: end;
+      }
+    }
+  }
+}
+
+.select2-search__field {
+  padding: 5px !important;
+  line-height: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.wpss-role-editor-loading {
+  overflow: hidden;
+
+  &:after {
+    content: "";
+    background: url($assets_url + "loading.svg") 50% 50% no-repeat rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+}

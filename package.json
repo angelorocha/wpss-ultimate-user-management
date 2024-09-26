@@ -1,0 +1,44 @@
+{
+  "name": "wpss-ultimate-user-management",
+  "version": "1.0.0",
+  "description": "WordPress user administrator, roles and capabilities management.",
+  "main": "index.js",
+  "bugs": "",
+  "homepage": "",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "gulp",
+    "phpcs": "phpcs -a -p --ignore=vendor,node_modules ."
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "Plugin",
+    "WordPress",
+    "plugin",
+    "Capabilities",
+    "Roles",
+    "User"
+  ],
+  "author": {
+    "name": "Angelo Rocha",
+    "email": "contato@angelorocha.com.br",
+    "url": "https://angelorocha.com.br"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglifycss": "^1.1.0",
+    "gulp-watch": "^5.0.1",
+    "node-sass": "^6.0.1"
+  }
+}
