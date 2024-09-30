@@ -33,14 +33,16 @@ jQuery(function ($) {
             });
         }
     });
+
     admin_alerts.on('click', function () {
         $(this).addClass('d-none');
     });
+
     check_all.on('click', function () {
         if ($(this).is(':checked')) {
-            $('.pages-list').find('input:checkbox').prop('checked', true)
+            $('.pages-list').find('input:checkbox').prop('checked', true);
         } else {
-            $('.pages-list').find('input:checkbox').prop('checked', false)
+            $('.pages-list').find('input:checkbox').prop('checked', false);
         }
     });
 
@@ -239,7 +241,7 @@ jQuery(function ($) {
                             let input_text = $(this).parent().text();
                             $('.table-user-roles tbody tr').each(function () {
                                 if (!$('.user-role-' + input_val)[0]) {
-                                    $(this).parent().append('<tr class="user-role-' + input_val + '"><td>' + input_text + '</td></tr>')
+                                    $(this).parent().append('<tr class="user-role-' + input_val + '"><td>' + input_text + '</td></tr>');
                                 }
                             });
                         } else {
@@ -330,6 +332,68 @@ jQuery(function ($) {
             });
         }
     });
+
+    /** Save widget preferences */
+    document.on('submit', '.wpss-widgets-tab form#wpss-widgets-permissions', function (e) {
+        e.preventDefault();
+        if (!isRunning) {
+            isRunning = true;
+            $.ajax({
+                url: wpss_user_management_object.ajax_url,
+                type: 'POST',
+                cache: false,
+                data: {
+                    action: 'save_widget_options',
+                    nonce: wpss_user_management_object.nonce,
+                    wpss_widgets: $(this).serialize(),
+                },
+                beforeSend: function () {
+                    document.addClass('wpss-role-editor-loading');
+                }
+            }).success(function (data) {
+                document.find('.wpss-widget-messages').html(
+                    `<div class="role-editor-messages success">${data}</div>`
+                );
+                document.find('.role-editor-messages').on('click', null, function () {
+                    $(this).addClass('d-none');
+                });
+            }).complete(function () {
+                isRunning = false;
+                document.removeClass('wpss-role-editor-loading');
+            })
+        }
+    });
+
+    /** Save individual widgets permissions */
+    document.on('submit', '.wpss-widgets-tab form#wpss-individual-widgets-permissions', function (e) {
+        e.preventDefault();
+        if (!isRunning) {
+            isRunning = true;
+            $.ajax({
+                url: wpss_user_management_object.ajax_url,
+                type: 'POST',
+                cache: false,
+                data: {
+                    action: 'save_individual_widgets_permissions',
+                    nonce: wpss_user_management_object.nonce,
+                    individual_widgets: $(this).serialize(),
+                },
+                beforeSend: function () {
+                    document.addClass('wpss-role-editor-loading');
+                }
+            }).success(function (data) {
+                document.find('.wpss-widget-messages').html(
+                    `<div class="role-editor-messages success">${data}</div>`
+                );
+                document.find('.role-editor-messages').on('click', null, function () {
+                    $(this).addClass('d-none');
+                });
+            }).complete(function () {
+                isRunning = false;
+                document.removeClass('wpss-role-editor-loading');
+            })
+        }
+    })
 
     /** Caps live search */
     document.on('keyup', '.cap-filter', function () {

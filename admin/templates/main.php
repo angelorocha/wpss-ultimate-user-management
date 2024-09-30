@@ -1,10 +1,15 @@
 <?php
+/** Prevent direct access */
+if ( !function_exists( 'add_action' ) ):
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+endif;
 
 use WpssUserManager\Admin\WPSSAdminFrontend;
 use WpssUserManager\Admin\WPSSPostGet;
 use WpssUserManager\Admin\WPSSUserRolesCapsManager;
 
-$menu_tab = WPSSPostGet::get('tab');
+$menu_tab = WPSSPostGet::get( 'tab' );
 ?>
 <div class="wpss-roles-admin-container">
     <h3><?php esc_html_e( 'User Management', 'wpss-ultimate-user-management' ); ?></h3>

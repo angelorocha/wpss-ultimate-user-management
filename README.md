@@ -10,11 +10,24 @@ This plugin allows efficient management of users, roles and capabilities. Create
 - Set default role for user without roles;
 - Access to admin menu by role;
 - Auto add role to new users;
+- Show/Hide admin bar to specific holes;
+- Show/Hide Widgets on admin/front to specific holes;
+- Show/Hide individual sidebar widgets to specific holes;
 
 ### Installation
 1. Upload plugin folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Enjoy
+
+### Developing
+To contribute to the plugin, open your favorite terminal and navigate to the root directory of the plugin. 
+Type the command: `npm install`.
+
+After the dependencies are installed, type `gulp watch` and start developing.
+
+Source files to scss: `assets/src/sass/`
+
+Source files to js: `assets/src/js/`
 
 ### Screenshots
 ![Screen](./assets/screens/screenshot-1.png "Screen")

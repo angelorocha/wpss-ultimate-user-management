@@ -3,7 +3,7 @@
 namespace WpssUserManager\Admin;
 
 /** Prevent direct access */
-if ( ! function_exists( 'add_action' ) ):
+if ( !function_exists( 'add_action' ) ):
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
 endif;
@@ -32,11 +32,14 @@ class WPSSPluginInit {
 	 * @since 1.0.0
 	 */
 	public function set_default_plugin_options(): void {
-		$options = [
+		$options          = [
 			'wpss_default_role'        => 'subscriber',
 			'wpss_user_entries_screen' => 10,
 			'wpss_delete_plugin_data'  => 0,
-			'wpss_roles_to_new_users'       => '',
+			'wpss_roles_to_new_users'  => '',
+			'wpss_hide_admin_bar'      => '',
+			'wpss_hide_widgets'        => '',
+			'wpss_individual_widgets'  => '',
 		];
 		$sanitize_options = array_map( 'sanitize_text_field', $options );
 		foreach ( $sanitize_options as $option => $value ):
@@ -55,6 +58,9 @@ class WPSSPluginInit {
 			WPSSPluginHelper::delete_option( 'wpss_admin_menu_access' );
 			WPSSPluginHelper::delete_option( 'wpss_delete_plugin_data' );
 			WPSSPluginHelper::delete_option( 'wpss_roles_to_new_users' );
+			WPSSPluginHelper::delete_option( 'wpss_hide_admin_bar' );
+			WPSSPluginHelper::delete_option( 'wpss_hide_widgets' );
+			WPSSPluginHelper::delete_option( 'wpss_individual_widgets' );
 		endif;
 	}
 }

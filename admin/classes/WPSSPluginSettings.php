@@ -59,6 +59,7 @@ class WPSSPluginSettings {
 			'wpss_user_entries_screen',
 			'wpss_delete_plugin_data',
 			'wpss_roles_to_new_users',
+			'wpss_hide_admin_bar',
 		];
 		if ( ! empty( $settings ) ) {
 			foreach ( $settings as $key => $value ) {
@@ -73,6 +74,9 @@ class WPSSPluginSettings {
 			}
 			if ( empty( $settings['wpss_roles_to_new_users'] ) ) {
 				WPSSPluginHelper::update_option( 'wpss_roles_to_new_users', '' );
+			}
+			if ( empty( $settings['wpss_hide_admin_bar'] ) ) {
+				WPSSPluginHelper::update_option( 'wpss_hide_admin_bar', '' );
 			}
 		}
 		echo wp_json_encode( $settings );

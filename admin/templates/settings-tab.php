@@ -1,4 +1,9 @@
 <?php
+/** Prevent direct access */
+if ( !function_exists( 'add_action' ) ):
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+endif;
 
 use WpssUserManager\Admin\WPSSPluginHelper;
 use WpssUserManager\Admin\WPSSRoles;
@@ -43,7 +48,7 @@ use WpssUserManager\Admin\WPSSRoles;
 			1 => __( 'Yes', 'wpss-ultimate-user-management' ),
 		];
 		foreach ( $radio_option_values as $val => $label ):
-			$checked = (int) WPSSPluginHelper::get_option( 'wpss_delete_plugin_data' ) === $val ? 'checked' : ''; ?>
+			$checked = (int)WPSSPluginHelper::get_option( 'wpss_delete_plugin_data' ) === $val ? 'checked' : ''; ?>
             <label for="wpss-plugin-data-<?php echo esc_attr( $val ); ?>">
                 <input type='radio'
                        name='wpss_delete_plugin_data'
@@ -62,11 +67,11 @@ use WpssUserManager\Admin\WPSSRoles;
     <div class="new-users-roles">
 		<?php
 		$roles = WPSSRoles::get_roles_names( false );
-		if ( ! empty( $roles ) ):
+		if ( !empty( $roles ) ):
 			unset( $roles['administrator'] );
 			unset( $roles['subscriber'] );
 			$get_users_roles = WPSSPluginHelper::get_option( 'wpss_roles_to_new_users' );
-			if ( ! empty( $get_users_roles ) ):
+			if ( !empty( $get_users_roles ) ):
 				$get_users_roles = json_decode( $get_users_roles, true );
 			else:
 				$get_users_roles = [];
@@ -76,11 +81,34 @@ use WpssUserManager\Admin\WPSSRoles;
                     <input type="checkbox" name="wpss_roles_to_new_users[]"
                            id="user-role-<?php echo esc_attr( $key ); ?>"
                            value="<?php echo esc_attr( $key ); ?>"
-						<?php echo esc_attr( checked( ! in_array( $key, $get_users_roles ), '', false ) ); ?>>
+						<?php echo esc_attr( checked( !in_array( $key, $get_users_roles ), '', false ) ); ?>>
 					<?php echo esc_html( $role ); ?>
                 </label>
 			<?php endforeach; ?>
 		<?php endif; ?>
+    </div>
+    <hr>
+    <strong>
+		<?php esc_html_e( 'Hide admin bar to this roles:', 'wpss-ultimate-user-management' ); ?>
+    </strong>
+    <div class="new-users-roles">
+		<?php
+		$get_hide_admin_bar = WPSSPluginHelper::get_option( 'wpss_hide_admin_bar' );
+		if ( !empty( $get_hide_admin_bar ) ):
+			$get_hide_admin_bar = json_decode( $get_hide_admin_bar, true );
+		else:
+			$get_hide_admin_bar = [];
+		endif;
+		$admin_bar_roles = WPSSRoles::get_roles_names( false );
+		foreach ( $admin_bar_roles as $key => $role ): ?>
+            <label for="hide-admin-bar-<?php echo esc_attr( $key ); ?>">
+                <input type="checkbox" name="wpss_hide_admin_bar[]"
+                       id="hide-admin-bar-<?php echo esc_attr( $key ); ?>"
+                       value="<?php echo esc_attr( $key ); ?>"
+					<?php echo esc_attr( checked( !in_array( $key, $get_hide_admin_bar ), '', false ) ); ?>>
+				<?php echo esc_html( $role ); ?>
+            </label>
+		<?php endforeach; ?>
     </div>
     <hr>
     <div class="settings-message d-none">

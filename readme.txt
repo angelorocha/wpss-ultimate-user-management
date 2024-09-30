@@ -1,7 +1,7 @@
 === WPSS Users, roles and capabilities management ===
 Contributors: angelorocha
 Donate link: https://www.paypal.com/donate?hosted_button_id=DRE7DA2LZBA3U
-Tags: capabilities, roles, user manager, role admin, capabilities admin
+Tags: role editor, capabilities editor, user management, user permissions
 Requires at least: 6.1
 Tested up to: 6.6
 Requires PHP: 8.1
@@ -46,6 +46,14 @@ No!
 5. `/assets/screen/screenshot-5.png`
 
 == Changelog ==
+
+= 1.0.0 =
+1. Plugin released
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+1. Plugin released
 
 = 1.0.0 =
 * Hello World!

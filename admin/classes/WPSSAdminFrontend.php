@@ -3,7 +3,7 @@
 namespace WpssUserManager\Admin;
 
 /** Prevent direct access */
-if ( ! function_exists( 'add_action' ) ):
+if ( !function_exists( 'add_action' ) ):
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
 endif;
@@ -34,11 +34,13 @@ class WPSSAdminFrontend {
 	 */
 	public static function nav_menu_tabs(): array {
 		return [
-			'roles-tab'    => __( 'Roles List', 'wpss-ultimate-user-management' ),
-			'menus-tab'    => __( 'Menu Items', 'wpss-ultimate-user-management' ),
-			'caps-tab'     => __( 'Capabilities List', 'wpss-ultimate-user-management' ),
-			'users-tab'    => __( 'User Management', 'wpss-ultimate-user-management' ),
-			'settings-tab' => __( 'Settings', 'wpss-ultimate-user-management' ),
+			'roles-tab'              => __( 'Roles List', 'wpss-ultimate-user-management' ),
+			'menus-tab'              => __( 'Menu Items', 'wpss-ultimate-user-management' ),
+			'caps-tab'               => __( 'Capabilities List', 'wpss-ultimate-user-management' ),
+			'users-tab'              => __( 'User Management', 'wpss-ultimate-user-management' ),
+			'widgets-tab'            => __( 'Admin/Front Widgets', 'wpss-ultimate-user-management' ),
+			'individual-widgets-tab' => __( 'Sidebar Widgets', 'wpss-ultimate-user-management' ),
+			'settings-tab'           => __( 'Settings', 'wpss-ultimate-user-management' ),
 		];
 	}
 	
@@ -54,12 +56,13 @@ class WPSSAdminFrontend {
 	public static function render_template( array $template ): void {
 		if ( in_array( $template['template'], self::template_whitelist() ) ) {
 			$file_path = WPSS_URCM_PLUGIN_PATH . "admin/templates/{$template['template']}.php";
-			$output = __( 'Template not found...', 'wpss-ultimate-user-management' );
+			$output    = __( 'Template not found...', 'wpss-ultimate-user-management' );
 			if ( file_exists( $file_path ) ):
 				ob_start();
 				require $file_path;
 				$output = ob_get_clean();
 			endif;
+			
 			echo wp_kses( $output, self::sanitize_output() );
 		}
 	}
@@ -85,8 +88,13 @@ class WPSSAdminFrontend {
 			'hr'      => [],
 			'ul'      => [ 'class' => [], 'id' => [] ],
 			'li'      => [ 'label' => [], 'class' => [] ],
+			'h1'      => [ 'class' => [], 'id' => [] ],
+			'h2'      => [ 'class' => [], 'id' => [] ],
 			'h3'      => [ 'class' => [], 'id' => [] ],
+			'h4'      => [ 'class' => [], 'id' => [] ],
 			'u'       => [],
+			'small'   => [],
+			'pre'     => [],
 			'br'      => [],
 			'img'     => [ 'alt' => [], 'src' => [], 'class' => [], 'id' => [] ],
 			'strong'  => [ 'class' => [], 'id' => [] ],
@@ -98,7 +106,7 @@ class WPSSAdminFrontend {
 				'data-user-id'   => [],
 				'title'          => [],
 			],
-			'form'    => [ 'method' => [], 'action' => [], 'class' => [] ],
+			'form'    => [ 'method' => [], 'action' => [], 'class' => [], 'id' => [] ],
 			'label'   => [ 'for' => [], 'class' => [], 'id' => [] ],
 			'input'   => [
 				'type'        => [],
@@ -129,6 +137,8 @@ class WPSSAdminFrontend {
 			'menus-tab',
 			'roles-tab',
 			'users-tab',
+			'widgets-tab',
+			'individual-widgets-tab',
 			'settings-tab',
 			'content/caps-actions',
 			'content/user-details',

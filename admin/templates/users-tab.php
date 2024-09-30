@@ -1,6 +1,12 @@
 <?php
+/** Prevent direct access */
+if ( !function_exists( 'add_action' ) ):
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+endif;
 
 use WpssUserManager\Admin\WPSSAdminFrontend;
+use WpssUserManager\Admin\WPSSPluginHelper;
 use WpssUserManager\Admin\WPSSPostGet;
 use WpssUserManager\Admin\WPSSUsers;
 
@@ -10,7 +16,7 @@ use WpssUserManager\Admin\WPSSUsers;
 </p>
 <hr>
 <?php
-$search = WPSSPostGet::get('wpss-user-search');
+$search = WPSSPostGet::get( 'wpss-user-search' );
 ?>
 <form method="get" action="<?php echo esc_url( admin_url() ); ?>" class="wpss-user-select">
     <input type="hidden" name="page" value="wpss-ultimate-user-management-admin-menu">
@@ -26,7 +32,7 @@ $search = WPSSPostGet::get('wpss-user-search');
 	<?php
 	$template = [
 		'template' => 'content/users-table',
-		'args'     => WPSSUsers::get_users( get_option( 'wpss_user_entries_screen' ), $search ),
+		'args'     => WPSSUsers::get_users( WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ), $search ),
 	];
 	WPSSAdminFrontend::render_template( $template );
 	?>

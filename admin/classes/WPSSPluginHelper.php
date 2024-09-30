@@ -37,10 +37,10 @@ class WPSSPluginHelper {
 	/**
 	 * @param string $option
 	 *
-	 * @return string|mixed
+	 * @return mixed
 	 * @since 1.0.0
 	 */
-	public static function get_option( string $option ): ?string {
+	public static function get_option( string $option ): mixed {
 		if ( is_multisite() ):
 			if ( is_network_admin() ):
 				return get_site_option( $option );

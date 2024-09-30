@@ -1,4 +1,9 @@
 <?php
+/** Prevent direct access */
+if ( !function_exists( 'add_action' ) ):
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+endif;
 
 use WpssUserManager\Admin\WPSSAdminPages;
 use WpssUserManager\Admin\WPSSPostGet;
@@ -15,9 +20,9 @@ use WpssUserManager\Admin\WPSSRoles;
         <strong><?php esc_html_e( 'Select role:', 'wpss-ultimate-user-management' ); ?></strong>
     </label>
 	<?php
-	$checked = [];
-	$selected = '';
-    $remove_menu = WPSSPostGet::post('wpss-get-role-to-remove-menu');
+	$checked     = [];
+	$selected    = '';
+	$remove_menu = WPSSPostGet::post( 'wpss-get-role-to-remove-menu' );
 	if ( !empty( $remove_menu ) ):
 		$selected = $remove_menu;
 		if ( isset( WPSSAdminPages::get_option()[ $remove_menu ] ) ):
@@ -46,7 +51,7 @@ use WpssUserManager\Admin\WPSSRoles;
 		$menus = WPSSAdminPages::get_menu_list();
 		$count = 0;
 		foreach ( $menus as $key => $val ):
-			$count ++;
+			$count++;
 			$check = ( in_array( $key, $checked ) ? ' checked' : '' );
 			?>
             <li>

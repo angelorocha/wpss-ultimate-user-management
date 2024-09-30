@@ -24,27 +24,28 @@ namespace WpssUserManager;
 
 use WpssUserManager\Admin\WPSSPluginInit;
 use WpssUserManager\Admin\WPSSUserRolesCapsManager;
+use WpssUserManager\Admin\WPSSWidgets;
 
 /** Prevent direct access */
-if ( ! function_exists( 'add_action' ) ):
+if ( !function_exists( 'add_action' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
-endif;
+}
 
 /** Define constant to plugin path */
-if ( ! defined( 'WPSS_URCM_PLUGIN_PATH' ) ):
+if ( !defined( 'WPSS_URCM_PLUGIN_PATH' ) ) {
 	define( 'WPSS_URCM_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-endif;
+}
 
 /** Define constant to plugin url */
-if ( ! defined( 'WPSS_URCM_PLUGIN_URI' ) ):
+if ( !defined( 'WPSS_URCM_PLUGIN_URI' ) ) {
 	define( 'WPSS_URCM_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
-endif;
+}
 
 /** Define constant to plugin main file, used in register activate/deactivate actions */
-if ( ! defined( 'WPSS_URCM_PLUGIN_FILE' ) ):
+if ( !defined( 'WPSS_URCM_PLUGIN_FILE' ) ) {
 	define( 'WPSS_URCM_PLUGIN_FILE', __FILE__ );
-endif;
+}
 
 /** Execute autoload */
 require_once WPSS_URCM_PLUGIN_PATH . 'autoload.php';
@@ -55,3 +56,6 @@ add_action( 'plugins_loaded', [ WPSSUserRolesCapsManager::class, 'instance' ], 0
 
 /** Setup plugin */
 WPSSPluginInit::setup();
+
+/** Init widget visibility */
+add_action( 'widgets_init', [ WPSSWidgets::class, 'hide_widgets' ], 11 );

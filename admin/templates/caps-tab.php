@@ -1,4 +1,9 @@
 <?php
+/** Prevent direct access */
+if ( !function_exists( 'add_action' ) ):
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+endif;
 
 use WpssUserManager\Admin\WPSSRoles;
 

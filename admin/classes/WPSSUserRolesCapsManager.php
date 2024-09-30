@@ -63,12 +63,15 @@ class WPSSUserRolesCapsManager {
 		add_action( 'plugins_loaded', [ $this, 'wpss_load_plugin_text_domain' ] );
 		/** Load plugin admin scripts */
 		add_action( 'admin_enqueue_scripts', [ $this, 'wpss_scripts_styles' ] );
+		/** Hide admin bar */
+		add_action( 'after_setup_theme', [ $this, 'wpss_hide_admin_bar' ] );
 		/** Load plugin deps */
 		add_action( 'init', [ WPSSAdminPages::class, 'instance' ] );
 		add_action( 'init', [ WPSSCaps::class, 'instance' ] );
 		add_action( 'init', [ WPSSUsers::class, 'instance' ] );
 		add_action( 'init', [ WPSSRoles::class, 'instance' ] );
 		add_action( 'init', [ WPSSPluginSettings::class, 'instance' ] );
+		add_action( 'init', [ WPSSWidgets::class, 'instance' ] );
 	}
 	
 	/**
@@ -90,11 +93,29 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public static function wpss_ajax_check_referer(): void {
-		if ( ! current_user_can( 'administrator' ) ):
+		if ( !current_user_can( 'administrator' ) ):
 			header( 'HTTP/1.0 403 Forbidden' );
 			exit;
 		endif;
 		check_ajax_referer( self::$nonce, 'nonce' );
+	}
+	
+	/**
+	 * Hide admin bar to specific roles
+	 * @return void
+	 * @since 1.0.0
+	 */
+	public function wpss_hide_admin_bar(): void {
+		$roles_to_hide = WPSSPluginHelper::get_option( 'wpss_hide_admin_bar' );
+		if ( !empty( $roles_to_hide ) ) {
+			$roles_to_hide = json_decode( $roles_to_hide, true );
+			$roles_to_hide = is_array( $roles_to_hide ) ? $roles_to_hide : [];
+			foreach ( $roles_to_hide as $hide ) {
+				if ( current_user_can( $hide ) ) {
+					show_admin_bar( false );
+				}
+			}
+		}
 	}
 	
 	/**
@@ -129,11 +150,22 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public function wpss_scripts_styles(): void {
-		$wpss_menu = WPSSPostGet::get( 'page' );
-		if ( ! empty( $wpss_menu ) && $wpss_menu === self::$plugin_prefix . '-admin-menu' ):
+		if ( self::is_plugin_menu_page() ) {
 			wp_enqueue_style( self::$plugin_prefix . '-css', WPSS_URCM_PLUGIN_URI . 'assets/css/main.min.css', [], self::$plugin_file_version );
 			wp_enqueue_script( self::$plugin_prefix . '-js', WPSS_URCM_PLUGIN_URI . 'assets/js/js.min.js', [ 'jquery' ], self::$plugin_file_version, true );
 			wp_localize_script( self::$plugin_prefix . '-js', 'wpss_user_management_object', $this->global_params );
-		endif;
+		}
+	}
+	
+	/**
+	 * @return bool
+	 * @since 1.0.0
+	 */
+	public static function is_plugin_menu_page(): bool {
+		$wpss_menu = WPSSPostGet::get( 'page' );
+		if ( !empty( $wpss_menu ) && $wpss_menu === self::$plugin_prefix . '-admin-menu' ) {
+			return true;
+		}
+		return false;
 	}
 }
