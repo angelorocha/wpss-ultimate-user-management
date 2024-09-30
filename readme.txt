@@ -23,6 +23,9 @@ Features:
 - Set default role for user without roles;
 - Access to admin menu by role;
 - Auto add role to new users;
+- Show/Hide admin bar to specific holes;
+- Show/Hide Widgets on admin/front to specific holes;
+- Show/Hide individual sidebar widgets to specific holes;
 
 == Installation ==
 
@@ -44,6 +47,10 @@ No!
 3. `/assets/screen/screenshot-3.png`
 4. `/assets/screen/screenshot-4.png`
 5. `/assets/screen/screenshot-5.png`
+5. `/assets/screen/screenshot-6.png`
+5. `/assets/screen/screenshot-7.png`
+5. `/assets/screen/screenshot-8.png`
+5. `/assets/screen/screenshot-9.png`
 
 == Changelog ==
 
@@ -54,6 +61,3 @@ No!
 
 = 1.0.0 =
 1. Plugin released
-
-= 1.0.0 =
-* Hello World!

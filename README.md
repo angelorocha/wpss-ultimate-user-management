@@ -37,3 +37,7 @@ Source files to js: `assets/src/js/`
 ![Screen](./assets/screens/screenshot-5.png "Screen")
 ![Screen](./assets/screens/screenshot-6.png "Screen")
 ![Screen](./assets/screens/screenshot-7.png "Screen")
+![Screen](./assets/screens/screenshot-8.png "Screen")
+![Screen](./assets/screens/screenshot-9.png "Screen")
+![Screen](./assets/screens/screenshot-10.png "Screen")
+![Screen](./assets/screens/screenshot-11.png "Screen")
