@@ -3,10 +3,10 @@
 namespace WpssUserManager\Admin;
 
 /** Prevent direct access */
-if ( ! function_exists( 'add_action' ) ):
+if ( !defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
-endif;
+}
 
 /**
  * Class WPSSPluginHelper

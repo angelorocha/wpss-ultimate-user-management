@@ -5,10 +5,10 @@ namespace WpssUserManager\Admin;
 use JetBrains\PhpStorm\NoReturn;
 
 /** Prevent direct access */
-if ( ! function_exists( 'add_action' ) ):
+if ( !defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
-endif;
+}
 
 /**
  * Class WPSSRoles
@@ -84,11 +84,11 @@ class WPSSRoles {
 	 */
 	#[NoReturn] public static function add_role_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
-		$get_role_data = WPSSPostGet::post('role');
+		$get_role_data = WPSSPostGet::post( 'role' );
 		parse_str( $get_role_data, $role_key );
-		$instance = self::instance();
+		$instance        = self::instance();
 		$add_role_action = $instance->add_role( $role_key['wpss-add-new-role'] );
-		if ( ! is_null( $add_role_action ) ):
+		if ( !is_null( $add_role_action ) ):
 			/* Translators: %s is a role name */
 			echo sprintf( esc_html__( 'Role %s successfully added!', 'wpss-ultimate-user-management' ), esc_html( $add_role_action['name'] ) );
 		else:
@@ -104,14 +104,14 @@ class WPSSRoles {
 	#[NoReturn] public static function remove_role_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$instance = self::instance();
-		$roleId = WPSSPostGet::post('role_id');
+		$roleId   = WPSSPostGet::post( 'role_id' );
 		/** Don't remove WordPress native roles */
-		if ( ! in_array( $roleId, self::$roles_filter ) ):
+		if ( !in_array( $roleId, self::$roles_filter ) ):
 			/** If user was only a removed role, move him to default role */
 			$instance->move_users_without_role_to_default_role( $roleId );
 			$remove_action = $instance->remove_role( sanitize_text_field( $roleId ) );
 			if ( $remove_action ):
-				$get_role_name = WPSSPostGet::post('role_name');
+				$get_role_name = WPSSPostGet::post( 'role_name' );
 				/* Translators: %s is a role name */
 				echo sprintf( esc_html__( 'Role %s successfully removed!', 'wpss-ultimate-user-management' ), esc_html( $get_role_name ) );
 			else:
@@ -155,7 +155,7 @@ class WPSSRoles {
 	 */
 	private function wpss_set_default_role(): string {
 		$role = WPSSPluginHelper::get_option( 'wpss_default_role' );
-		if ( ! empty( $role ) ):
+		if ( !empty( $role ) ):
 			self::$default_role = $role;
 		endif;
 		
@@ -171,7 +171,7 @@ class WPSSRoles {
 	 */
 	private function move_users_without_role_to_default_role( string $role ): void {
 		$users_in_role = WPSSUsers::get_users_from_role( $role );
-		if ( ! empty( $users_in_role ) ):
+		if ( !empty( $users_in_role ) ):
 			foreach ( $users_in_role as $user ):
 				if ( in_array( $role, $user->roles ) ):
 					get_userdata( $user->ID )->remove_role( sanitize_text_field( $role ) );
@@ -194,7 +194,7 @@ class WPSSRoles {
 	 */
 	public function add_role( string $role ): ?array {
 		$role_name = sanitize_text_field( $role );
-		$role_key = sanitize_title( $role );
+		$role_key  = sanitize_title( $role );
 		if ( empty( $role_key ) || in_array( $role_key, array_keys( self::get_roles_names() ) ) ):
 			return null;
 		endif;
