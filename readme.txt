@@ -1,4 +1,4 @@
-=== WPSS Users, roles and capabilities management ===
+===  WPSS Ultimate User Management ===
 Contributors: angelorocha
 Donate link: https://www.paypal.com/donate?hosted_button_id=DRE7DA2LZBA3U
 Tags: role editor, capabilities editor, user management, user permissions

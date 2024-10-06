@@ -2,22 +2,21 @@
 /**
  *
  * @package   wpss-ultimate-user-management
- * @copyleft  2022 Angelo Rocha
+ * @copyleft  2024 Angelo Rocha
  *
  * @wordpress-plugin
  * Plugin Name:       WPSS Ultimate User Management
  * Plugin URI:        https://github.com/angelorocha/wpss-ultimate-user-management
  * Description:       Manage users, roles and capabilities more easily.
  * Version:           1.0.0
- * Requires at least: 6
- * Requires PHP:      8
+ * Requires at least: 6.1
+ * Requires PHP:      8.1
  * Author:            Angelo Rocha
  * Author URI:        https://angelorocha.com.br
  * License:           GNU General Public License v3 or later
  * License URI:       /LICENSE
  * Text Domain:       wpss-ultimate-user-management
  * Domain Path:       /lang
- * GitHub Plugin URI: ''
  */
 
 namespace WpssUserManager;
