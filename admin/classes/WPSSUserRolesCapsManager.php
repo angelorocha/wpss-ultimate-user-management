@@ -49,7 +49,7 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	private static int $plugin_file_version = 20240926;
+	private static int $plugin_file_version = 20241008;
 	
 	/**
 	 * Initialize the plugin
@@ -87,9 +87,9 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public static function instance(): object {
-		if ( is_null( self::$instance ) ):
+		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
-		endif;
+		}
 		
 		return self::$instance;
 	}
@@ -99,10 +99,10 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public static function wpss_ajax_check_referer(): void {
-		if ( !current_user_can( 'administrator' ) ):
+		if ( !current_user_can( 'administrator' ) ) {
 			header( 'HTTP/1.0 403 Forbidden' );
 			exit;
-		endif;
+		}
 		check_ajax_referer( self::$nonce, 'nonce' );
 	}
 	
@@ -148,11 +148,14 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public function wpss_load_plugin_text_domain(): void {
-		load_plugin_textdomain( self::$plugin_prefix, false, WPSS_URCM_PLUGIN_PATH . '/lang/' );
+		$lang_path = WPSS_URCM_PLUGIN_PATH . 'lang/';
+		load_plugin_textdomain( 'wpss-ultimate-user-management', false, 'wpss-ultimate-user-management/lang' );
 	}
 	
 	/**
 	 * Load admin styles and scripts
+	 *
+	 * @return void
 	 * @since 1.0.0
 	 */
 	public function wpss_scripts_styles(): void {
@@ -164,6 +167,8 @@ class WPSSUserRolesCapsManager {
 	}
 	
 	/**
+	 * Verify if is plugin menu page
+	 *
 	 * @return bool
 	 * @since 1.0.0
 	 */

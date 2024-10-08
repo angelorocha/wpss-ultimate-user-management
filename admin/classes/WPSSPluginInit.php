@@ -29,6 +29,7 @@ class WPSSPluginInit {
 	
 	/**
 	 * Plugin activate action
+	 * @return void
 	 * @since 1.0.0
 	 */
 	public function set_default_plugin_options(): void {
@@ -42,17 +43,18 @@ class WPSSPluginInit {
 			'wpss_individual_widgets'  => '',
 		];
 		$sanitize_options = array_map( 'sanitize_text_field', $options );
-		foreach ( $sanitize_options as $option => $value ):
+		foreach ( $sanitize_options as $option => $value ) {
 			WPSSPluginHelper::add_option( $option, $value );
-		endforeach;
+		}
 	}
 	
 	/**
 	 * Plugin deactivate action
+	 * @return void
 	 * @since 1.0.0
 	 */
 	public function remove_plugin_options(): void {
-		if ( WPSSPluginHelper::get_option( 'wpss_delete_plugin_data' ) === '1' ):
+		if ( WPSSPluginHelper::get_option( 'wpss_delete_plugin_data' ) === '1' ) {
 			WPSSPluginHelper::delete_option( 'wpss_default_role' );
 			WPSSPluginHelper::delete_option( 'wpss_user_entries_screen' );
 			WPSSPluginHelper::delete_option( 'wpss_admin_menu_access' );
@@ -61,6 +63,6 @@ class WPSSPluginInit {
 			WPSSPluginHelper::delete_option( 'wpss_hide_admin_bar' );
 			WPSSPluginHelper::delete_option( 'wpss_hide_widgets' );
 			WPSSPluginHelper::delete_option( 'wpss_individual_widgets' );
-		endif;
+		}
 	}
 }

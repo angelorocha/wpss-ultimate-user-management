@@ -37,9 +37,9 @@ class WPSSPluginSettings {
 	 * @since 1.0.0
 	 */
 	public static function instance(): object {
-		if ( is_null( self::$instance ) ):
+		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
-		endif;
+		}
 		
 		return self::$instance;
 	}

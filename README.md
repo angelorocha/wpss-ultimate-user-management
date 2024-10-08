@@ -10,9 +10,9 @@ This plugin allows efficient management of users, roles and capabilities. Create
 - Set default role for user without roles;
 - Access to admin menu by role;
 - Auto add role to new users;
-- Show/Hide admin bar to specific holes;
-- Show/Hide Widgets on admin/front to specific holes;
-- Show/Hide individual sidebar widgets to specific holes;
+- Show/Hide admin bar to specific roles;
+- Show/Hide Widgets on admin/front to specific roles;
+- Show/Hide individual sidebar widgets to specific roles;
 
 ### Installation
 1. Upload plugin folder to the `/wp-content/plugins/` directory

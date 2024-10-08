@@ -47,9 +47,9 @@ class WPSSUsers {
 	 * @since 1.0.0
 	 */
 	public static function instance(): object {
-		if ( is_null( self::$instance ) ):
+		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
-		endif;
+		}
 		
 		return self::$instance;
 	}
@@ -62,13 +62,13 @@ class WPSSUsers {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$instance  = self::instance();
 		$user_data = $instance->get_user( WPSSPostGet::post( 'user_id' ) );
-		if ( !is_null( $user_data ) ):
+		if ( !is_null( $user_data ) ) {
 			$template = [
 				'template'  => 'content/user-details',
 				'user_data' => $user_data,
 			];
 			WPSSAdminFrontend::render_template( $template );
-		endif;
+		}
 		exit;
 	}
 	
@@ -118,15 +118,15 @@ class WPSSUsers {
 	private function add_user_roles( int $user_id, array $roles, bool $echo = true ): void {
 		$current_user_roles = self::get_user( $user_id )['user_roles'];
 		$output             = [];
-		if ( !empty( $user_id ) && !empty( $roles ) ):
-			foreach ( $roles as $role ):
-				if ( !in_array( $role, $current_user_roles ) ):
+		if ( !empty( $user_id ) && !empty( $roles ) ) {
+			foreach ( $roles as $role ) {
+				if ( !in_array( $role, $current_user_roles ) ) {
 					self::get_user_object( $user_id )->add_role( sanitize_text_field( $role ) );
 					$output[] = WPSSRoles::get_roles_names( false )[ $role ];
-				endif;
-			endforeach;
-		endif;
-		if ( !empty( $output ) && $echo ):
+				}
+			}
+		}
+		if ( !empty( $output ) && $echo ) {
 			$count = count( $output );
 			WPSSAdminFrontend::render_template(
 				[
@@ -134,7 +134,7 @@ class WPSSUsers {
 					'args'     => [ $count, $output ],
 				]
 			);
-		endif;
+		}
 	}
 	
 	/**
@@ -147,14 +147,14 @@ class WPSSUsers {
 	 */
 	private function remove_user_roles( int $user_id, array $roles ): void {
 		$output = [];
-		if ( !empty( $roles ) ):
-			foreach ( $roles as $role ):
+		if ( !empty( $roles ) ) {
+			foreach ( $roles as $role ) {
 				self::get_user_object( $user_id )->remove_role( sanitize_text_field( $role ) );
 				self::get_user_object( $user_id )->remove_cap( sanitize_text_field( $role ) );
 				$output[] = WPSSRoles::get_roles_names( false )[ $role ];
-			endforeach;
-		endif;
-		if ( !empty( $output ) ):
+			}
+		}
+		if ( !empty( $output ) ) {
 			$count = count( $output );
 			WPSSAdminFrontend::render_template(
 				[
@@ -162,7 +162,7 @@ class WPSSUsers {
 					'args'     => [ $count, $output ],
 				]
 			);
-		endif;
+		}
 	}
 	
 	/**
@@ -181,14 +181,14 @@ class WPSSUsers {
 		$offset         = ( $page * $rpp ) - $rpp;
 		$args['number'] = $limit;
 		$args['offset'] = $offset;
-		if ( !empty( $search ) ):
+		if ( !empty( $search ) ) {
 			$args['search'] = "*$search*";
-		endif;
+		}
 		
 		$users = [];
-		foreach ( self::instance()->user_query( $args )->get_results() as $user ):
+		foreach ( self::instance()->user_query( $args )->get_results() as $user ) {
 			$users[ $user->ID ] = get_userdata( $user->ID )->display_name;
-		endforeach;
+		}
 		
 		$users['total'] = self::instance()->user_query( $args )->get_total();
 		
@@ -245,9 +245,9 @@ class WPSSUsers {
 	 * @since 1.0.0
 	 */
 	public function get_user( int $user_id ): ?array {
-		if ( !$user_id && !get_userdata( $user_id ) ):
+		if ( !$user_id && !get_userdata( $user_id ) ) {
 			return null;
-		endif;
+		}
 		$user = get_userdata( $user_id );
 		
 		return [
@@ -279,21 +279,21 @@ class WPSSUsers {
 	 * @since 1.0.0
 	 */
 	public function user_query( array $args = [] ): WP_User_Query {
-		if ( !isset( $args['number'] ) ):
+		if ( !isset( $args['number'] ) ) {
 			$args['number'] = -1;
-		endif;
+		}
 		
-		if ( !isset( $args['orderby'] ) ):
+		if ( !isset( $args['orderby'] ) ) {
 			$args['orderby'] = 'ID';
-		endif;
+		}
 		
-		if ( !isset( $args['order'] ) ):
+		if ( !isset( $args['order'] ) ) {
 			$args['order'] = 'DESC';
-		endif;
+		}
 		
-		if ( is_multisite() ):
+		if ( is_multisite() ) {
 			$args['blog_id'] = get_current_blog_id();
-		endif;
+		}
 		
 		return new WP_User_Query( $args );
 	}
