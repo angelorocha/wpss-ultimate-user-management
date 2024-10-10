@@ -79,6 +79,25 @@ $assets_url: '../images/';
             box-shadow: none;
           }
         }
+
+        &.active {
+          position: relative;
+
+          a {
+            font-weight: 600;
+            padding-left: 20px;
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #09C;
+            top: 5px;
+            left: 0;
+          }
+        }
       }
     }
 
