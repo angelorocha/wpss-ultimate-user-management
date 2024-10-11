@@ -78,6 +78,7 @@ class WPSSUserRolesCapsManager {
 		add_action( 'init', [ WPSSRoles::class, 'instance' ] );
 		add_action( 'init', [ WPSSPluginSettings::class, 'instance' ] );
 		add_action( 'init', [ WPSSWidgets::class, 'instance' ] );
+		add_action( 'init', [ WPSSContentAccess::class, 'instance' ] );
 	}
 	
 	/**

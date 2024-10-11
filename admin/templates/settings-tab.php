@@ -89,6 +89,39 @@ use WpssUserManager\Admin\WPSSRoles;
     </div>
     <hr>
     <strong>
+		<?php esc_html_e( 'Enable content access control to this post types:', 'wpss-ultimate-user-management' ); ?>
+    </strong>
+    <div class="new-users-roles">
+		<?php
+		$wpss_post_types = get_post_types( [ 'public' => true ] );
+		if ( !empty( $wpss_post_types['attachment'] ) ):
+			unset( $wpss_post_types['attachment'] );
+		endif;
+		$get_access_cpt = WPSSPluginHelper::get_option( 'wpss_cpt_access_control' );
+		if ( !empty( $get_access_cpt ) ):
+			$get_access_cpt = json_decode( $get_access_cpt, true );
+		else:
+			$get_access_cpt = [];
+		endif;
+		foreach ( $wpss_post_types as $cpt_key => $wpss_post_type ): ?>
+            <label for="wpss_cpt_access_control_<?php echo esc_attr( $cpt_key ); ?>">
+                <input type="checkbox"
+                       id="wpss_cpt_access_control_<?php echo esc_attr( $cpt_key ); ?>"
+                       name="wpss_cpt_access_control[]" value="<?php echo esc_attr( $cpt_key ); ?>"
+					<?php echo esc_attr( checked( !in_array( $cpt_key, $get_access_cpt ), '', false ) ); ?>>
+				<?php echo esc_attr( get_post_type_object( $cpt_key )->label ); ?>
+            </label>
+		<?php endforeach; ?>
+    </div>
+	<?php
+	$access_message = WPSSPluginHelper::get_option( 'wpss_cpt_access_message' );
+	?>
+    <label for="wpss_cpt_access_message">
+		<?php esc_html_e( 'Type a message to show when user no have access to content:', 'wpss-ultimate-user-management' ); ?>
+    </label>
+    <textarea id="wpss_cpt_access_message" name="wpss_cpt_access_message" rows="5" cols="100"><?php echo wp_kses_post( $access_message ); ?></textarea>
+    <hr>
+    <strong>
 		<?php esc_html_e( 'Hide admin bar to this roles:', 'wpss-ultimate-user-management' ); ?>
     </strong>
     <div class="new-users-roles">

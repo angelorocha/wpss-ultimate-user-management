@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2024-10-08 10:30-0300\n"
-"PO-Revision-Date: 2024-10-08 11:43-0300\n"
+"POT-Creation-Date: 2024-10-10 21:04-0300\n"
+"PO-Revision-Date: 2024-10-10 21:05-0300\n"
 "Last-Translator: \n"
 "Language-Team: contato@angelorocha.com.br\n"
 "Language: pt_BR\n"
@@ -32,8 +32,8 @@ msgid "Capabilities List"
 msgstr "Lista de Capabilities"
 
 #: admin/classes/WPSSAdminFrontend.php:40
-#: admin/classes/WPSSUserRolesCapsManager.php:134
-#: admin/classes/WPSSUserRolesCapsManager.php:135 admin/templates/main.php:15
+#: admin/classes/WPSSUserRolesCapsManager.php:135
+#: admin/classes/WPSSUserRolesCapsManager.php:136 admin/templates/main.php:17
 msgid "User Management"
 msgstr "Gerenciamento de Usuários"
 
@@ -61,6 +61,14 @@ msgstr "Selecione uma role válida"
 #: admin/classes/WPSSAdminPages.php:83
 msgid "Options updated successfully"
 msgstr "Opções salvas com sucesso"
+
+#: admin/classes/WPSSContentAccess.php:68
+msgid "No permission to view this content."
+msgstr "Sem permissão para acessar este conteúdo."
+
+#: admin/classes/WPSSContentAccess.php:91
+msgid "Allow content only this roles: "
+msgstr "Permitir acesso somente para estas roles: "
 
 #: admin/classes/WPSSRoles.php:92
 #, php-format
@@ -187,11 +195,11 @@ msgstr ""
 msgid "Save Options"
 msgstr "Salvar Opções"
 
-#: admin/templates/main.php:43
+#: admin/templates/main.php:59
 msgid "Made with love"
 msgstr "Made with love"
 
-#: admin/templates/main.php:48
+#: admin/templates/main.php:64
 msgid "Stay in touch"
 msgstr "Stay in touch"
 
@@ -323,14 +331,24 @@ msgid "Add this roles to new users:"
 msgstr "Adicionar estas roles para novos usuários:"
 
 #: admin/templates/settings-tab.php:92
+msgid "Enable content access control to this post types:"
+msgstr "Habilitar controle de conteúdo para estes post types:"
+
+#: admin/templates/settings-tab.php:120
+msgid "Type a message to show when user no have access to content:"
+msgstr ""
+"Escreva uma mensagem para  exibir quando um usuário não tiver acesso ao "
+"conteúdo:"
+
+#: admin/templates/settings-tab.php:125
 msgid "Hide admin bar to this roles:"
 msgstr "Esconder barra administrativa para estas roles:"
 
-#: admin/templates/settings-tab.php:115
+#: admin/templates/settings-tab.php:148
 msgid "Options saved successfully!"
 msgstr "Opções salvas com sucesso!"
 
-#: admin/templates/settings-tab.php:119
+#: admin/templates/settings-tab.php:152
 msgid "Save Settings"
 msgstr "Salvar Configurações"
 

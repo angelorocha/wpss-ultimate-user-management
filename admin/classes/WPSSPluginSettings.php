@@ -59,6 +59,8 @@ class WPSSPluginSettings {
 			'wpss_user_entries_screen',
 			'wpss_delete_plugin_data',
 			'wpss_roles_to_new_users',
+			'wpss_cpt_access_control',
+			'wpss_cpt_access_message',
 			'wpss_hide_admin_bar',
 		];
 		if ( ! empty( $settings ) ) {
@@ -77,6 +79,10 @@ class WPSSPluginSettings {
 			}
 			if ( empty( $settings['wpss_hide_admin_bar'] ) ) {
 				WPSSPluginHelper::update_option( 'wpss_hide_admin_bar', '' );
+			}
+			
+			if ( empty( $settings['wpss_cpt_access_control'] ) ) {
+				WPSSPluginHelper::update_option( 'wpss_cpt_access_control', '' );
 			}
 		}
 		echo wp_json_encode( $settings );

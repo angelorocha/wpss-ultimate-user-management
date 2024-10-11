@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2024-09-30 13:36-0300\n"
+"POT-Creation-Date: 2024-10-10 21:04-0300\n"
 "PO-Revision-Date: 2022-01-03 12:27-0300\n"
 "Last-Translator: Angelo Rocha <contato@angelorocha.com.br>\n"
 "Language-Team: contato@angelorocha.com.br\n"
@@ -32,8 +32,8 @@ msgid "Capabilities List"
 msgstr ""
 
 #: admin/classes/WPSSAdminFrontend.php:40
-#: admin/classes/WPSSUserRolesCapsManager.php:128
-#: admin/classes/WPSSUserRolesCapsManager.php:129 admin/templates/main.php:15
+#: admin/classes/WPSSUserRolesCapsManager.php:135
+#: admin/classes/WPSSUserRolesCapsManager.php:136 admin/templates/main.php:17
 msgid "User Management"
 msgstr ""
 
@@ -54,29 +54,37 @@ msgstr ""
 msgid "Template not found..."
 msgstr ""
 
-#: admin/classes/WPSSAdminPages.php:78
+#: admin/classes/WPSSAdminPages.php:79
 msgid "Select a valid role"
 msgstr ""
 
-#: admin/classes/WPSSAdminPages.php:82
+#: admin/classes/WPSSAdminPages.php:83
 msgid "Options updated successfully"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:93
+#: admin/classes/WPSSContentAccess.php:68
+msgid "No permission to view this content."
+msgstr ""
+
+#: admin/classes/WPSSContentAccess.php:91
+msgid "Allow content only this roles: "
+msgstr ""
+
+#: admin/classes/WPSSRoles.php:92
 #, php-format
 msgid "Role %s successfully added!"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:95
+#: admin/classes/WPSSRoles.php:94
 msgid "Failed to create role"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:116
+#: admin/classes/WPSSRoles.php:115
 #, php-format
 msgid "Role %s successfully removed!"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:118
+#: admin/classes/WPSSRoles.php:117
 msgid "Failed to remove role"
 msgstr ""
 
@@ -185,11 +193,11 @@ msgstr ""
 msgid "Save Options"
 msgstr ""
 
-#: admin/templates/main.php:43
+#: admin/templates/main.php:59
 msgid "Made with love"
 msgstr ""
 
-#: admin/templates/main.php:48
+#: admin/templates/main.php:64
 msgid "Stay in touch"
 msgstr ""
 
@@ -314,14 +322,22 @@ msgid "Add this roles to new users:"
 msgstr ""
 
 #: admin/templates/settings-tab.php:92
+msgid "Enable content access control to this post types:"
+msgstr ""
+
+#: admin/templates/settings-tab.php:120
+msgid "Type a message to show when user no have access to content:"
+msgstr ""
+
+#: admin/templates/settings-tab.php:125
 msgid "Hide admin bar to this roles:"
 msgstr ""
 
-#: admin/templates/settings-tab.php:115
+#: admin/templates/settings-tab.php:148
 msgid "Options saved successfully!"
 msgstr ""
 
-#: admin/templates/settings-tab.php:119
+#: admin/templates/settings-tab.php:152
 msgid "Save Settings"
 msgstr ""
 

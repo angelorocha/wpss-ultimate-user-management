@@ -41,6 +41,8 @@ class WPSSPluginInit {
 			'wpss_hide_admin_bar'      => '',
 			'wpss_hide_widgets'        => '',
 			'wpss_individual_widgets'  => '',
+			'wpss_cpt_access_control'  => '',
+			'wpss_cpt_access_message'  => '',
 		];
 		$sanitize_options = array_map( 'sanitize_text_field', $options );
 		foreach ( $sanitize_options as $option => $value ) {
@@ -63,6 +65,8 @@ class WPSSPluginInit {
 			WPSSPluginHelper::delete_option( 'wpss_hide_admin_bar' );
 			WPSSPluginHelper::delete_option( 'wpss_hide_widgets' );
 			WPSSPluginHelper::delete_option( 'wpss_individual_widgets' );
+			WPSSPluginHelper::delete_option( 'wpss_cpt_access_control' );
+			WPSSPluginHelper::delete_option( 'wpss_cpt_access_message' );
 		}
 	}
 }
