@@ -15,8 +15,14 @@ if ( !function_exists( 'wpss_autoload' ) ) {
 		if ( !file_exists( "$dir/composer.json" ) ) {
 			return;
 		}
-		$composer   = wp_remote_get( WPSS_URCM_PLUGIN_URI . "composer.json" );
-		$composer   = wp_remote_retrieve_body( $composer );
+		if ( file_exists( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
+		}
+		if ( file_exists( ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
+		}
+		$content    = new WP_Filesystem_Direct( false );
+		$composer   = $content->get_contents( WPSS_URCM_PLUGIN_PATH . "composer.json" );
 		$composer   = json_decode( $composer, true );
 		$namespaces = $composer['autoload']['psr-4'] ?? [];
 		foreach ( $namespaces as $namespace => $classpaths ) {

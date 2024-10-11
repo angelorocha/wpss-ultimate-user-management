@@ -5,7 +5,7 @@ Tags: role, capabilities, user, widgets, permissions
 Requires at least: 6.1
 Tested up to: 6.6
 Requires PHP: 8.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GNU General Public License v3 or later
 License URI: /licence.txt
 
