@@ -57,6 +57,9 @@ No!
 
 == Changelog ==
 
+= 1.1.1 =
+1. Add tiny editor on content access message;
+
 = 1.1.0 =
 1. Some frontend fixes;
 2. Add content access permission by user roles;
