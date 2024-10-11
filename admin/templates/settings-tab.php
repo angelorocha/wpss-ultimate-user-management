@@ -119,7 +119,13 @@ use WpssUserManager\Admin\WPSSRoles;
     <label for="wpss_cpt_access_message">
 		<?php esc_html_e( 'Type a message to show when user no have access to content:', 'wpss-ultimate-user-management' ); ?>
     </label>
-    <textarea id="wpss_cpt_access_message" name="wpss_cpt_access_message" rows="5" cols="100"><?php echo wp_kses_post( $access_message ); ?></textarea>
+	<?php
+	$editor_config = [
+		'textarea_rows' => 5,
+		'quicktags'     => false,
+	];
+	wp_editor( wp_kses_post( $access_message ), 'wpss_cpt_access_message', $editor_config );
+	?>
     <hr>
     <strong>
 		<?php esc_html_e( 'Hide admin bar to this roles:', 'wpss-ultimate-user-management' ); ?>

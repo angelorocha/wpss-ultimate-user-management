@@ -67,7 +67,7 @@ class WPSSPluginSettings {
 			foreach ( $settings as $key => $value ) {
 				if ( in_array( $key, $allow_keys ) ) {
 					if ( ! is_array( $value ) ) {
-						WPSSPluginHelper::update_option( $key, sanitize_text_field( $value ) );
+						WPSSPluginHelper::update_option( $key, wp_kses_post( $value ) );
 					} else {
 						$value = array_map( 'sanitize_text_field', $value );
 						WPSSPluginHelper::update_option( $key, wp_json_encode( $value ) );

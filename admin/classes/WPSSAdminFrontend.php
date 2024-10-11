@@ -74,7 +74,7 @@ class WPSSAdminFrontend {
 	 */
 	public static function sanitize_output(): array {
 		return [
-			'div'      => [ 'class' => [], 'id' => [] ],
+			'div'      => [ 'class' => [], 'id' => [], 'role' => [], 'aria-label' => [], 'aria-pressed' => [] ],
 			'table'    => [ 'class' => [], 'id' => [] ],
 			'thead'    => [ 'class' => [], 'id' => [] ],
 			'tr'       => [ 'class' => [], 'id' => [] ],
@@ -93,6 +93,8 @@ class WPSSAdminFrontend {
 			'h3'       => [ 'class' => [], 'id' => [] ],
 			'h4'       => [ 'class' => [], 'id' => [] ],
 			'u'        => [],
+			'i'        => [ 'class' => [], 'id' => [] ],
+			'link'     => [ 'rel' => [], 'href' => [], 'id' => [] ],
 			'small'    => [],
 			'pre'      => [],
 			'br'       => [],
@@ -109,20 +111,24 @@ class WPSSAdminFrontend {
 			'form'     => [ 'method' => [], 'action' => [], 'class' => [], 'id' => [] ],
 			'label'    => [ 'for' => [], 'class' => [], 'id' => [] ],
 			'input'    => [
-				'type'        => [],
-				'name'        => [],
-				'value'       => [],
-				'id'          => [],
-				'class'       => [],
-				'required'    => [],
-				'checked'     => [],
-				'placeholder' => [],
-				'title'       => [],
+				'type'          => [],
+				'name'          => [],
+				'value'         => [],
+				'id'            => [],
+				'class'         => [],
+				'required'      => [],
+				'checked'       => [],
+				'placeholder'   => [],
+				'title'         => [],
+				'autocomplete'  => [],
+				'aria-expanded' => [],
+				'aria-owns'     => [],
+				'style'         => [],
 			],
 			'select'   => [ 'name' => [], 'class' => [], 'id' => [], 'required' => [], 'onchange' => [], ],
 			'textarea' => [ 'name' => [], 'class' => [], 'id' => [], 'rows' => [], 'cols' => [] ],
 			'option'   => [ 'value' => [], 'selected' => [] ],
-			'button'   => [ 'type' => [], 'class' => [], 'id' => [] ],
+			'button'   => [ 'type' => [], 'class' => [], 'id' => [], 'role' => [], 'hidefocus' => [] ],
 		];
 	}
 	
