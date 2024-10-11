@@ -13,6 +13,7 @@ This plugin allows efficient management of users, roles and capabilities. Create
 - Show/Hide admin bar to specific roles;
 - Show/Hide Widgets on admin/front to specific roles;
 - Show/Hide individual sidebar widgets to specific roles;
+- Content access by user role;
 
 ### Installation
 1. Upload plugin folder to the `/wp-content/plugins/` directory
@@ -41,3 +42,5 @@ Source files to js: `assets/src/js/`
 ![Screen](./assets/screens/screenshot-9.png "Screen")
 ![Screen](./assets/screens/screenshot-10.png "Screen")
 ![Screen](./assets/screens/screenshot-11.png "Screen")
+![Screen](./assets/screens/screenshot-12.png "Screen")
+![Screen](./assets/screens/screenshot-13.png "Screen")

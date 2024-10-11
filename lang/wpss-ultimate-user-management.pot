@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2024-10-10 21:04-0300\n"
+"POT-Creation-Date: 2024-10-10 21:30-0300\n"
 "PO-Revision-Date: 2022-01-03 12:27-0300\n"
 "Last-Translator: Angelo Rocha <contato@angelorocha.com.br>\n"
 "Language-Team: contato@angelorocha.com.br\n"
@@ -67,7 +67,7 @@ msgid "No permission to view this content."
 msgstr ""
 
 #: admin/classes/WPSSContentAccess.php:91
-msgid "Allow content only this roles: "
+msgid "Who can access: "
 msgstr ""
 
 #: admin/classes/WPSSRoles.php:92

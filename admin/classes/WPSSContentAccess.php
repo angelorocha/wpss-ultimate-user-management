@@ -88,7 +88,7 @@ class WPSSContentAccess {
 		}
 		add_meta_box(
 			'wpss_content_access_metabox',
-			__( 'Allow content only this roles: ', 'wpss-ultimate-user-management' ),
+			__( 'Who can access: ', 'wpss-ultimate-user-management' ),
 			[ $this, 'content_access_metabox_cb' ],
 			$get_access_cpt,
 			'side',
