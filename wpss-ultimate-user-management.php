@@ -8,7 +8,7 @@
  * Plugin Name:       WPSS Ultimate User Management
  * Plugin URI:        https://github.com/angelorocha/wpss-ultimate-user-management
  * Description:       Manage users, roles and capabilities more easily.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Requires at least: 6.1
  * Requires PHP:      8.1
  * Author:            Angelo Rocha

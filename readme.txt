@@ -3,9 +3,9 @@ Contributors: angelorocha
 Donate link: https://www.paypal.com/donate?hosted_button_id=DRE7DA2LZBA3U
 Tags: role, capabilities, user, widgets, permissions
 Requires at least: 6.1
-Tested up to: 6.6
+Tested up to: 6.7.1
 Requires PHP: 8.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GNU General Public License v3 or later
 License URI: /licence.txt
 

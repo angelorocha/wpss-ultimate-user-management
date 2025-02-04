@@ -57,11 +57,11 @@ class WPSSAdminFrontend {
 		if ( in_array( $template['template'], self::template_whitelist() ) ) {
 			$file_path = WPSS_URCM_PLUGIN_PATH . "admin/templates/{$template['template']}.php";
 			$output    = __( 'Template not found...', 'wpss-ultimate-user-management' );
-			if ( file_exists( $file_path ) ):
+			if ( file_exists( $file_path ) ) {
 				ob_start();
 				require $file_path;
 				$output = ob_get_clean();
-			endif;
+			}
 			
 			echo wp_kses( $output, self::sanitize_output() );
 		}
