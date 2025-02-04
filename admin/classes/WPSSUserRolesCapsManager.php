@@ -56,12 +56,12 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		if ( empty( $this->global_params ) && is_admin() ):
+		if ( empty( $this->global_params ) && is_admin() ) {
 			$this->global_params = [
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
 				'nonce'    => wp_create_nonce( self::$nonce ),
 			];
-		endif;
+		}
 		
 		/** Setup plugin admin menu page */
 		add_action( 'admin_menu', [ $this, 'wpss_user_admin_menu' ] );
@@ -149,7 +149,6 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public function wpss_load_plugin_text_domain(): void {
-		$lang_path = WPSS_URCM_PLUGIN_PATH . 'lang/';
 		load_plugin_textdomain( 'wpss-ultimate-user-management', false, 'wpss-ultimate-user-management/lang' );
 	}
 	
