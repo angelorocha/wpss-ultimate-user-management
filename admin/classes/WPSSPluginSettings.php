@@ -5,10 +5,10 @@ namespace WpssUserManager\Admin;
 use JetBrains\PhpStorm\NoReturn;
 
 /** Prevent direct access */
-if ( ! function_exists( 'add_action' ) ):
+if ( !defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
-endif;
+}
 
 /**
  * Class WPSSPluginSettings
@@ -37,9 +37,9 @@ class WPSSPluginSettings {
 	 * @since 1.0.0
 	 */
 	public static function instance(): object {
-		if ( is_null( self::$instance ) ):
+		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
-		endif;
+		}
 		
 		return self::$instance;
 	}
@@ -59,12 +59,15 @@ class WPSSPluginSettings {
 			'wpss_user_entries_screen',
 			'wpss_delete_plugin_data',
 			'wpss_roles_to_new_users',
+			'wpss_cpt_access_control',
+			'wpss_cpt_access_message',
+			'wpss_hide_admin_bar',
 		];
 		if ( ! empty( $settings ) ) {
 			foreach ( $settings as $key => $value ) {
 				if ( in_array( $key, $allow_keys ) ) {
 					if ( ! is_array( $value ) ) {
-						WPSSPluginHelper::update_option( $key, sanitize_text_field( $value ) );
+						WPSSPluginHelper::update_option( $key, wp_kses_post( $value ) );
 					} else {
 						$value = array_map( 'sanitize_text_field', $value );
 						WPSSPluginHelper::update_option( $key, wp_json_encode( $value ) );
@@ -73,6 +76,13 @@ class WPSSPluginSettings {
 			}
 			if ( empty( $settings['wpss_roles_to_new_users'] ) ) {
 				WPSSPluginHelper::update_option( 'wpss_roles_to_new_users', '' );
+			}
+			if ( empty( $settings['wpss_hide_admin_bar'] ) ) {
+				WPSSPluginHelper::update_option( 'wpss_hide_admin_bar', '' );
+			}
+			
+			if ( empty( $settings['wpss_cpt_access_control'] ) ) {
+				WPSSPluginHelper::update_option( 'wpss_cpt_access_control', '' );
 			}
 		}
 		echo wp_json_encode( $settings );

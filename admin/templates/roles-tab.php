@@ -1,4 +1,9 @@
 <?php
+/** Prevent direct access */
+if ( !defined( 'ABSPATH' ) ) {
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+}
 
 use WpssUserManager\Admin\WPSSPluginHelper;
 use WpssUserManager\Admin\WPSSRoles;
@@ -10,7 +15,7 @@ use WpssUserManager\Admin\WPSSRoles;
 	echo sprintf(
 	/* Translators: 1: default role name */
 		esc_html__( 'Add or remove custom roles. Native WordPress roles cannot be deleted. When a role is deleted, users who only have this role are moved to the default role (%1$s).',
-		            'wpss-ultimate-user-management' ), esc_html( $default_role ) );
+					'wpss-ultimate-user-management' ), esc_html( $default_role ) );
 	?>
 </p>
 <hr>
@@ -27,7 +32,7 @@ use WpssUserManager\Admin\WPSSRoles;
         <tbody>
 		<?php
 		$get_users_per_role = count_users();
-		$protected_roles = array_diff( WPSSRoles::get_roles_names( false ), WPSSRoles::get_roles_names() );
+		$protected_roles    = array_diff( WPSSRoles::get_roles_names( false ), WPSSRoles::get_roles_names() );
 		foreach ( WPSSRoles::get_roles_names( false ) as $key => $role ):
 			$total_users = 0;
 			if ( isset( $get_users_per_role['avail_roles'][ $key ] ) ):
@@ -37,7 +42,7 @@ use WpssUserManager\Admin\WPSSRoles;
             <tr id='role-<?php echo esc_attr( $key ); ?>' class='role-delete'>
                 <td><?php echo esc_html( $role ); ?></td>
                 <td><?php echo esc_html( $total_users ) ?></td>
-				<?php if ( ! in_array( $key, array_keys( $protected_roles ) ) ): ?>
+				<?php if ( !in_array( $key, array_keys( $protected_roles ) ) ): ?>
                     <td>
                     <span title='<?php echo esc_attr( $delete_role_label ); ?>'
                           data-role-id='<?php echo esc_attr( $key ); ?>'

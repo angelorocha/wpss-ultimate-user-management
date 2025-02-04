@@ -1,4 +1,9 @@
 <?php
+/** Prevent direct access */
+if ( !defined( 'ABSPATH' ) ) {
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+}
 
 use WpssUserManager\Admin\WPSSAdminFrontend;
 use WpssUserManager\Admin\WPSSUsers;
@@ -33,7 +38,7 @@ $users = $template['args'];
     </tbody>
 </table>
 <hr>
-<?php $rpp = (int) WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ); ?>
+<?php $rpp = (int)WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ); ?>
 <div class='wpss-user-paginate'>
 	<?php
 	$paginate = WPSSUsers::paginate_users( $rpp, esc_html( $users['total'] ) );

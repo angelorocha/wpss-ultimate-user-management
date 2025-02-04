@@ -1,11 +1,11 @@
-=== WPSS Users, roles and capabilities management ===
+===  WPSS Ultimate User Management ===
 Contributors: angelorocha
 Donate link: https://www.paypal.com/donate?hosted_button_id=DRE7DA2LZBA3U
-Tags: capabilities, roles, user manager, role admin, capabilities admin
+Tags: role, capabilities, user, widgets, permissions
 Requires at least: 6.1
-Tested up to: 6.6
+Tested up to: 6.7.1
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.1.2
 License: GNU General Public License v3 or later
 License URI: /licence.txt
 
@@ -23,6 +23,10 @@ Features:
 - Set default role for user without roles;
 - Access to admin menu by role;
 - Auto add role to new users;
+- Show/Hide admin bar to specific roles;
+- Show/Hide Widgets on admin/front to specific roles;
+- Show/Hide individual sidebar widgets to specific roles;
+- Content access by user role;
 
 == Installation ==
 
@@ -39,13 +43,31 @@ No!
 
 == Screenshots ==
 
-1. `/assets/screen/screenshot-1.png`
-2. `/assets/screen/screenshot-2.png`
-3. `/assets/screen/screenshot-3.png`
-4. `/assets/screen/screenshot-4.png`
-5. `/assets/screen/screenshot-5.png`
+1. `/assets/screenshot-1.png`
+2. `/assets/screenshot-2.png`
+3. `/assets/screenshot-3.png`
+4. `/assets/screenshot-4.png`
+5. `/assets/screenshot-5.png`
+5. `/assets/screenshot-6.png`
+5. `/assets/screenshot-7.png`
+5. `/assets/screenshot-8.png`
+5. `/assets/screenshot-9.png`
+5. `/assets/screenshot-10.png`
+5. `/assets/screenshot-11.png`
 
 == Changelog ==
 
+= 1.1.1 =
+1. Add tiny editor on content access message;
+
+= 1.1.0 =
+1. Some frontend fixes;
+2. Add content access permission by user roles;
+
 = 1.0.0 =
-* Hello World!
+1. Plugin released
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+1. Plugin released

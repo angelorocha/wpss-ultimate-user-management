@@ -1,4 +1,9 @@
 <?php
+/** Prevent direct access */
+if ( !defined( 'ABSPATH' ) ) {
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+}
 
 use WpssUserManager\Admin\WPSSCaps;
 use WpssUserManager\Admin\WPSSRoles;
@@ -18,9 +23,9 @@ $role_caps = $template['args'];
 <hr>
 <form method="post" action="" class="wpss-add-caps-to-role">
 	<?php
-	$admin_caps = WPSSCaps::get_caps( 'admin' );
-	$post_type_caps = WPSSCaps::get_caps( 'post_type' );
-	$tax_caps = WPSSCaps::get_caps( 'tax' );
+	$admin_caps              = WPSSCaps::get_caps( 'admin' );
+	$post_type_caps          = WPSSCaps::get_caps( 'post_type' );
+	$tax_caps                = WPSSCaps::get_caps( 'tax' );
 	$search_capability_label = __( 'Search Capability', 'wpss-ultimate-user-management' );
 	
 	/**

@@ -1,4 +1,9 @@
 <?php
+/** Prevent direct access */
+if ( !defined( 'ABSPATH' ) ) {
+	header( 'HTTP/1.0 403 Forbidden' );
+	exit;
+}
 
 use WpssUserManager\Admin\WPSSRoles;
 
@@ -45,7 +50,7 @@ $user_data = $template['user_data'];
 			$key = esc_html( $role_key );
 			$name = esc_html( $role_name );
 			$checked = ( in_array( $key, $user_data['user_roles'] ) ? ' checked' : '' ); ?>
-            <label for="wpss-add-role-to-user-<?php echo esc_attr($key); ?>">
+            <label for="wpss-add-role-to-user-<?php echo esc_attr( $key ); ?>">
                 <input type="checkbox" name="wpss-add-role-to-user[]"
                        id="wpss-add-role-to-user-<?php echo esc_attr( $key ); ?>"
                        value="<?php echo esc_attr( $key ); ?>"<?php echo esc_attr( $checked ); ?>>
