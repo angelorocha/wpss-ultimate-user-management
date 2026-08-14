@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2024-10-10 21:30-0300\n"
-"PO-Revision-Date: 2024-10-10 21:30-0300\n"
+"POT-Creation-Date: 2026-08-14 10:48-0300\n"
+"PO-Revision-Date: 2026-08-14 10:49-0300\n"
 "Last-Translator: \n"
 "Language-Team: contato@angelorocha.com.br\n"
 "Language: pt_BR\n"
@@ -11,11 +11,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html__;esc_attr__;esc_attr;esc_html_e;"
-"esc_attr_e\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n;_x;esc_html__;esc_attr__;esc_attr;esc_html_e;esc_attr_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
@@ -70,21 +70,21 @@ msgstr "Sem permissão para acessar este conteúdo."
 msgid "Who can access: "
 msgstr "Quem pode acessar: "
 
-#: admin/classes/WPSSRoles.php:92
+#: admin/classes/WPSSRoles.php:86
 #, php-format
 msgid "Role %s successfully added!"
 msgstr "Role %s adicionada com sucesso!"
 
-#: admin/classes/WPSSRoles.php:94
+#: admin/classes/WPSSRoles.php:88
 msgid "Failed to create role"
 msgstr "Falha ao criar role"
 
-#: admin/classes/WPSSRoles.php:115
+#: admin/classes/WPSSRoles.php:109
 #, php-format
 msgid "Role %s successfully removed!"
 msgstr "Role %s removida com sucesso!"
 
-#: admin/classes/WPSSRoles.php:117
+#: admin/classes/WPSSRoles.php:111
 msgid "Failed to remove role"
 msgstr "Falha ao remover role"
 
@@ -190,7 +190,7 @@ msgstr ""
 "Use esta opção para mostrar/ocultar Widgets/Blocos individualmente em "
 "qualquer sidebar. Esta opção oculta somente Widgets no Frontend."
 
-#: admin/templates/individual-widgets-tab.php:72
+#: admin/templates/individual-widgets-tab.php:74
 #: admin/templates/widgets-tab.php:57
 msgid "Save Options"
 msgstr "Salvar Opções"
@@ -205,22 +205,21 @@ msgstr "Stay in touch"
 
 #: admin/templates/menus-tab.php:15
 msgid ""
-"Select the role to edit access to administrative menu items. This\n"
-"        option only hides the menu items, it does not remove the role "
-"capability."
+"Select the role to edit access to administrative menu items. This option "
+"only hides the menu items, it does not remove the role capability."
 msgstr ""
-"Selecione a role para editar o acesso aos menus da administração. Esta\n"
-"        opção somente esconde o item do menu, não remove o acesso direto."
+"Selecione a role para editar o acesso aos menus da administração. Esta opção "
+"somente esconde o item do menu, não remove o acesso direto."
 
-#: admin/templates/menus-tab.php:20
+#: admin/templates/menus-tab.php:19
 msgid "Select role:"
 msgstr "Selecionar role:"
 
-#: admin/templates/menus-tab.php:46
+#: admin/templates/menus-tab.php:45
 msgid "Select all"
 msgstr "Selecionar todas"
 
-#: admin/templates/menus-tab.php:72
+#: admin/templates/menus-tab.php:71
 msgid "Remove Menu"
 msgstr "Remover menu"
 
@@ -340,15 +339,15 @@ msgstr ""
 "Escreva uma mensagem para  exibir quando um usuário não tiver acesso ao "
 "conteúdo:"
 
-#: admin/templates/settings-tab.php:125
+#: admin/templates/settings-tab.php:131
 msgid "Hide admin bar to this roles:"
 msgstr "Esconder barra administrativa para estas roles:"
 
-#: admin/templates/settings-tab.php:148
+#: admin/templates/settings-tab.php:154
 msgid "Options saved successfully!"
 msgstr "Opções salvas com sucesso!"
 
-#: admin/templates/settings-tab.php:152
+#: admin/templates/settings-tab.php:158
 msgid "Save Settings"
 msgstr "Salvar Configurações"
 

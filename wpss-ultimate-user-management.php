@@ -5,16 +5,17 @@
  * @copyleft  2024 Angelo Rocha
  *
  * @wordpress-plugin
- * Plugin Name:       WPSS Ultimate User Management
+ * Plugin Name:       RoleCraft: User Access Control – Roles, Capabilities & Content Restriction
  * Plugin URI:        https://github.com/angelorocha/wpss-ultimate-user-management
- * Description:       Manage users, roles and capabilities more easily.
- * Version:           1.1.2
+ * Description:       Complete access control solution. Manage custom user roles, granular capabilities, admin menu visibility, classic widgets, and per-post content restrictions with ease.
+ * Version:           1.1.3
  * Requires at least: 6.1
+ * Tested up to:      7.0
  * Requires PHP:      8.1
  * Author:            Angelo Rocha
  * Author URI:        https://angelorocha.com.br
  * License:           GNU General Public License v3 or later
- * License URI:       /LICENSE
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       wpss-ultimate-user-management
  * Domain Path:       /lang
  */
