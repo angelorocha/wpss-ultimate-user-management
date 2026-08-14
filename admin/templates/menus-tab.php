@@ -12,8 +12,7 @@ use WpssUserManager\Admin\WPSSRoles;
 ?>
 <form method="POST" action="" class="wpss-menage-admin-menus">
     <p>
-		<?php esc_html_e( 'Select the role to edit access to administrative menu items. This
-        option only hides the menu items, it does not remove the role capability.', 'wpss-ultimate-user-management' ); ?>
+		<?php esc_html_e( 'Select the role to edit access to administrative menu items. This option only hides the menu items, it does not remove the role capability.', 'wpss-ultimate-user-management' ); ?>
     </p>
     <hr>
     <label for="wpss-roles-list">

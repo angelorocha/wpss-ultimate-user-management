@@ -38,12 +38,6 @@ class WPSSRoles {
 	 */
 	private static array $roles_filter = [
 		'administrator',
-		'editor',
-		'author',
-		'contributor',
-		'subscriber',
-		'vip_support',
-		'vip_support_inactive',
 	];
 	
 	/**
