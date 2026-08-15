@@ -113,7 +113,7 @@ class WPSSContentAccess {
      */
     public function content_access_metabox_cb(): void {
         $template = [ 'template' => 'content/post-type-access-metabox' ];
-        WPSSAdminFrontend::render_template($template);
+        WPSSAdminFrontend::render($template);
     }
     
     /**
@@ -135,7 +135,8 @@ class WPSSContentAccess {
         }
         $wpss_get_post_type = get_post_type($post_id);
         if( in_array($wpss_get_post_type, $cpt_with_access_rules) ) {
-            $post_role_access = WPSSPostGet::post(self::$wpss_post_type_access_key, true) ?? false;
+            $nonce            = wp_create_nonce(WPSSUserRolesCapsManager::nonce());
+            $post_role_access = RoleCraftRequest::post(self::$wpss_post_type_access_key, true, $nonce) ?? false;
             if( $post_role_access ) {
                 update_post_meta($post_id, self::$wpss_post_type_access_key, $post_role_access);
             } else {

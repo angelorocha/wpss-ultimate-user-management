@@ -1,41 +1,43 @@
 <?php
 /** Prevent direct access */
-if ( !defined( 'ABSPATH' ) ) {
-	header( 'HTTP/1.0 403 Forbidden' );
-	exit;
+if( !defined('ABSPATH') ) {
+    header('HTTP/1.0 403 Forbidden');
+    exit;
 }
 
 use WpssUserManager\Admin\WPSSAdminFrontend;
 use WpssUserManager\Admin\WPSSPluginHelper;
-use WpssUserManager\Admin\WPSSPostGet;
+use WpssUserManager\Admin\RoleCraftRequest;
 use WpssUserManager\Admin\WPSSUsers;
+use WpssUserManager\Admin\WPSSUserRolesCapsManager;
 
+$nonce = wp_create_nonce(WPSSUserRolesCapsManager::nonce());
 ?>
 <p>
-	<?php esc_html_e( 'Select the user to add or remove access permissions. A user can own one or more permissions.', 'wpss-ultimate-user-management' ); ?>
+    <?php esc_html_e('Select the user to add or remove access permissions. A user can own one or more permissions.', 'wpss-ultimate-user-management'); ?>
 </p>
 <hr>
 <?php
-$search = WPSSPostGet::get( 'wpss-user-search' );
+$search = RoleCraftRequest::get('wpss-user-search', $nonce);
 ?>
-<form method="get" action="<?php echo esc_url( admin_url() ); ?>" class="wpss-user-select">
+<form method="get" action="<?php echo esc_url(admin_url()); ?>" class="wpss-user-select">
     <input type="hidden" name="page" value="wpss-ultimate-user-management-admin-menu">
     <input type="hidden" name="tab" value="users-tab">
     <label for="wpss-user-search">
-        <strong><?php esc_html_e( 'Search User', 'wpss-ultimate-user-management' ); ?>:</strong>
-        <input type="search" value="<?php echo esc_attr( $search ); ?>" name="wpss-user-search" id="wpss-user-search" required="required">
+        <strong><?php esc_html_e('Search User', 'wpss-ultimate-user-management'); ?>:</strong>
+        <input type="search" value="<?php echo esc_attr($search); ?>" name="wpss-user-search" id="wpss-user-search" required="required">
         
         <button type="submit" class="button-primary">
-			<?php esc_html_e( 'Search', 'wpss-ultimate-user-management' ); ?>
+            <?php esc_html_e('Search', 'wpss-ultimate-user-management'); ?>
         </button>
     </label>
-	<?php
-	$template = [
-		'template' => 'content/users-table',
-		'args'     => WPSSUsers::get_users( WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ), $search ),
-	];
-	WPSSAdminFrontend::render_template( $template );
-	?>
+    <?php
+    $template = [
+            'template' => 'content/users-table',
+            'args'     => WPSSUsers::get_users(WPSSPluginHelper::get_option('wpss_user_entries_screen'), $search),
+    ];
+    WPSSAdminFrontend::render($template);
+    ?>
 </form><!-- .wpss-user-select -->
 
 <div class="role-editor-messages d-none">

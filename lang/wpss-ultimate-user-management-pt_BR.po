@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2026-08-14 10:48-0300\n"
-"PO-Revision-Date: 2026-08-14 10:49-0300\n"
+"POT-Creation-Date: 2026-08-15 15:02-0300\n"
+"PO-Revision-Date: 2026-08-15 15:02-0300\n"
 "Last-Translator: \n"
 "Language-Team: contato@angelorocha.com.br\n"
 "Language: pt_BR\n"
@@ -19,6 +19,10 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
+#: admin/classes/RoleCraftRequest.php:23 admin/classes/RoleCraftRequest.php:46
+msgid "Request not allowed."
+msgstr "Requisição não permitida"
+
 #: admin/classes/WPSSAdminFrontend.php:37
 msgid "Roles List"
 msgstr "Lista de Roles"
@@ -32,8 +36,8 @@ msgid "Capabilities List"
 msgstr "Lista de Capabilities"
 
 #: admin/classes/WPSSAdminFrontend.php:40
-#: admin/classes/WPSSUserRolesCapsManager.php:135
-#: admin/classes/WPSSUserRolesCapsManager.php:136 admin/templates/main.php:17
+#: admin/classes/WPSSUserRolesCapsManager.php:144
+#: admin/classes/WPSSUserRolesCapsManager.php:145 admin/templates/main.php:18
 msgid "User Management"
 msgstr "Gerenciamento de Usuários"
 
@@ -50,49 +54,49 @@ msgstr "Sidebar Widgets"
 msgid "Settings"
 msgstr "Configurações"
 
-#: admin/classes/WPSSAdminFrontend.php:59
+#: admin/classes/WPSSAdminFrontend.php:57
 msgid "Template not found..."
 msgstr "Template não encontrado."
 
-#: admin/classes/WPSSAdminPages.php:79
+#: admin/classes/WPSSAdminPages.php:81
 msgid "Select a valid role"
 msgstr "Selecione uma role válida"
 
-#: admin/classes/WPSSAdminPages.php:83
+#: admin/classes/WPSSAdminPages.php:85
 msgid "Options updated successfully"
 msgstr "Opções salvas com sucesso"
 
-#: admin/classes/WPSSContentAccess.php:68
+#: admin/classes/WPSSContentAccess.php:77
 msgid "No permission to view this content."
 msgstr "Sem permissão para acessar este conteúdo."
 
-#: admin/classes/WPSSContentAccess.php:91
+#: admin/classes/WPSSContentAccess.php:100
 msgid "Who can access: "
 msgstr "Quem pode acessar: "
 
-#: admin/classes/WPSSRoles.php:86
+#: admin/classes/WPSSRoles.php:88
 #, php-format
 msgid "Role %s successfully added!"
 msgstr "Role %s adicionada com sucesso!"
 
-#: admin/classes/WPSSRoles.php:88
+#: admin/classes/WPSSRoles.php:90
 msgid "Failed to create role"
 msgstr "Falha ao criar role"
 
-#: admin/classes/WPSSRoles.php:109
+#: admin/classes/WPSSRoles.php:114
 #, php-format
 msgid "Role %s successfully removed!"
 msgstr "Role %s removida com sucesso!"
 
-#: admin/classes/WPSSRoles.php:111
+#: admin/classes/WPSSRoles.php:116
 msgid "Failed to remove role"
 msgstr "Falha ao remover role"
 
-#: admin/classes/WPSSUsers.php:256
+#: admin/classes/WPSSUsers.php:305
 msgid "Y-m-d H:i:s"
 msgstr "d-m-Y H:i:s"
 
-#: admin/classes/WPSSWidgets.php:60 admin/classes/WPSSWidgets.php:78
+#: admin/classes/WPSSWidgets.php:62 admin/classes/WPSSWidgets.php:82
 msgid "Options saved!"
 msgstr "Opções salvas!"
 
@@ -142,6 +146,16 @@ msgstr "Buscar tax cap"
 msgid "Add"
 msgstr "Adicionar"
 
+#: admin/templates/content/edit-user-link.php:13
+#: admin/templates/content/edit-user-link.php:16
+#, php-format
+msgid "Manage roles for %s"
+msgstr "Gerenciar permissões de %s"
+
+#: admin/templates/content/edit-user-link.php:17
+msgid "Permissions"
+msgstr "Permissões"
+
 #: admin/templates/content/user-details.php:13
 #: admin/templates/content/user-details.php:29
 #: admin/templates/content/users-table.php:16
@@ -169,6 +183,10 @@ msgstr "Roles"
 msgid "Add Roles"
 msgstr "Adicionar Roles"
 
+#: admin/templates/content/user-roles-box.php:38
+msgid "Update"
+msgstr "Atualizar"
+
 #: admin/templates/content/users-table.php:19
 msgid "#ID"
 msgstr "#ID"
@@ -195,15 +213,15 @@ msgstr ""
 msgid "Save Options"
 msgstr "Salvar Opções"
 
-#: admin/templates/main.php:59
+#: admin/templates/main.php:60
 msgid "Made with love"
 msgstr "Made with love"
 
-#: admin/templates/main.php:64
+#: admin/templates/main.php:65
 msgid "Stay in touch"
 msgstr "Stay in touch"
 
-#: admin/templates/menus-tab.php:15
+#: admin/templates/menus-tab.php:17
 msgid ""
 "Select the role to edit access to administrative menu items. This option "
 "only hides the menu items, it does not remove the role capability."
@@ -211,15 +229,15 @@ msgstr ""
 "Selecione a role para editar o acesso aos menus da administração. Esta opção "
 "somente esconde o item do menu, não remove o acesso direto."
 
-#: admin/templates/menus-tab.php:19
+#: admin/templates/menus-tab.php:21
 msgid "Select role:"
 msgstr "Selecionar role:"
 
-#: admin/templates/menus-tab.php:45
+#: admin/templates/menus-tab.php:47
 msgid "Select all"
 msgstr "Selecionar todas"
 
-#: admin/templates/menus-tab.php:71
+#: admin/templates/menus-tab.php:73
 msgid "Remove Menu"
 msgstr "Remover menu"
 
@@ -351,7 +369,7 @@ msgstr "Opções salvas com sucesso!"
 msgid "Save Settings"
 msgstr "Salvar Configurações"
 
-#: admin/templates/users-tab.php:15
+#: admin/templates/users-tab.php:17
 msgid ""
 "Select the user to add or remove access permissions. A user can own one or "
 "more permissions."
@@ -359,11 +377,11 @@ msgstr ""
 "Selecione um usuário para adicionar ou remover permissões. Um usuário pode "
 "ter uma ou mais permissões."
 
-#: admin/templates/users-tab.php:25
+#: admin/templates/users-tab.php:27
 msgid "Search User"
 msgstr "Buscar Usuário"
 
-#: admin/templates/users-tab.php:29
+#: admin/templates/users-tab.php:31
 msgid "Search"
 msgstr "Buscar"
 
