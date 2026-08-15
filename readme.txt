@@ -5,11 +5,11 @@ Tags: user roles, capabilities, access control, content restriction, admin menu
 Requires at least: 6.1
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.1.3
+Stable tag: 1.2.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Take control of WordPress access with custom roles, granular capabilities, admin menu permissions, widget and sidebar access control, and content restrictions — all from one lightweight, intuitive interface.
+Take control of WordPress with custom user roles, capabilities, admin menu access, widget control, and content restrictions in one plugin.
 
 == Description ==
 
@@ -137,16 +137,22 @@ No. The plugin provides a graphical interface for managing roles, capabilities, 
 
 == Screenshots ==
 
-1. `/assets/Screenshot_1.png`
-2. `/assets/Screenshot_2.png`
-3. `/assets/Screenshot_3.png`
-4. `/assets/Screenshot_4.png`
-5. `/assets/Screenshot_5.png`
-6. `/assets/Screenshot_6.png`
-7. `/assets/Screenshot_7.png`
-8. `/assets/Screenshot_8.png`
+1. `/assets/screenshot-1.png`
+2. `/assets/screenshot-2.png`
+3. `/assets/screenshot-3.png`
+4. `/assets/screenshot-4.png`
+5. `/assets/screenshot-5.png`
+6. `/assets/screenshot-6.png`
+7. `/assets/screenshot-7.png`
+8. `/assets/screenshot-8.png`
+9. `/assets/screenshot-9.png`
+10. `/assets/screenshot-10.png`
 
 == Changelog ==
+
+= 1.2.0 =
+* Added option to manage user roles from the WordPress user list screen.
+* Fix some plugin class and methods.
 
 = 1.1.3 =
 

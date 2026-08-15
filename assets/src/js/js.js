@@ -393,7 +393,7 @@ jQuery(function ($) {
                 document.removeClass('wpss-role-editor-loading');
             })
         }
-    })
+    });
 
     /** Caps live search */
     document.on('keyup', '.cap-filter', function () {
@@ -414,5 +414,71 @@ jQuery(function ($) {
                 count++;
             }
         });
+    });
+
+    /** Add/Remove user roles on WordPress list user page */
+    document.on('click', '.wpss-open-user-role-editor', function (e) {
+        e.preventDefault();
+        let user_id = $(this).attr('data-user-id');
+        if (isRunning === false) {
+            isRunning = true;
+            $.ajax({
+                url: wpss_user_management_object.ajax_url,
+                type: 'POST',
+                cache: false,
+                data: {
+                    action: 'openUserRolesBox',
+                    nonce: wpss_user_management_object.nonce,
+                    user_id: user_id,
+                },
+                beforeSend: function () {
+                    document.addClass('wpss-role-editor-loading');
+                },
+                success: function (data) {
+                    document.append(data);
+                },
+                complete: function () {
+                    isRunning = false;
+                    document.removeClass('wpss-role-editor-loading');
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        }
+    });
+
+    document.on('submit', '.wpss-user-roles-box form', function (e) {
+        e.preventDefault();
+        let user_id = $(this).closest('.wpss-user-roles-box').find('.wpss-user-name span').attr('data-user-id');
+        if (isRunning === false) {
+            isRunning = true;
+            $.ajax({
+                url: wpss_user_management_object.ajax_url,
+                type: 'POST',
+                cache: false,
+                data: {
+                    action: 'wpss_set_user_roles_action',
+                    nonce: wpss_user_management_object.nonce,
+                    user_id: user_id,
+                    user_roles: $(this).serialize(),
+                },
+                beforeSend: function () {
+                    document.addClass('wpss-role-editor-loading');
+                },
+                complete: function () {
+                    window.location.reload();
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+    });
+
+    document.on('click', '.wpss-close-roles-box', function (e) {
+        e.preventDefault();
+        $(this).closest('.wpss-user-roles-box').next('.wpss-overlay').remove();
+        $(this).closest('.wpss-user-roles-box').remove();
     });
 });

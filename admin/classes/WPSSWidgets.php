@@ -52,7 +52,8 @@ class WPSSWidgets {
     #[NoReturn]
     public static function save_widget_options(): void {
         WPSSUserRolesCapsManager::wpss_ajax_check_referer();
-        $widget_data = WPSSPostGet::post('wpss_widgets');
+        $nonce       = wp_create_nonce(WPSSUserRolesCapsManager::nonce());
+        $widget_data = RoleCraftRequest::post('wpss_widgets', false, $nonce);
         parse_str($widget_data, $widgets_options);
         if( isset($widgets_options['wpss_hide_widget']['administrator']) ) {
             unset($widgets_options['wpss_hide_widget']['administrator']);
@@ -71,7 +72,8 @@ class WPSSWidgets {
     #[NoReturn]
     public static function save_individual_widgets_permissions(): void {
         WPSSUserRolesCapsManager::wpss_ajax_check_referer();
-        $widget_data = WPSSPostGet::post('individual_widgets');
+        $nonce       = wp_create_nonce(WPSSUserRolesCapsManager::nonce());
+        $widget_data = RoleCraftRequest::post('individual_widgets', false, $nonce);
         parse_str($widget_data, $widgets_options);
         if( isset($widgets_options['wpss_individual_widgets']['administrator']) ) {
             unset($widgets_options['wpss_individual_widgets']['administrator']);

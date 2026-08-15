@@ -90,11 +90,13 @@ Source files to scss: `assets/src/sass/`
 Source files to js: `assets/src/js/`
 
 ### Screenshots
-![Screen](./assets/screens/Screenshot_1.png "Screen")
-![Screen](./assets/screens/Screenshot_2.png "Screen")
-![Screen](./assets/screens/Screenshot_3.png "Screen")
-![Screen](./assets/screens/Screenshot_4.png "Screen")
-![Screen](./assets/screens/Screenshot_5.png "Screen")
-![Screen](./assets/screens/Screenshot_6.png "Screen")
-![Screen](./assets/screens/Screenshot_7.png "Screen")
-![Screen](./assets/screens/Screenshot_8.png "Screen")
+![Screen](./assets/screens/screenshot-1.png "Screen")
+![Screen](./assets/screens/screenshot-2.png "Screen")
+![Screen](./assets/screens/screenshot-3.png "Screen")
+![Screen](./assets/screens/screenshot-4.png "Screen")
+![Screen](./assets/screens/screenshot-5.png "Screen")
+![Screen](./assets/screens/screenshot-6.png "Screen")
+![Screen](./assets/screens/screenshot-7.png "Screen")
+![Screen](./assets/screens/screenshot-8.png "Screen")
+![Screen](./assets/screens/screenshot-9.png "Screen")
+![Screen](./assets/screens/screenshot-10.png "Screen")
