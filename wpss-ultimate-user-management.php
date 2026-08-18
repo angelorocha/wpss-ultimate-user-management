@@ -1,5 +1,6 @@
 <?php
 /**
+ * Plugin bootstrap file.
  *
  * @package   wpss-ultimate-user-management
  * @copyleft  2024 Angelo Rocha
@@ -27,23 +28,23 @@ use WpssUserManager\Admin\WPSSUserRolesCapsManager;
 use WpssUserManager\Admin\WPSSWidgets;
 
 /** Prevent direct access */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
 }
 
 /** Define constant to plugin path */
-if ( !defined( 'WPSS_URCM_PLUGIN_PATH' ) ) {
+if ( ! defined( 'WPSS_URCM_PLUGIN_PATH' ) ) {
 	define( 'WPSS_URCM_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 }
 
 /** Define constant to plugin url */
-if ( !defined( 'WPSS_URCM_PLUGIN_URI' ) ) {
+if ( ! defined( 'WPSS_URCM_PLUGIN_URI' ) ) {
 	define( 'WPSS_URCM_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
 }
 
 /** Define constant to plugin main file, used in register activate/deactivate actions */
-if ( !defined( 'WPSS_URCM_PLUGIN_FILE' ) ) {
+if ( ! defined( 'WPSS_URCM_PLUGIN_FILE' ) ) {
 	define( 'WPSS_URCM_PLUGIN_FILE', __FILE__ );
 }
 

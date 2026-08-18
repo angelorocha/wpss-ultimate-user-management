@@ -1,21 +1,28 @@
 <?php
+/**
+ * Plugin activation and deactivation handling.
+ *
+ * @package wpss-ultimate-user-management
+ */
 
 namespace WpssUserManager\Admin;
 
 /** Prevent direct access */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
 }
 
 /**
  * Class WPSSPluginInit
+ *
  * @since 1.0.0
  */
 class WPSSPluginInit {
-	
+
 	/**
 	 * Initial plugin configuration
+	 *
 	 * @return void
 	 * @since 1.0.0
 	 */
@@ -26,9 +33,10 @@ class WPSSPluginInit {
 		/** Plugin deactivate hook */
 		register_deactivation_hook( WPSS_URCM_PLUGIN_FILE, [ $instance, 'remove_plugin_options' ] );
 	}
-	
+
 	/**
 	 * Plugin activate action
+	 *
 	 * @return void
 	 * @since 1.0.0
 	 */
@@ -49,9 +57,10 @@ class WPSSPluginInit {
 			WPSSPluginHelper::add_option( $option, $value );
 		}
 	}
-	
+
 	/**
 	 * Plugin deactivate action
+	 *
 	 * @return void
 	 * @since 1.0.0
 	 */
