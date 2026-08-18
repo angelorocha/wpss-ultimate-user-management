@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2026-08-15 15:02-0300\n"
-"PO-Revision-Date: 2026-08-15 15:02-0300\n"
+"POT-Creation-Date: 2026-08-18 15:00-0300\n"
+"PO-Revision-Date: 2026-08-18 15:05-0300\n"
 "Last-Translator: \n"
 "Language-Team: contato@angelorocha.com.br\n"
 "Language: pt_BR\n"
@@ -19,188 +19,192 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/classes/RoleCraftRequest.php:23 admin/classes/RoleCraftRequest.php:46
+#: admin/classes/RoleCraftRequest.php:35 admin/classes/RoleCraftRequest.php:60
 msgid "Request not allowed."
 msgstr "Requisição não permitida"
 
-#: admin/classes/WPSSAdminFrontend.php:37
+#: admin/classes/WPSSAdminFrontend.php:45
 msgid "Roles List"
 msgstr "Lista de Roles"
 
-#: admin/classes/WPSSAdminFrontend.php:38
+#: admin/classes/WPSSAdminFrontend.php:46
 msgid "Menu Items"
 msgstr "Itens do menu"
 
-#: admin/classes/WPSSAdminFrontend.php:39
+#: admin/classes/WPSSAdminFrontend.php:47
 msgid "Capabilities List"
 msgstr "Lista de Capabilities"
 
-#: admin/classes/WPSSAdminFrontend.php:40
-#: admin/classes/WPSSUserRolesCapsManager.php:144
-#: admin/classes/WPSSUserRolesCapsManager.php:145 admin/templates/main.php:18
+#: admin/classes/WPSSAdminFrontend.php:48
+#: admin/classes/WPSSUserRolesCapsManager.php:162
+#: admin/classes/WPSSUserRolesCapsManager.php:163 admin/templates/main.php:24
 msgid "User Management"
 msgstr "Gerenciamento de Usuários"
 
-#: admin/classes/WPSSAdminFrontend.php:41
+#: admin/classes/WPSSAdminFrontend.php:49
 msgid "Admin/Front Widgets"
 msgstr "Admin/Front Widgets"
 
-#: admin/classes/WPSSAdminFrontend.php:42
-#: admin/templates/individual-widgets-tab.php:21
+#: admin/classes/WPSSAdminFrontend.php:50
+#: admin/templates/individual-widgets-tab.php:27
 msgid "Sidebar Widgets"
 msgstr "Sidebar Widgets"
 
-#: admin/classes/WPSSAdminFrontend.php:43
+#: admin/classes/WPSSAdminFrontend.php:51
 msgid "Settings"
 msgstr "Configurações"
 
-#: admin/classes/WPSSAdminFrontend.php:57
+#: admin/classes/WPSSAdminFrontend.php:65
 msgid "Template not found..."
 msgstr "Template não encontrado."
 
-#: admin/classes/WPSSAdminPages.php:81
+#: admin/classes/WPSSAdminPages.php:95
 msgid "Select a valid role"
 msgstr "Selecione uma role válida"
 
-#: admin/classes/WPSSAdminPages.php:85
+#: admin/classes/WPSSAdminPages.php:99
 msgid "Options updated successfully"
 msgstr "Opções salvas com sucesso"
 
-#: admin/classes/WPSSContentAccess.php:77
+#: admin/classes/WPSSContentAccess.php:94
 msgid "No permission to view this content."
 msgstr "Sem permissão para acessar este conteúdo."
 
-#: admin/classes/WPSSContentAccess.php:100
+#: admin/classes/WPSSContentAccess.php:117
 msgid "Who can access: "
 msgstr "Quem pode acessar: "
 
-#: admin/classes/WPSSRoles.php:88
+#: admin/classes/WPSSRoles.php:103
 #, php-format
 msgid "Role %s successfully added!"
 msgstr "Role %s adicionada com sucesso!"
 
-#: admin/classes/WPSSRoles.php:90
+#: admin/classes/WPSSRoles.php:105
 msgid "Failed to create role"
 msgstr "Falha ao criar role"
 
-#: admin/classes/WPSSRoles.php:114
+#: admin/classes/WPSSRoles.php:130
 #, php-format
 msgid "Role %s successfully removed!"
 msgstr "Role %s removida com sucesso!"
 
-#: admin/classes/WPSSRoles.php:116
+#: admin/classes/WPSSRoles.php:132
 msgid "Failed to remove role"
 msgstr "Falha ao remover role"
 
-#: admin/classes/WPSSUsers.php:305
+#: admin/classes/WPSSUserRolesCapsManager.php:74
+msgid "No changes made"
+msgstr "Nenhuma alteração realizada"
+
+#: admin/classes/WPSSUsers.php:333
 msgid "Y-m-d H:i:s"
 msgstr "d-m-Y H:i:s"
 
-#: admin/classes/WPSSWidgets.php:62 admin/classes/WPSSWidgets.php:82
+#: admin/classes/WPSSWidgets.php:79 admin/classes/WPSSWidgets.php:99
 msgid "Options saved!"
 msgstr "Opções salvas!"
 
-#: admin/templates/caps-tab.php:12
+#: admin/templates/caps-tab.php:18
 msgid "Select the role to add capabilities."
 msgstr "Selecione a role para adicionar capabilities."
 
-#: admin/templates/caps-tab.php:17
+#: admin/templates/caps-tab.php:23
 msgid "Select the role"
 msgstr "Selecione a role"
 
-#: admin/templates/content/caps-actions.php:19
+#: admin/templates/content/caps-actions.php:29
 #, php-format
 msgid "Select the capabilities to the Role %s:"
 msgstr "Selecione as capabilities para a Role %s:"
 
-#: admin/templates/content/caps-actions.php:29
+#: admin/templates/content/caps-actions.php:40
 msgid "Search Capability"
 msgstr "Buscar Capability"
 
-#: admin/templates/content/caps-actions.php:44
+#: admin/templates/content/caps-actions.php:55
 msgid "Admin:"
 msgstr "Admin:"
 
-#: admin/templates/content/caps-actions.php:46
+#: admin/templates/content/caps-actions.php:57
 msgid "Search admin cap"
 msgstr "Buscar admin cap"
 
-#: admin/templates/content/caps-actions.php:66
+#: admin/templates/content/caps-actions.php:77
 msgid "Post Types:"
 msgstr "Post Types:"
 
-#: admin/templates/content/caps-actions.php:68
+#: admin/templates/content/caps-actions.php:79
 msgid "Search cpt cap"
 msgstr "Buscar cpt cap"
 
-#: admin/templates/content/caps-actions.php:102
+#: admin/templates/content/caps-actions.php:114
 msgid "Taxonomies:"
 msgstr "Taxonominas:"
 
-#: admin/templates/content/caps-actions.php:103
+#: admin/templates/content/caps-actions.php:115
 msgid "Search tax cap"
 msgstr "Buscar tax cap"
 
-#: admin/templates/content/caps-actions.php:136
-#: admin/templates/roles-tab.php:82
+#: admin/templates/content/caps-actions.php:149
+#: admin/templates/roles-tab.php:93
 msgid "Add"
 msgstr "Adicionar"
 
-#: admin/templates/content/edit-user-link.php:13
-#: admin/templates/content/edit-user-link.php:16
+#: admin/templates/content/edit-user-link.php:19
+#: admin/templates/content/edit-user-link.php:22
 #, php-format
 msgid "Manage roles for %s"
 msgstr "Gerenciar permissões de %s"
 
-#: admin/templates/content/edit-user-link.php:17
+#: admin/templates/content/edit-user-link.php:23
 msgid "Permissions"
 msgstr "Permissões"
 
-#: admin/templates/content/user-details.php:13
-#: admin/templates/content/user-details.php:29
-#: admin/templates/content/users-table.php:16
+#: admin/templates/content/user-details.php:23
+#: admin/templates/content/user-details.php:39
+#: admin/templates/content/users-table.php:26
 msgid "User Details"
 msgstr "Detalhes do Usuário"
 
-#: admin/templates/content/user-details.php:16
+#: admin/templates/content/user-details.php:26
 msgid "Login"
 msgstr "Login"
 
-#: admin/templates/content/user-details.php:20
+#: admin/templates/content/user-details.php:30
 msgid "Email"
 msgstr "Email"
 
-#: admin/templates/content/user-details.php:24
+#: admin/templates/content/user-details.php:34
 msgid "Registered at"
 msgstr "Registrado em"
 
-#: admin/templates/content/user-details.php:32
+#: admin/templates/content/user-details.php:42
 msgid "Roles"
 msgstr "Roles"
 
-#: admin/templates/content/user-details.php:46
-#: admin/templates/content/user-details.php:61
+#: admin/templates/content/user-details.php:56
+#: admin/templates/content/user-details.php:73
 msgid "Add Roles"
 msgstr "Adicionar Roles"
 
-#: admin/templates/content/user-roles-box.php:38
+#: admin/templates/content/user-roles-box.php:46
 msgid "Update"
 msgstr "Atualizar"
 
-#: admin/templates/content/users-table.php:19
+#: admin/templates/content/users-table.php:29
 msgid "#ID"
 msgstr "#ID"
 
-#: admin/templates/content/users-table.php:20
+#: admin/templates/content/users-table.php:30
 msgid "User"
 msgstr "Usuário"
 
-#: admin/templates/content/users-table.php:21
-#: admin/templates/content/users-table.php:32
+#: admin/templates/content/users-table.php:31
+#: admin/templates/content/users-table.php:42
 msgid "Edit"
 msgstr "Editar"
 
-#: admin/templates/individual-widgets-tab.php:23
+#: admin/templates/individual-widgets-tab.php:29
 msgid ""
 "Use this option to show/hide individual Widgets/Blocks in any sidebar. This "
 "option hides Widgets only from the frontend."
@@ -208,20 +212,28 @@ msgstr ""
 "Use esta opção para mostrar/ocultar Widgets/Blocos individualmente em "
 "qualquer sidebar. Esta opção oculta somente Widgets no Frontend."
 
-#: admin/templates/individual-widgets-tab.php:74
-#: admin/templates/widgets-tab.php:57
+#: admin/templates/individual-widgets-tab.php:81
+#: admin/templates/widgets-tab.php:64
 msgid "Save Options"
 msgstr "Salvar Opções"
 
-#: admin/templates/main.php:60
+#: admin/templates/main.php:69
 msgid "Made with love"
 msgstr "Made with love"
 
-#: admin/templates/main.php:65
+#: admin/templates/main.php:74
 msgid "Stay in touch"
-msgstr "Stay in touch"
+msgstr "Fique em contato"
 
-#: admin/templates/menus-tab.php:17
+#: admin/templates/main.php:76 admin/templates/main.php:77
+msgid "Follow on LinkedIn"
+msgstr "Siga no Linkedin"
+
+#: admin/templates/main.php:80 admin/templates/main.php:81
+msgid "Follow on Github"
+msgstr "Siga no Github"
+
+#: admin/templates/menus-tab.php:23
 msgid ""
 "Select the role to edit access to administrative menu items. This option "
 "only hides the menu items, it does not remove the role capability."
@@ -229,39 +241,39 @@ msgstr ""
 "Selecione a role para editar o acesso aos menus da administração. Esta opção "
 "somente esconde o item do menu, não remove o acesso direto."
 
-#: admin/templates/menus-tab.php:21
+#: admin/templates/menus-tab.php:27
 msgid "Select role:"
 msgstr "Selecionar role:"
 
-#: admin/templates/menus-tab.php:47
+#: admin/templates/menus-tab.php:54
 msgid "Select all"
 msgstr "Selecionar todas"
 
-#: admin/templates/menus-tab.php:73
+#: admin/templates/menus-tab.php:80
 msgid "Remove Menu"
 msgstr "Remover menu"
 
-#: admin/templates/messages/add-role-cap.php:14
+#: admin/templates/messages/add-role-cap.php:24
 #, php-format
-msgid "Capability %1$s added to role %2$s"
-msgstr "Capability %1$s adicionada para a role %2$s"
+msgid "Capability %1$s added to role %2$s."
+msgstr "Capability %1$s adicionada para a role %2$s."
 
-#: admin/templates/messages/remove-role-cap.php:14
+#: admin/templates/messages/remove-role-cap.php:24
 #, php-format
-msgid "Capability %1$s removed from role %2$s"
-msgstr "Capability %1$s removida da role %2$s"
+msgid "Capability %1$s removed from role %2$s."
+msgstr "Capability %1$s removida da role %2$s."
 
-#: admin/templates/messages/user-role-add.php:13
+#: admin/templates/messages/user-role-add.php:24
 #, php-format
 msgid "Role %s successfully added"
 msgstr "Role %s adicionada com sucesso"
 
-#: admin/templates/messages/user-role-remove.php:12
+#: admin/templates/messages/user-role-remove.php:23
 #, php-format
 msgid "Role %s successfully removed"
 msgstr "Role %s removida com sucesso"
 
-#: admin/templates/roles-tab.php:17
+#: admin/templates/roles-tab.php:24
 #, php-format
 msgid ""
 "Add or remove custom roles. Native WordPress roles cannot be deleted. When a "
@@ -272,104 +284,104 @@ msgstr ""
 "ser excluídas. Quando uma role for deletada, usuários são movidos para a "
 "role padrão (%1$s)."
 
-#: admin/templates/roles-tab.php:24
+#: admin/templates/roles-tab.php:34
 msgid "Role management"
 msgstr "Gerenciador de roles"
 
-#: admin/templates/roles-tab.php:27
+#: admin/templates/roles-tab.php:37
 msgid "Role"
 msgstr "Role"
 
-#: admin/templates/roles-tab.php:28
+#: admin/templates/roles-tab.php:38
 msgid "Users"
 msgstr "Usuários"
 
-#: admin/templates/roles-tab.php:29 admin/templates/roles-tab.php:69
+#: admin/templates/roles-tab.php:39 admin/templates/roles-tab.php:80
 msgid "Delete"
 msgstr "Deletar"
 
-#: admin/templates/roles-tab.php:41
+#: admin/templates/roles-tab.php:51
 msgid "Delete Role"
 msgstr "Deletar Role"
 
-#: admin/templates/roles-tab.php:59
+#: admin/templates/roles-tab.php:70
 msgid "Total Users"
 msgstr "Total de Usuários"
 
-#: admin/templates/roles-tab.php:66
+#: admin/templates/roles-tab.php:77
 msgid "Are you sure you want to delete the role:"
 msgstr "Tem certeza que deseja deletar a role:"
 
-#: admin/templates/roles-tab.php:70
+#: admin/templates/roles-tab.php:81
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: admin/templates/roles-tab.php:72
+#: admin/templates/roles-tab.php:83
 msgid "This action cannot be undone."
 msgstr "Esta ação não pode ser desfeita."
 
-#: admin/templates/roles-tab.php:80
+#: admin/templates/roles-tab.php:91
 msgid "Add Role"
 msgstr "Adicionar Role"
 
-#: admin/templates/settings-tab.php:13
+#: admin/templates/settings-tab.php:19
 msgid "Define plugin settings"
 msgstr "Defina as configurações do plugin"
 
-#: admin/templates/settings-tab.php:19
+#: admin/templates/settings-tab.php:25
 msgid "When user have no roles, assign user in this role: "
 msgstr "Quando um usuário não tiver nenhuma role, defina esta role: "
 
-#: admin/templates/settings-tab.php:29
+#: admin/templates/settings-tab.php:37
 msgid ""
 "This option works only if the user have only one role and it was deleted."
 msgstr ""
 "Esta opção somente funciona caso um usuário tenha somente uma role e seja "
 "removida."
 
-#: admin/templates/settings-tab.php:34
+#: admin/templates/settings-tab.php:42
 msgid "Number of entries on User Management screen: "
 msgstr "Número de entradas na tela de Gerenciamento de Usuários: "
 
-#: admin/templates/settings-tab.php:43
+#: admin/templates/settings-tab.php:51
 msgid "Delete all plugin data on deactivate: "
 msgstr "Excluir todos os dados do plugin quando desativado: "
 
-#: admin/templates/settings-tab.php:47
+#: admin/templates/settings-tab.php:55
 msgid "No"
 msgstr "Não"
 
-#: admin/templates/settings-tab.php:48
+#: admin/templates/settings-tab.php:56
 msgid "Yes"
 msgstr "Sim"
 
-#: admin/templates/settings-tab.php:65
+#: admin/templates/settings-tab.php:74
 msgid "Add this roles to new users:"
 msgstr "Adicionar estas roles para novos usuários:"
 
-#: admin/templates/settings-tab.php:92
+#: admin/templates/settings-tab.php:102
 msgid "Enable content access control to this post types:"
 msgstr "Habilitar controle de conteúdo para estes post types:"
 
-#: admin/templates/settings-tab.php:120
+#: admin/templates/settings-tab.php:131
 msgid "Type a message to show when user no have access to content:"
 msgstr ""
 "Escreva uma mensagem para  exibir quando um usuário não tiver acesso ao "
 "conteúdo:"
 
-#: admin/templates/settings-tab.php:131
+#: admin/templates/settings-tab.php:142
 msgid "Hide admin bar to this roles:"
 msgstr "Esconder barra administrativa para estas roles:"
 
-#: admin/templates/settings-tab.php:154
+#: admin/templates/settings-tab.php:166
 msgid "Options saved successfully!"
 msgstr "Opções salvas com sucesso!"
 
-#: admin/templates/settings-tab.php:158
+#: admin/templates/settings-tab.php:170
 msgid "Save Settings"
 msgstr "Salvar Configurações"
 
-#: admin/templates/users-tab.php:17
+#: admin/templates/users-tab.php:23
 msgid ""
 "Select the user to add or remove access permissions. A user can own one or "
 "more permissions."
@@ -377,19 +389,19 @@ msgstr ""
 "Selecione um usuário para adicionar ou remover permissões. Um usuário pode "
 "ter uma ou mais permissões."
 
-#: admin/templates/users-tab.php:27
+#: admin/templates/users-tab.php:33
 msgid "Search User"
 msgstr "Buscar Usuário"
 
-#: admin/templates/users-tab.php:31
+#: admin/templates/users-tab.php:37
 msgid "Search"
 msgstr "Buscar"
 
-#: admin/templates/widgets-tab.php:21
+#: admin/templates/widgets-tab.php:27
 msgid "Classic Widgets Permissions"
 msgstr "Permissões dos Widgets Clássicos"
 
-#: admin/templates/widgets-tab.php:23
+#: admin/templates/widgets-tab.php:29
 msgid ""
 "Use this option to disable the use of Classic Widgets for specific roles. "
 "This option removes Classic Widgets from both the administration and the "

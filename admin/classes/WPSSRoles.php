@@ -64,11 +64,9 @@ class WPSSRoles {
 	public function __construct() {
 		/** Ajax calls to add role */
 		add_action( 'wp_ajax_wpss_add_roles_action', [ $this, 'add_role_action' ] );
-		add_action( 'wp_ajax_nopriv_wpss_add_roles_action', [ $this, 'add_role_action' ] );
 
 		/** Ajax calls to remove role */
 		add_action( 'wp_ajax_wpss_remove_role_action', [ $this, 'remove_role_action' ] );
-		add_action( 'wp_ajax_nopriv_wpss_remove_role_action', [ $this, 'remove_role_action' ] );
 	}
 
 	/**
@@ -90,8 +88,7 @@ class WPSSRoles {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function add_role_action(): void {
+	#[NoReturn] public function add_role_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce         = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_role_data = RoleCraftRequest::post( 'role', false, $nonce );
@@ -104,7 +101,7 @@ class WPSSRoles {
 		} else {
 			echo esc_html__( 'Failed to create role', 'wpss-ultimate-user-management' );
 		}
-		exit;
+		wp_die();
 	}
 
 	/**
@@ -112,8 +109,7 @@ class WPSSRoles {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function remove_role_action(): void {
+	#[NoReturn] public function remove_role_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$instance = self::instance();
 		$nonce    = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
@@ -132,7 +128,7 @@ class WPSSRoles {
 				echo esc_html__( 'Failed to remove role', 'wpss-ultimate-user-management' );
 			}
 		}
-		exit;
+		wp_die();
 	}
 
 	/**

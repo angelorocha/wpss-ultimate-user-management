@@ -73,12 +73,12 @@ $menu_tab = RoleCraftRequest::get( 'tab', $nonce );
 			$url = WPSS_URCM_PLUGIN_URI;
 			esc_html_e( 'Stay in touch', 'wpss-ultimate-user-management' );
 			?>
-			<a href="https://br.linkedin.com/in/angelorocha" title="Follow on LinkedIn" target="_blank">
-				<img src="<?php echo esc_url( $url ); ?>assets/images/linkedin.svg" alt="Follow on LinkedIn">
+            <a href="https://br.linkedin.com/in/angelorocha" title="<?php esc_attr_e('Follow on LinkedIn', 'wpss-ultimate-user-management'); ?>" target="_blank">
+                <img src="<?php echo esc_url($url); ?>assets/images/linkedin.svg" alt="<?php esc_attr_e('Follow on LinkedIn', 'wpss-ultimate-user-management'); ?>">
 			</a>
-			
-			<a href="https://github.com/angelorocha" title="Follow on Github" target="_blank">
-				<img src="<?php echo esc_url( $url ); ?>assets/images/github.svg" alt="Follow on Github">
+            
+            <a href="https://github.com/angelorocha" title="<?php esc_attr_e('Follow on Github', 'wpss-ultimate-user-management'); ?>" target="_blank">
+                <img src="<?php echo esc_url($url); ?>assets/images/github.svg" alt="<?php esc_attr_e('Follow on Github', 'wpss-ultimate-user-management'); ?>">
 			</a>
 		</div>
 	</div>

@@ -38,9 +38,7 @@ class WPSSWidgets {
 	public function __construct() {
 		/** Ajax actions */
 		add_action( 'wp_ajax_save_widget_options', [ $this, 'save_widget_options' ] );
-		add_action( 'wp_ajax_nopriv_save_widget_options', [ $this, 'save_widget_options' ] );
 		add_action( 'wp_ajax_save_individual_widgets_permissions', [ $this, 'save_individual_widgets_permissions' ] );
-		add_action( 'wp_ajax_nopriv_save_individual_widgets_permissions', [ $this, 'save_individual_widgets_permissions' ] );
 
 		/** Check sidebar widget */
 		add_filter( 'widget_display_callback', [ $this, 'hide_individual_widgets' ], 10, 2 );
@@ -66,8 +64,7 @@ class WPSSWidgets {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function save_widget_options(): void {
+	#[NoReturn] public function save_widget_options(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce       = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$widget_data = RoleCraftRequest::post( 'wpss_widgets', false, $nonce );
@@ -77,7 +74,7 @@ class WPSSWidgets {
 		}
 		WPSSPluginHelper::update_option( 'wpss_hide_widgets', wp_strip_all_tags( wp_json_encode( $widgets_options ) ) );
 		echo esc_html__( 'Options saved!', 'wpss-ultimate-user-management' );
-		exit;
+		wp_die();
 	}
 
 	/**
@@ -86,8 +83,7 @@ class WPSSWidgets {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function save_individual_widgets_permissions(): void {
+	#[NoReturn] public function save_individual_widgets_permissions(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce       = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$widget_data = RoleCraftRequest::post( 'individual_widgets', false, $nonce );
@@ -97,7 +93,7 @@ class WPSSWidgets {
 		}
 		WPSSPluginHelper::update_option( 'wpss_individual_widgets', wp_strip_all_tags( wp_json_encode( $widgets_options ) ) );
 		echo esc_html__( 'Options saved!', 'wpss-ultimate-user-management' );
-		exit;
+		wp_die();
 	}
 
 	/**

@@ -70,6 +70,9 @@ class WPSSUserRolesCapsManager {
 			$this->global_params = [
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
 				'nonce'    => wp_create_nonce( self::$nonce ),
+				'i18n'     => [
+					'no_changes_made' => __('No changes made', 'wpss-ultimate-user-management'),
+				],
 			];
 		}
 
@@ -111,8 +114,7 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public static function wpss_ajax_check_referer(): void {
-		// phpcs:ignore WordPress.WP.Capabilities.RoleFound -- tracked separately in the AJAX/security hardening PR.
-		if ( ! current_user_can( 'administrator' ) ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
 			header( 'HTTP/1.0 403 Forbidden' );
 			exit;
 		}
@@ -158,7 +160,7 @@ class WPSSUserRolesCapsManager {
 		add_menu_page(
 			__( 'User Management', 'wpss-ultimate-user-management' ),
 			__( 'User Management', 'wpss-ultimate-user-management' ),
-			'administrator', // phpcs:ignore WordPress.WP.Capabilities.RoleFound -- tracked separately in the AJAX/security hardening PR.
+			'manage_options',
 			self::$plugin_prefix . '-admin-menu',
 			[ WPSSAdminFrontend::class, 'admin_main_content' ],
 			'dashicons-privacy',
