@@ -60,8 +60,7 @@ class WPSSPluginSettings {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function save_settings(): void {
+	#[NoReturn] public function save_settings(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce             = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_settings_data = RoleCraftRequest::post( 'settings', false, $nonce );
@@ -98,6 +97,6 @@ class WPSSPluginSettings {
 			}
 		}
 		echo wp_json_encode( $settings );
-		exit;
+		wp_die();
 	}
 }

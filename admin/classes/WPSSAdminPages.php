@@ -78,8 +78,7 @@ class WPSSAdminPages {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function insert_options_action(): void {
+	#[NoReturn] public function insert_options_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce    = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_data = RoleCraftRequest::post( 'wpss_admin_menus', false, $nonce );
@@ -96,7 +95,7 @@ class WPSSAdminPages {
 		}
 		self::instance()->set_option( wp_json_encode( $format_data ) );
 		echo esc_html__( 'Options updated successfully', 'wpss-ultimate-user-management' );
-		exit;
+		wp_die();
 	}
 
 	/**

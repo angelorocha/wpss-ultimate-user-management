@@ -117,8 +117,7 @@ class WPSSUsers {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function get_user_details_action(): void {
+	#[NoReturn] public function get_user_details_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$instance  = self::instance();
 		$nonce     = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
@@ -130,7 +129,7 @@ class WPSSUsers {
 			];
 			WPSSAdminFrontend::render( $template );
 		}
-		exit;
+		wp_die();
 	}
 
 	/**
@@ -138,8 +137,7 @@ class WPSSUsers {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn]
-	public static function set_user_roles_action(): void {
+	#[NoReturn] public function set_user_roles_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce              = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_user_role_data = RoleCraftRequest::post( 'user_roles', false, $nonce );
@@ -153,7 +151,7 @@ class WPSSUsers {
 		$remove_roles = array_diff( $current_user_roles, (array) $new_roles['wpss-add-role-to-user'] );
 		$instance->add_user_roles( $user_id, (array) $new_roles['wpss-add-role-to-user'] );
 		$instance->remove_user_roles( $user_id, $remove_roles );
-		exit;
+		wp_die();
 	}
 
 	/**
