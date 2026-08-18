@@ -12,7 +12,7 @@ if( $user_object ):
         /* Translators: %s is user display name */
         esc_attr(sprintf(__('Manage roles for %s', 'wpss-ultimate-user-management'), $user_object->display_name)),
         esc_attr($user_object->ID),
-        /* Translators: %s is a role name */
+        /* Translators: %s is user display name */
         esc_attr(sprintf(__('Manage roles for %s', 'wpss-ultimate-user-management'), $user_object->display_name)),
         esc_html__('Permissions', 'wpss-ultimate-user-management')
     );

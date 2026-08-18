@@ -302,7 +302,7 @@ class WPSSUsers {
         return [
             'user_login'      => $user->user_login,
             'user_email'      => $user->user_email,
-            'user_registered' => gmdate(__('Y-m-d H:i:s', 'wpss-ultimate-user-management'), strtotime($user->user_registered)),
+            'user_registered' => gmdate('Y-m-d H:i:s', strtotime($user->user_registered)),
             'user_roles'      => $user->roles,
         ];
     }
