@@ -137,16 +137,16 @@ No. The plugin provides a graphical interface for managing roles, capabilities, 
 
 == Screenshots ==
 
-1. Roles List: manage custom user roles, see how many users are assigned to each, and add or remove roles.
-2. Menu Items: control which WordPress admin menus are visible to each user role.
-3. Capabilities List: add or remove individual capabilities for a selected role.
-4. User Management: search for a user and view or edit the roles assigned to them.
-5. Admin/Front Widgets: control classic widget visibility per user role, in the dashboard and on the frontend.
-6. Sidebar Widgets: control individual block widget visibility per user role.
-7. Settings: configure the default role, entries per screen, roles for new users, and content access control.
-8. Content access control on the post/page edit screen, choosing which roles can view the content.
-9. The "Permissions" row action added to the native WordPress Users list screen.
-10. The role-assignment popup opened from the "Permissions" link on the Users list screen.
+1. `/assets/screenshot-1.png`
+2. `/assets/screenshot-2.png`
+3. `/assets/screenshot-3.png`
+4. `/assets/screenshot-4.png`
+5. `/assets/screenshot-5.png`
+6. `/assets/screenshot-6.png`
+7. `/assets/screenshot-7.png`
+8. `/assets/screenshot-8.png`
+9. `/assets/screenshot-9.png`
+10. `/assets/screenshot-10.png`
 
 == Changelog ==
 
