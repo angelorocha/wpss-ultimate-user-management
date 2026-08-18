@@ -1,41 +1,50 @@
 <?php
+/**
+ * Shared helper methods for reading and writing plugin options.
+ *
+ * @package wpss-ultimate-user-management
+ */
 
 namespace WpssUserManager\Admin;
 
 /** Prevent direct access */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
 }
 
 /**
  * Class WPSSPluginHelper
+ *
  * @since 1.0.0
  */
 class WPSSPluginHelper {
-	
+
 	/**
-	 * Multidimensional array search
+	 * Multidimensional array search.
 	 *
-	 * @param string $search data to search
-	 * @param array $array array to search
-	 * @param bool $strict define true to compare data type
+	 * @param string $search Value to search for.
+	 * @param array  $haystack Array to search, may contain nested arrays.
+	 * @param bool   $strict Whether to compare data type as well as value.
 	 *
 	 * @return bool
 	 * @since 1.0.0
 	 */
-	public static function in_array_m( string $search, array $array, bool $strict = false ): bool {
-		foreach ( $array as $item ) {
+	public static function in_array_m( string $search, array $haystack, bool $strict = false ): bool {
+		foreach ( $haystack as $item ) {
+			// phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual -- intentional: the $strict param lets callers opt out of strict comparison.
 			if ( $strict ? $item === $search : $item == $search || ( is_array( $item ) && self::in_array_m( $search, $item, $strict ) ) ) {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
-	 * @param string $option
+	 * Get a plugin option, network-aware.
+	 *
+	 * @param string $option Option name.
 	 *
 	 * @return mixed
 	 * @since 1.0.0
@@ -48,13 +57,15 @@ class WPSSPluginHelper {
 				return get_blog_option( get_current_blog_id(), $option );
 			}
 		}
-		
+
 		return get_option( $option );
 	}
-	
+
 	/**
-	 * @param string $option
-	 * @param string $value
+	 * Add a plugin option, network-aware.
+	 *
+	 * @param string $option Option name.
+	 * @param string $value Option value.
 	 * @return void
 	 * @since 1.0.0
 	 */
@@ -69,10 +80,12 @@ class WPSSPluginHelper {
 			add_option( $option, $value );
 		}
 	}
-	
+
 	/**
-	 * @param string $option
-	 * @param string $value
+	 * Update a plugin option, network-aware.
+	 *
+	 * @param string $option Option name.
+	 * @param string $value New option value.
 	 * @return void
 	 * @since 1.0.0
 	 */
@@ -87,9 +100,11 @@ class WPSSPluginHelper {
 			update_option( $option, $value, 'yes' );
 		}
 	}
-	
+
 	/**
-	 * @param string $option
+	 * Delete a plugin option, network-aware.
+	 *
+	 * @param string $option Option name.
 	 * @return void
 	 * @since 1.0.0
 	 */
