@@ -3,9 +3,9 @@ Contributors: angelorocha
 Donate link: https://www.paypal.com/donate?hosted_button_id=DRE7DA2LZBA3U
 Tags: user roles, capabilities, access control, content restriction, admin menu
 Requires at least: 6.1
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -149,6 +149,12 @@ No. The plugin provides a graphical interface for managing roles, capabilities, 
 10. `/assets/screenshot-10.png`
 
 == Changelog ==
+
+= 1.2.1 =
+* Removed unnecessary unauthenticated AJAX action registrations and replaced a role-based capability check with a proper WordPress capability.
+* Applied a full PHPCS/WordPress Coding Standards cleanup and added missing code documentation.
+* Fixed untranslated strings and refreshed the translation template file.
+* Tested up to WordPress 7.1.
 
 = 1.2.0 =
 * Added option to manage user roles from the WordPress user list screen.
