@@ -38,7 +38,6 @@ class WPSSPluginSettings {
 	public function __construct() {
 		/** Ajax actions */
 		add_action( 'wp_ajax_saveSettings', [ $this, 'save_settings' ] );
-		add_action( 'wp_ajax_nopriv_saveSettings', [ $this, 'save_settings' ] );
 	}
 
 	/**

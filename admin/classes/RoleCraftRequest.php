@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 class RoleCraftRequest {
-
+	
 	/**
 	 * Read and sanitize a $_POST value.
 	 *
 	 * @param string $post Name of the $_POST key to read.
-	 * @param bool   $is_array Default is false, check if value is an array.
+	 * @param bool $is_array Default is false, check if value is an array.
 	 * @param string $nonce Nonce to verify before reading the value.
 	 * @return string
 	 * @since 1.0.0
@@ -42,10 +42,10 @@ class RoleCraftRequest {
 				$output = wp_json_encode( $output );
 			}
 		}
-
+		
 		return $output;
 	}
-
+	
 	/**
 	 * Read and sanitize a $_GET value.
 	 *
@@ -62,7 +62,7 @@ class RoleCraftRequest {
 		if ( isset( $_GET[ $get ] ) && wp_verify_nonce( $nonce, WPSSUserRolesCapsManager::nonce() ) ) {
 			$output = wp_strip_all_tags( wp_unslash( $_GET[ $get ] ) );
 		}
-
+		
 		return $output;
 	}
 }

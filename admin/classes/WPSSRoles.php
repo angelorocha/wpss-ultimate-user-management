@@ -64,11 +64,9 @@ class WPSSRoles {
 	public function __construct() {
 		/** Ajax calls to add role */
 		add_action( 'wp_ajax_wpss_add_roles_action', [ $this, 'add_role_action' ] );
-		add_action( 'wp_ajax_nopriv_wpss_add_roles_action', [ $this, 'add_role_action' ] );
 
 		/** Ajax calls to remove role */
 		add_action( 'wp_ajax_wpss_remove_role_action', [ $this, 'remove_role_action' ] );
-		add_action( 'wp_ajax_nopriv_wpss_remove_role_action', [ $this, 'remove_role_action' ] );
 	}
 
 	/**

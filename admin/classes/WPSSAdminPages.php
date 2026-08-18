@@ -56,7 +56,6 @@ class WPSSAdminPages {
 		add_action( 'admin_init', [ $this, 'remove_menu_items_from_role' ], 20 );
 
 		add_action( 'wp_ajax_menage_admin_menu_options_action', [ $this, 'insert_options_action' ] );
-		add_action( 'wp_ajax_nopriv_menage_admin_menu_options_action', [ $this, 'insert_options_action' ] );
 	}
 
 	/**

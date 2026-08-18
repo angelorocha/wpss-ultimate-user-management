@@ -1,422 +1,533 @@
 # Copyright (C) 2026 Angelo Rocha
 # This file is distributed under the GNU General Public License v3 or later.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: RoleCraft: User Access Control – Roles, Capabilities & Content Restriction 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpss-ultimate-user-management\n"
+"POT-Creation-Date: 2026-08-18 15:05-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-18T07:55:42+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: Poedit 3.9\n"
 "X-Domain: wpss-ultimate-user-management\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#. Plugin Name of the plugin
-#: wpss-ultimate-user-management.php
-msgid "RoleCraft: User Access Control – Roles, Capabilities & Content Restriction"
-msgstr ""
-
-#. Plugin URI of the plugin
-#: wpss-ultimate-user-management.php
-msgid "https://github.com/angelorocha/wpss-ultimate-user-management"
-msgstr ""
-
-#. Description of the plugin
-#: wpss-ultimate-user-management.php
-msgid "Complete access control solution. Manage custom user roles, granular capabilities, admin menu visibility, classic widgets, and per-post content restrictions with ease."
-msgstr ""
-
-#. Author of the plugin
-#: wpss-ultimate-user-management.php
-msgid "Angelo Rocha"
-msgstr ""
-
-#. Author URI of the plugin
-#: wpss-ultimate-user-management.php
-msgid "https://angelorocha.com.br"
-msgstr ""
-
-#: admin/classes/RoleCraftRequest.php:23
-#: admin/classes/RoleCraftRequest.php:46
+#: admin/classes/RoleCraftRequest.php:35 admin/classes/RoleCraftRequest.php:60
 msgid "Request not allowed."
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:37
+#: admin/classes/WPSSAdminFrontend.php:45
 msgid "Roles List"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:38
+#: admin/classes/WPSSAdminFrontend.php:46
 msgid "Menu Items"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:39
+#: admin/classes/WPSSAdminFrontend.php:47
 msgid "Capabilities List"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:40
-#: admin/classes/WPSSUserRolesCapsManager.php:147
-#: admin/classes/WPSSUserRolesCapsManager.php:148
-#: admin/templates/main.php:18
+#: admin/classes/WPSSAdminFrontend.php:48
+#: admin/classes/WPSSUserRolesCapsManager.php:162
+#: admin/classes/WPSSUserRolesCapsManager.php:163 admin/templates/main.php:24
 msgid "User Management"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:41
+#: admin/classes/WPSSAdminFrontend.php:49
 msgid "Admin/Front Widgets"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:42
-#: admin/templates/individual-widgets-tab.php:21
+#: admin/classes/WPSSAdminFrontend.php:50
+#: admin/templates/individual-widgets-tab.php:27
 msgid "Sidebar Widgets"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:43
+#: admin/classes/WPSSAdminFrontend.php:51
 msgid "Settings"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:57
+#: admin/classes/WPSSAdminFrontend.php:65
 msgid "Template not found..."
 msgstr ""
 
-#: admin/classes/WPSSAdminPages.php:81
+#: admin/classes/WPSSAdminPages.php:95
 msgid "Select a valid role"
 msgstr ""
 
-#: admin/classes/WPSSAdminPages.php:85
+#: admin/classes/WPSSAdminPages.php:99
 msgid "Options updated successfully"
 msgstr ""
 
-#: admin/classes/WPSSContentAccess.php:77
+#: admin/classes/WPSSContentAccess.php:94
 msgid "No permission to view this content."
 msgstr ""
 
-#: admin/classes/WPSSContentAccess.php:100
+#: admin/classes/WPSSContentAccess.php:117
 msgid "Who can access: "
 msgstr ""
 
-#. Translators: %s is a role name
-#: admin/classes/WPSSRoles.php:88
+#: admin/classes/WPSSRoles.php:103
 #, php-format
 msgid "Role %s successfully added!"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:90
+#: admin/classes/WPSSRoles.php:105
 msgid "Failed to create role"
 msgstr ""
 
-#. Translators: %s is a role name
-#: admin/classes/WPSSRoles.php:114
+#: admin/classes/WPSSRoles.php:130
 #, php-format
 msgid "Role %s successfully removed!"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:116
+#: admin/classes/WPSSRoles.php:132
 msgid "Failed to remove role"
 msgstr ""
 
-#: admin/classes/WPSSUserRolesCapsManager.php:64
+#: admin/classes/WPSSUserRolesCapsManager.php:74
 msgid "No changes made"
 msgstr ""
 
-#: admin/classes/WPSSWidgets.php:62
-#: admin/classes/WPSSWidgets.php:82
+#: admin/classes/WPSSUsers.php:333
+msgid "Y-m-d H:i:s"
+msgstr ""
+
+#: admin/classes/WPSSWidgets.php:79 admin/classes/WPSSWidgets.php:99
 msgid "Options saved!"
 msgstr ""
 
-#: admin/templates/caps-tab.php:12
+#: admin/templates/caps-tab.php:18
 msgid "Select the role to add capabilities."
 msgstr ""
 
-#: admin/templates/caps-tab.php:17
+#: admin/templates/caps-tab.php:23
 msgid "Select the role"
 msgstr ""
 
-#. Translators: %s is a role name
-#: admin/templates/content/caps-actions.php:19
+#: admin/templates/content/caps-actions.php:29
 #, php-format
 msgid "Select the capabilities to the Role %s:"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:29
+#: admin/templates/content/caps-actions.php:40
 msgid "Search Capability"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:44
+#: admin/templates/content/caps-actions.php:55
 msgid "Admin:"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:46
+#: admin/templates/content/caps-actions.php:57
 msgid "Search admin cap"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:66
+#: admin/templates/content/caps-actions.php:77
 msgid "Post Types:"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:68
+#: admin/templates/content/caps-actions.php:79
 msgid "Search cpt cap"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:102
+#: admin/templates/content/caps-actions.php:114
 msgid "Taxonomies:"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:103
+#: admin/templates/content/caps-actions.php:115
 msgid "Search tax cap"
 msgstr ""
 
-#: admin/templates/content/caps-actions.php:136
-#: admin/templates/roles-tab.php:82
+#: admin/templates/content/caps-actions.php:149
+#: admin/templates/roles-tab.php:93
 msgid "Add"
 msgstr ""
 
-#. Translators: %s is user display name
-#: admin/templates/content/edit-user-link.php:13
-#: admin/templates/content/edit-user-link.php:16
+#: admin/templates/content/edit-user-link.php:19
+#: admin/templates/content/edit-user-link.php:22
 #, php-format
 msgid "Manage roles for %s"
 msgstr ""
 
-#: admin/templates/content/edit-user-link.php:17
+#: admin/templates/content/edit-user-link.php:23
 msgid "Permissions"
 msgstr ""
 
-#: admin/templates/content/user-details.php:13
-#: admin/templates/content/user-details.php:29
-#: admin/templates/content/users-table.php:16
+#: admin/templates/content/user-details.php:23
+#: admin/templates/content/user-details.php:39
+#: admin/templates/content/users-table.php:26
 msgid "User Details"
 msgstr ""
 
-#: admin/templates/content/user-details.php:16
+#: admin/templates/content/user-details.php:26
 msgid "Login"
 msgstr ""
 
-#: admin/templates/content/user-details.php:20
+#: admin/templates/content/user-details.php:30
 msgid "Email"
 msgstr ""
 
-#: admin/templates/content/user-details.php:24
+#: admin/templates/content/user-details.php:34
 msgid "Registered at"
 msgstr ""
 
-#: admin/templates/content/user-details.php:32
+#: admin/templates/content/user-details.php:42
 msgid "Roles"
 msgstr ""
 
-#: admin/templates/content/user-details.php:46
-#: admin/templates/content/user-details.php:61
+#: admin/templates/content/user-details.php:56
+#: admin/templates/content/user-details.php:73
 msgid "Add Roles"
 msgstr ""
 
-#: admin/templates/content/user-roles-box.php:38
+#: admin/templates/content/user-roles-box.php:46
 msgid "Update"
 msgstr ""
 
-#: admin/templates/content/users-table.php:19
+#: admin/templates/content/users-table.php:29
 msgid "#ID"
 msgstr ""
 
-#: admin/templates/content/users-table.php:20
+#: admin/templates/content/users-table.php:30
 msgid "User"
 msgstr ""
 
-#: admin/templates/content/users-table.php:21
-#: admin/templates/content/users-table.php:32
+#: admin/templates/content/users-table.php:31
+#: admin/templates/content/users-table.php:42
 msgid "Edit"
 msgstr ""
 
-#: admin/templates/individual-widgets-tab.php:23
+#: admin/templates/individual-widgets-tab.php:29
 msgid "Use this option to show/hide individual Widgets/Blocks in any sidebar. This option hides Widgets only from the frontend."
 msgstr ""
 
-#: admin/templates/individual-widgets-tab.php:74
-#: admin/templates/widgets-tab.php:57
+#: admin/templates/individual-widgets-tab.php:81
+#: admin/templates/widgets-tab.php:64
 msgid "Save Options"
 msgstr ""
 
-#: admin/templates/main.php:60
+#: admin/templates/main.php:69
 msgid "Made with love"
 msgstr ""
 
-#: admin/templates/main.php:65
+#: admin/templates/main.php:74
 msgid "Stay in touch"
 msgstr ""
 
-#: admin/templates/main.php:67
-#: admin/templates/main.php:68
+#: admin/templates/main.php:76 admin/templates/main.php:77
 msgid "Follow on LinkedIn"
 msgstr ""
 
-#: admin/templates/main.php:71
-#: admin/templates/main.php:72
+#: admin/templates/main.php:80 admin/templates/main.php:81
 msgid "Follow on Github"
 msgstr ""
 
-#: admin/templates/menus-tab.php:17
+#: admin/templates/menus-tab.php:23
 msgid "Select the role to edit access to administrative menu items. This option only hides the menu items, it does not remove the role capability."
 msgstr ""
 
-#: admin/templates/menus-tab.php:21
+#: admin/templates/menus-tab.php:27
 msgid "Select role:"
 msgstr ""
 
-#: admin/templates/menus-tab.php:47
+#: admin/templates/menus-tab.php:54
 msgid "Select all"
 msgstr ""
 
-#: admin/templates/menus-tab.php:73
+#: admin/templates/menus-tab.php:80
 msgid "Remove Menu"
 msgstr ""
 
-#. Translators: 1: capability name, 2: role name
-#: admin/templates/messages/add-role-cap.php:14
+#: admin/templates/messages/add-role-cap.php:24
 #, php-format
 msgid "Capability %1$s added to role %2$s."
-msgid_plural "Capabilities %1$s added to role %2$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
-#. Translators: 1: capability name, 2: role name
-#: admin/templates/messages/remove-role-cap.php:14
+#: admin/templates/messages/remove-role-cap.php:24
 #, php-format
 msgid "Capability %1$s removed from role %2$s."
-msgid_plural "Capabilities %1$s removed from role %2$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
-#. Translators: %s role name
-#: admin/templates/messages/user-role-add.php:13
+#: admin/templates/messages/user-role-add.php:24
 #, php-format
 msgid "Role %s successfully added"
-msgid_plural "Roles %s successfully added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
-#. Translators: %s role name
-#: admin/templates/messages/user-role-remove.php:12
+#: admin/templates/messages/user-role-remove.php:23
 #, php-format
 msgid "Role %s successfully removed"
-msgid_plural "Roles %s successfully removed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
-#. Translators: 1: default role name
-#: admin/templates/roles-tab.php:17
+#: admin/templates/roles-tab.php:24
 #, php-format
 msgid "Add or remove custom roles. Native WordPress roles cannot be deleted. When a role is deleted, users who only have this role are moved to the default role (%1$s)."
 msgstr ""
 
-#: admin/templates/roles-tab.php:24
+#: admin/templates/roles-tab.php:34
 msgid "Role management"
 msgstr ""
 
-#: admin/templates/roles-tab.php:27
+#: admin/templates/roles-tab.php:37
 msgid "Role"
 msgstr ""
 
-#: admin/templates/roles-tab.php:28
+#: admin/templates/roles-tab.php:38
 msgid "Users"
 msgstr ""
 
-#: admin/templates/roles-tab.php:29
-#: admin/templates/roles-tab.php:69
+#: admin/templates/roles-tab.php:39 admin/templates/roles-tab.php:80
 msgid "Delete"
 msgstr ""
 
-#: admin/templates/roles-tab.php:41
+#: admin/templates/roles-tab.php:51
 msgid "Delete Role"
 msgstr ""
 
-#: admin/templates/roles-tab.php:59
+#: admin/templates/roles-tab.php:70
 msgid "Total Users"
 msgstr ""
 
-#: admin/templates/roles-tab.php:66
+#: admin/templates/roles-tab.php:77
 msgid "Are you sure you want to delete the role:"
 msgstr ""
 
-#: admin/templates/roles-tab.php:70
+#: admin/templates/roles-tab.php:81
 msgid "Cancel"
 msgstr ""
 
-#: admin/templates/roles-tab.php:72
+#: admin/templates/roles-tab.php:83
 msgid "This action cannot be undone."
 msgstr ""
 
-#: admin/templates/roles-tab.php:80
+#: admin/templates/roles-tab.php:91
 msgid "Add Role"
 msgstr ""
 
-#: admin/templates/settings-tab.php:13
+#: admin/templates/settings-tab.php:19
 msgid "Define plugin settings"
 msgstr ""
 
-#: admin/templates/settings-tab.php:19
+#: admin/templates/settings-tab.php:25
 msgid "When user have no roles, assign user in this role: "
 msgstr ""
 
-#: admin/templates/settings-tab.php:29
+#: admin/templates/settings-tab.php:37
 msgid "This option works only if the user have only one role and it was deleted."
 msgstr ""
 
-#: admin/templates/settings-tab.php:34
+#: admin/templates/settings-tab.php:42
 msgid "Number of entries on User Management screen: "
 msgstr ""
 
-#: admin/templates/settings-tab.php:43
+#: admin/templates/settings-tab.php:51
 msgid "Delete all plugin data on deactivate: "
 msgstr ""
 
-#: admin/templates/settings-tab.php:47
+#: admin/templates/settings-tab.php:55
 msgid "No"
 msgstr ""
 
-#: admin/templates/settings-tab.php:48
+#: admin/templates/settings-tab.php:56
 msgid "Yes"
 msgstr ""
 
-#: admin/templates/settings-tab.php:65
+#: admin/templates/settings-tab.php:74
 msgid "Add this roles to new users:"
 msgstr ""
 
-#: admin/templates/settings-tab.php:92
+#: admin/templates/settings-tab.php:102
 msgid "Enable content access control to this post types:"
 msgstr ""
 
-#: admin/templates/settings-tab.php:120
+#: admin/templates/settings-tab.php:131
 msgid "Type a message to show when user no have access to content:"
 msgstr ""
 
-#: admin/templates/settings-tab.php:131
+#: admin/templates/settings-tab.php:142
 msgid "Hide admin bar to this roles:"
 msgstr ""
 
-#: admin/templates/settings-tab.php:154
+#: admin/templates/settings-tab.php:166
 msgid "Options saved successfully!"
 msgstr ""
 
-#: admin/templates/settings-tab.php:158
+#: admin/templates/settings-tab.php:170
 msgid "Save Settings"
 msgstr ""
 
-#: admin/templates/users-tab.php:17
+#: admin/templates/users-tab.php:23
 msgid "Select the user to add or remove access permissions. A user can own one or more permissions."
 msgstr ""
 
-#: admin/templates/users-tab.php:27
+#: admin/templates/users-tab.php:33
 msgid "Search User"
 msgstr ""
 
-#: admin/templates/users-tab.php:31
+#: admin/templates/users-tab.php:37
 msgid "Search"
 msgstr ""
 
-#: admin/templates/widgets-tab.php:21
+#: admin/templates/widgets-tab.php:27
 msgid "Classic Widgets Permissions"
 msgstr ""
 
-#: admin/templates/widgets-tab.php:23
+#: admin/templates/widgets-tab.php:29
 msgid "Use this option to disable the use of Classic Widgets for specific roles. This option removes Classic Widgets from both the administration and the frontend."
+msgstr ""
+
+#: node_modules/meow/node_modules/yargs-parser/build/lib/yargs-parser.js:419
+#, javascript-format
+msgid "Argument unexpected for: %s"
+msgstr ""
+
+#: node_modules/meow/node_modules/yargs-parser/build/lib/yargs-parser.js:428
+#: node_modules/meow/node_modules/yargs-parser/build/lib/yargs-parser.js:442
+#: node_modules/meow/node_modules/yargs-parser/build/lib/yargs-parser.js:495
+#: node_modules/sass-graph/node_modules/yargs-parser/index.js:367
+#: node_modules/yargs-parser/index.js:302
+#, javascript-format
+msgid "Not enough arguments following: %s"
+msgstr ""
+
+#: node_modules/meow/node_modules/yargs-parser/build/lib/yargs-parser.js:634
+#: node_modules/sass-graph/node_modules/yargs-parser/index.js:541
+#: node_modules/yargs-parser/index.js:450
+#, javascript-format
+msgid "Invalid JSON config file: %s"
+msgstr ""
+
+#: node_modules/meow/node_modules/yargs-parser/build/lib/yargs-parser.js:963
+#, javascript-format
+msgid "Invalid configuration: %s, opts.count excludes opts.array."
+msgstr ""
+
+#: node_modules/meow/node_modules/yargs-parser/build/lib/yargs-parser.js:967
+#, javascript-format
+msgid "Invalid configuration: %s, opts.count excludes opts.narg."
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:92
+msgid "Positionals:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:192
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:194
+msgid "command"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:203
+#: node_modules/yargs/lib/usage.js:169
+msgid "Commands:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:223
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:458
+#: node_modules/yargs/lib/usage.js:177 node_modules/yargs/lib/usage.js:407
+msgid "default:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:225
+#: node_modules/yargs/lib/usage.js:179
+msgid "aliases:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:288
+#: node_modules/yargs/lib/usage.js:241
+msgid "boolean"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:289
+#: node_modules/yargs/lib/usage.js:242
+msgid "count"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:290
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:291
+#: node_modules/yargs/lib/usage.js:243 node_modules/yargs/lib/usage.js:244
+msgid "string"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:292
+#: node_modules/yargs/lib/usage.js:245
+msgid "array"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:293
+#: node_modules/yargs/lib/usage.js:246
+msgid "number"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:297
+#: node_modules/yargs/lib/usage.js:250
+msgid "required"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:298
+#: node_modules/yargs/lib/usage.js:251
+msgid "choices:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:317
+#: node_modules/yargs/lib/usage.js:270
+msgid "Examples:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/usage.js:436
+#: node_modules/yargs/lib/usage.js:385
+msgid "generated-value"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:29
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:52
+#: node_modules/yargs/lib/validation.js:26
+#: node_modules/yargs/lib/validation.js:49
+#, javascript-format
+msgid "Not enough non-option arguments: got %s, need at least %s"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:40
+#: node_modules/yargs/lib/validation.js:37
+#, javascript-format
+msgid "Too many non-option arguments: got %s, maximum of %s"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:147
+#: node_modules/yargs/lib/validation.js:185
+msgid "Invalid values:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:150
+#: node_modules/yargs/lib/validation.js:188
+#, javascript-format
+msgid "Argument: %s, Given: %s, Choices: %s"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:180
+#: node_modules/yargs/lib/validation.js:218
+#, javascript-format
+msgid "Argument check failed: %s"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:256
+#: node_modules/yargs/lib/validation.js:283
+msgid "Implications failed:"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:295
+#: node_modules/yargs/lib/validation.js:313
+#, javascript-format
+msgid "Arguments %s and %s are mutually exclusive"
+msgstr ""
+
+#: node_modules/sass-graph/node_modules/yargs/lib/validation.js:316
+#: node_modules/yargs/lib/validation.js:332
+#, javascript-format
+msgid "Did you mean %s?"
 msgstr ""
