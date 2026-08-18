@@ -1,23 +1,48 @@
-#, fuzzy
+# Copyright (C) 2026 Angelo Rocha
+# This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2024-10-10 21:30-0300\n"
-"PO-Revision-Date: 2022-01-03 12:27-0300\n"
-"Last-Translator: Angelo Rocha <contato@angelorocha.com.br>\n"
-"Language-Team: contato@angelorocha.com.br\n"
-"Language: en\n"
+"Project-Id-Version: RoleCraft: User Access Control – Roles, Capabilities & Content Restriction 1.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpss-ultimate-user-management\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html__;esc_attr__;esc_attr;"
-"esc_html_e;esc_attr_e\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"POT-Creation-Date: 2026-08-18T07:55:42+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wpss-ultimate-user-management\n"
+
+#. Plugin Name of the plugin
+#: wpss-ultimate-user-management.php
+msgid "RoleCraft: User Access Control – Roles, Capabilities & Content Restriction"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: wpss-ultimate-user-management.php
+msgid "https://github.com/angelorocha/wpss-ultimate-user-management"
+msgstr ""
+
+#. Description of the plugin
+#: wpss-ultimate-user-management.php
+msgid "Complete access control solution. Manage custom user roles, granular capabilities, admin menu visibility, classic widgets, and per-post content restrictions with ease."
+msgstr ""
+
+#. Author of the plugin
+#: wpss-ultimate-user-management.php
+msgid "Angelo Rocha"
+msgstr ""
+
+#. Author URI of the plugin
+#: wpss-ultimate-user-management.php
+msgid "https://angelorocha.com.br"
+msgstr ""
+
+#: admin/classes/RoleCraftRequest.php:23
+#: admin/classes/RoleCraftRequest.php:46
+msgid "Request not allowed."
+msgstr ""
 
 #: admin/classes/WPSSAdminFrontend.php:37
 msgid "Roles List"
@@ -32,8 +57,9 @@ msgid "Capabilities List"
 msgstr ""
 
 #: admin/classes/WPSSAdminFrontend.php:40
-#: admin/classes/WPSSUserRolesCapsManager.php:135
-#: admin/classes/WPSSUserRolesCapsManager.php:136 admin/templates/main.php:17
+#: admin/classes/WPSSUserRolesCapsManager.php:147
+#: admin/classes/WPSSUserRolesCapsManager.php:148
+#: admin/templates/main.php:18
 msgid "User Management"
 msgstr ""
 
@@ -50,49 +76,52 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: admin/classes/WPSSAdminFrontend.php:59
+#: admin/classes/WPSSAdminFrontend.php:57
 msgid "Template not found..."
 msgstr ""
 
-#: admin/classes/WPSSAdminPages.php:79
+#: admin/classes/WPSSAdminPages.php:81
 msgid "Select a valid role"
 msgstr ""
 
-#: admin/classes/WPSSAdminPages.php:83
+#: admin/classes/WPSSAdminPages.php:85
 msgid "Options updated successfully"
 msgstr ""
 
-#: admin/classes/WPSSContentAccess.php:68
+#: admin/classes/WPSSContentAccess.php:77
 msgid "No permission to view this content."
 msgstr ""
 
-#: admin/classes/WPSSContentAccess.php:91
+#: admin/classes/WPSSContentAccess.php:100
 msgid "Who can access: "
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:92
+#. Translators: %s is a role name
+#: admin/classes/WPSSRoles.php:88
 #, php-format
 msgid "Role %s successfully added!"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:94
+#: admin/classes/WPSSRoles.php:90
 msgid "Failed to create role"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:115
+#. Translators: %s is a role name
+#: admin/classes/WPSSRoles.php:114
 #, php-format
 msgid "Role %s successfully removed!"
 msgstr ""
 
-#: admin/classes/WPSSRoles.php:117
+#: admin/classes/WPSSRoles.php:116
 msgid "Failed to remove role"
 msgstr ""
 
-#: admin/classes/WPSSUsers.php:256
-msgid "Y-m-d H:i:s"
+#: admin/classes/WPSSUserRolesCapsManager.php:64
+msgid "No changes made"
 msgstr ""
 
-#: admin/classes/WPSSWidgets.php:60 admin/classes/WPSSWidgets.php:78
+#: admin/classes/WPSSWidgets.php:62
+#: admin/classes/WPSSWidgets.php:82
 msgid "Options saved!"
 msgstr ""
 
@@ -104,6 +133,7 @@ msgstr ""
 msgid "Select the role"
 msgstr ""
 
+#. Translators: %s is a role name
 #: admin/templates/content/caps-actions.php:19
 #, php-format
 msgid "Select the capabilities to the Role %s:"
@@ -142,6 +172,17 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+#. Translators: %s is user display name
+#: admin/templates/content/edit-user-link.php:13
+#: admin/templates/content/edit-user-link.php:16
+#, php-format
+msgid "Manage roles for %s"
+msgstr ""
+
+#: admin/templates/content/edit-user-link.php:17
+msgid "Permissions"
+msgstr ""
+
 #: admin/templates/content/user-details.php:13
 #: admin/templates/content/user-details.php:29
 #: admin/templates/content/users-table.php:16
@@ -169,6 +210,10 @@ msgstr ""
 msgid "Add Roles"
 msgstr ""
 
+#: admin/templates/content/user-roles-box.php:38
+msgid "Update"
+msgstr ""
+
 #: admin/templates/content/users-table.php:19
 msgid "#ID"
 msgstr ""
@@ -183,69 +228,84 @@ msgid "Edit"
 msgstr ""
 
 #: admin/templates/individual-widgets-tab.php:23
-msgid ""
-"Use this option to show/hide individual Widgets/Blocks in any sidebar. "
-"This option hides Widgets only from the frontend."
+msgid "Use this option to show/hide individual Widgets/Blocks in any sidebar. This option hides Widgets only from the frontend."
 msgstr ""
 
-#: admin/templates/individual-widgets-tab.php:72
+#: admin/templates/individual-widgets-tab.php:74
 #: admin/templates/widgets-tab.php:57
 msgid "Save Options"
 msgstr ""
 
-#: admin/templates/main.php:59
+#: admin/templates/main.php:60
 msgid "Made with love"
 msgstr ""
 
-#: admin/templates/main.php:64
+#: admin/templates/main.php:65
 msgid "Stay in touch"
 msgstr ""
 
-#: admin/templates/menus-tab.php:15
-msgid ""
-"Select the role to edit access to administrative menu items. This\n"
-"        option only hides the menu items, it does not remove the role "
-"capability."
+#: admin/templates/main.php:67
+#: admin/templates/main.php:68
+msgid "Follow on LinkedIn"
 msgstr ""
 
-#: admin/templates/menus-tab.php:20
+#: admin/templates/main.php:71
+#: admin/templates/main.php:72
+msgid "Follow on Github"
+msgstr ""
+
+#: admin/templates/menus-tab.php:17
+msgid "Select the role to edit access to administrative menu items. This option only hides the menu items, it does not remove the role capability."
+msgstr ""
+
+#: admin/templates/menus-tab.php:21
 msgid "Select role:"
 msgstr ""
 
-#: admin/templates/menus-tab.php:46
+#: admin/templates/menus-tab.php:47
 msgid "Select all"
 msgstr ""
 
-#: admin/templates/menus-tab.php:72
+#: admin/templates/menus-tab.php:73
 msgid "Remove Menu"
 msgstr ""
 
+#. Translators: 1: capability name, 2: role name
 #: admin/templates/messages/add-role-cap.php:14
 #, php-format
-msgid "Capability %1$s added to role %2$s"
-msgstr ""
+msgid "Capability %1$s added to role %2$s."
+msgid_plural "Capabilities %1$s added to role %2$s."
+msgstr[0] ""
+msgstr[1] ""
 
+#. Translators: 1: capability name, 2: role name
 #: admin/templates/messages/remove-role-cap.php:14
 #, php-format
-msgid "Capability %1$s removed from role %2$s"
-msgstr ""
+msgid "Capability %1$s removed from role %2$s."
+msgid_plural "Capabilities %1$s removed from role %2$s."
+msgstr[0] ""
+msgstr[1] ""
 
+#. Translators: %s role name
 #: admin/templates/messages/user-role-add.php:13
 #, php-format
 msgid "Role %s successfully added"
-msgstr ""
+msgid_plural "Roles %s successfully added"
+msgstr[0] ""
+msgstr[1] ""
 
+#. Translators: %s role name
 #: admin/templates/messages/user-role-remove.php:12
 #, php-format
 msgid "Role %s successfully removed"
-msgstr ""
+msgid_plural "Roles %s successfully removed"
+msgstr[0] ""
+msgstr[1] ""
 
+#. Translators: 1: default role name
 #: admin/templates/roles-tab.php:17
 #, php-format
-msgid ""
-"Add or remove custom roles. Native WordPress roles cannot be deleted. When "
-"a role is deleted, users who only have this role are moved to the default "
-"role (%1$s)."
+msgid "Add or remove custom roles. Native WordPress roles cannot be deleted. When a role is deleted, users who only have this role are moved to the default role (%1$s)."
 msgstr ""
 
 #: admin/templates/roles-tab.php:24
@@ -260,7 +320,8 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: admin/templates/roles-tab.php:29 admin/templates/roles-tab.php:69
+#: admin/templates/roles-tab.php:29
+#: admin/templates/roles-tab.php:69
 msgid "Delete"
 msgstr ""
 
@@ -297,8 +358,7 @@ msgid "When user have no roles, assign user in this role: "
 msgstr ""
 
 #: admin/templates/settings-tab.php:29
-msgid ""
-"This option works only if the user have only one role and it was deleted."
+msgid "This option works only if the user have only one role and it was deleted."
 msgstr ""
 
 #: admin/templates/settings-tab.php:34
@@ -329,29 +389,27 @@ msgstr ""
 msgid "Type a message to show when user no have access to content:"
 msgstr ""
 
-#: admin/templates/settings-tab.php:125
+#: admin/templates/settings-tab.php:131
 msgid "Hide admin bar to this roles:"
 msgstr ""
 
-#: admin/templates/settings-tab.php:148
+#: admin/templates/settings-tab.php:154
 msgid "Options saved successfully!"
 msgstr ""
 
-#: admin/templates/settings-tab.php:152
+#: admin/templates/settings-tab.php:158
 msgid "Save Settings"
 msgstr ""
 
-#: admin/templates/users-tab.php:15
-msgid ""
-"Select the user to add or remove access permissions. A user can own one or "
-"more permissions."
+#: admin/templates/users-tab.php:17
+msgid "Select the user to add or remove access permissions. A user can own one or more permissions."
 msgstr ""
 
-#: admin/templates/users-tab.php:25
+#: admin/templates/users-tab.php:27
 msgid "Search User"
 msgstr ""
 
-#: admin/templates/users-tab.php:29
+#: admin/templates/users-tab.php:31
 msgid "Search"
 msgstr ""
 
@@ -360,8 +418,5 @@ msgid "Classic Widgets Permissions"
 msgstr ""
 
 #: admin/templates/widgets-tab.php:23
-msgid ""
-"Use this option to disable the use of Classic Widgets for specific roles. "
-"This option removes Classic Widgets from both the administration and the "
-"frontend."
+msgid "Use this option to disable the use of Classic Widgets for specific roles. This option removes Classic Widgets from both the administration and the frontend."
 msgstr ""

@@ -60,6 +60,9 @@ class WPSSUserRolesCapsManager {
             $this->global_params = [
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'nonce'    => wp_create_nonce(self::$nonce),
+                'i18n'     => [
+                    'no_changes_made' => __('No changes made', 'wpss-ultimate-user-management'),
+                ],
             ];
         }
         

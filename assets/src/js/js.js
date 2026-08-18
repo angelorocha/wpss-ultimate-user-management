@@ -230,7 +230,7 @@ jQuery(function ($) {
                     if (data !== '') {
                         admin_alerts.removeClass('d-none').addClass('success').html(data);
                     } else {
-                        admin_alerts.removeClass('d-none').addClass('success').html("No changes made");
+                        admin_alerts.removeClass('d-none').addClass('success').html(wpss_user_management_object.i18n.no_changes_made);
                     }
                 }).complete(function () {
                     isRunning = false;
@@ -322,7 +322,7 @@ jQuery(function ($) {
                 if (data !== '') {
                     admin_alerts.removeClass('d-none').addClass('success').html(data);
                 } else {
-                    admin_alerts.removeClass('d-none').addClass('success').html("No changes made");
+                    admin_alerts.removeClass('d-none').addClass('success').html(wpss_user_management_object.i18n.no_changes_made);
                 }
             }).complete(function () {
                 isRunning = false;
