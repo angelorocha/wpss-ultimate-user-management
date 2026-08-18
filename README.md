@@ -90,13 +90,13 @@ Source files to scss: `assets/src/sass/`
 Source files to js: `assets/src/js/`
 
 ### Screenshots
-![Screen](./assets/screens/screenshot-1.png "Screen")
-![Screen](./assets/screens/screenshot-2.png "Screen")
-![Screen](./assets/screens/screenshot-3.png "Screen")
-![Screen](./assets/screens/screenshot-4.png "Screen")
-![Screen](./assets/screens/screenshot-5.png "Screen")
-![Screen](./assets/screens/screenshot-6.png "Screen")
-![Screen](./assets/screens/screenshot-7.png "Screen")
-![Screen](./assets/screens/screenshot-8.png "Screen")
-![Screen](./assets/screens/screenshot-9.png "Screen")
-![Screen](./assets/screens/screenshot-10.png "Screen")
+![Roles List](./.wordpress-org/screenshot-1.png "Roles List")
+![Menu Items](./.wordpress-org/screenshot-2.png "Menu Items")
+![Capabilities List](./.wordpress-org/screenshot-3.png "Capabilities List")
+![User Management](./.wordpress-org/screenshot-4.png "User Management")
+![Admin/Front Widgets](./.wordpress-org/screenshot-5.png "Admin/Front Widgets")
+![Sidebar Widgets](./.wordpress-org/screenshot-6.png "Sidebar Widgets")
+![Settings](./.wordpress-org/screenshot-7.png "Settings")
+![Content access control](./.wordpress-org/screenshot-8.png "Content access control")
+![Permissions row action](./.wordpress-org/screenshot-9.png "Permissions row action")
+![Role assignment popup](./.wordpress-org/screenshot-10.png "Role assignment popup")
