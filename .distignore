@@ -1,0 +1,15 @@
+.git
+.gitignore
+.github
+.distignore
+.phpcs.xml.dist
+.editorconfig
+node_modules
+assets/src
+composer.json
+composer.lock
+package.json
+package-lock.json
+gulpfile.js
+README.md
+*.log
