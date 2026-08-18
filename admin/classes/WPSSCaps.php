@@ -50,14 +50,9 @@ class WPSSCaps {
     public function __construct() {
         /** Ajax call to get role capabilities */
         add_action('wp_ajax_wpss_get_role_capabilities_action', [ $this, 'get_role_capabilities_action' ]);
-        add_action('wp_ajax_nopriv_wpss_get_role_capabilities_action', [ $this, 'get_role_capabilities_action' ]);
-        
+
         /** Ajax call to set capabilities to a role */
         add_action('wp_ajax_wpss_set_capabilities_to_role_action', [ $this, 'set_capabilities_to_role_action' ]);
-        add_action('wp_ajax_nopriv_wpss_set_capabilities_to_role_action', [
-            $this,
-            'set_capabilities_to_role_action',
-        ]);
     }
     
     /**

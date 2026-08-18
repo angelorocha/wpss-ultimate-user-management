@@ -30,11 +30,9 @@ class WPSSUsers {
         
         /** Ajax calls to get user details */
         add_action('wp_ajax_wpss_get_user_details_action', [ $this, 'get_user_details_action' ]);
-        add_action('wp_ajax_nopriv_wpss_get_user_details_action', [ $this, 'get_user_details_action' ]);
         
         /** Ajax call to set user roles */
         add_action('wp_ajax_wpss_set_user_roles_action', [ $this, 'set_user_roles_action' ]);
-        add_action('wp_ajax_nopriv_wpss_set_user_roles_action', [ $this, 'set_user_roles_action' ]);
         
         /** If exists, add specific roles to new users */
         add_action('user_register', [ $this, 'add_user_role_on_register' ]);
@@ -44,7 +42,6 @@ class WPSSUsers {
         
         /** Open user roles box */
         add_action('wp_ajax_openUserRolesBox', [ $this, 'openUserRolesBox' ]);
-        add_action('wp_ajax_nopriv_openUserRolesBox', [ $this, 'openUserRolesBox' ]);
     }
     
     /**
@@ -64,7 +61,7 @@ class WPSSUsers {
     #[NoReturn]
     public function openUserRolesBox(): void {
         WPSSUserRolesCapsManager::wpss_ajax_check_referer();
-        if( current_user_can('administrator') ) {
+        if( current_user_can('manage_options') ) {
             $nonce   = wp_create_nonce(WPSSUserRolesCapsManager::nonce());
             $user_id = RoleCraftRequest::post('user_id', false, $nonce);
             WPSSAdminFrontend::render([ 'template' => 'content/user-roles-box', 'args' => $user_id ]);
@@ -80,7 +77,7 @@ class WPSSUsers {
      * @since 1.2.0
      */
     public function addRoleLinkOnUserList($actions, $user_object): array {
-        if( current_user_can('administrator') ) {
+        if( current_user_can('manage_options') ) {
             $link_args = [
                 'template' => 'content/edit-user-link',
                 'args'     => $user_object

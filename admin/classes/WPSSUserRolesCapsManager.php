@@ -100,7 +100,7 @@ class WPSSUserRolesCapsManager {
      * @since 1.0.0
      */
     public static function wpss_ajax_check_referer(): void {
-        if( !current_user_can('administrator') ) {
+        if( !current_user_can('manage_options') ) {
             header('HTTP/1.0 403 Forbidden');
             exit;
         }
