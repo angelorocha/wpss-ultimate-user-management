@@ -21,9 +21,7 @@ class WPSSWidgets {
     public function __construct() {
         /** Ajax actions */
         add_action('wp_ajax_save_widget_options', [ $this, 'save_widget_options' ]);
-        add_action('wp_ajax_nopriv_save_widget_options', [ $this, 'save_widget_options' ]);
         add_action('wp_ajax_save_individual_widgets_permissions', [ $this, 'save_individual_widgets_permissions' ]);
-        add_action('wp_ajax_nopriv_save_individual_widgets_permissions', [ $this, 'save_individual_widgets_permissions' ]);
         
         /** Check sidebar widget */
         add_filter('widget_display_callback', [ $this, 'hide_individual_widgets' ], 10, 3);
