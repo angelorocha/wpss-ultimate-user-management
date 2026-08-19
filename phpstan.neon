@@ -10,9 +10,10 @@ parameters:
         - wpss-ultimate-user-management.php
         - autoload.php
     excludePaths:
-        - vendor/
-        - tests/
-        - node_modules/
+        analyseAndScan:
+            - vendor (?)
+            - tests (?)
+            - node_modules (?)
     ignoreErrors:
         # Sample: Ignore warnings if necessary
         # - '#Unreachable statement - code above always terminates.#'
