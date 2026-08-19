@@ -9,7 +9,6 @@ phpstan.neon
 tests
 node_modules
 assets/src
-composer.json
 composer.lock
 package.json
 package-lock.json
