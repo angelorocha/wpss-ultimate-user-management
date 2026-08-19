@@ -2,8 +2,11 @@
 .gitignore
 .github
 .distignore
-.phpcs.xml.dist
 .editorconfig
+phpcs.xml.dist
+phpcs.xml
+phpstan.neon
+tests
 node_modules
 assets/src
 composer.json

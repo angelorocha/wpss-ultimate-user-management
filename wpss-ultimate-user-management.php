@@ -9,7 +9,7 @@
  * Plugin Name:       RoleCraft: User Access Control – Roles, Capabilities & Content Restriction
  * Plugin URI:        https://github.com/angelorocha/wpss-ultimate-user-management
  * Description:       Complete access control solution. Manage custom user roles, granular capabilities, admin menu visibility, classic widgets, and per-post content restrictions with ease.
- * Version:           1.2.1
+ * Version:           1.2.2
  * Requires at least: 6.1
  * Tested up to:      7.1
  * Requires PHP:      8.1

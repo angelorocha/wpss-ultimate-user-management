@@ -7,8 +7,6 @@
 
 namespace WpssUserManager\Admin;
 
-use JetBrains\PhpStorm\NoReturn;
-
 /** Prevent direct access */
 if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
@@ -46,6 +44,12 @@ class WPSSRoles {
 	 */
 	private static array $roles_filter = [
 		'administrator',
+		'editor',
+		'author',
+		'contributor',
+		'subscriber',
+		'vip_support',
+		'vip_support_inactive',
 	];
 
 	/**
@@ -88,7 +92,7 @@ class WPSSRoles {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function add_role_action(): void {
+	public function add_role_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce         = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_role_data = RoleCraftRequest::post( 'role', false, $nonce );
@@ -109,7 +113,7 @@ class WPSSRoles {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function remove_role_action(): void {
+	public function remove_role_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$instance = self::instance();
 		$nonce    = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );

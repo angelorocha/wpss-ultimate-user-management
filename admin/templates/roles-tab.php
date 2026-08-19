@@ -17,14 +17,14 @@ use WpssUserManager\Admin\WPSSRoles;
 ?>
 <p>
 	<?php
-	$default_role = WPSSPluginHelper::get_option( 'wpss_default_role' );
+	$wpss_default_role = WPSSPluginHelper::get_option( 'wpss_default_role' );
 	printf(
 	/* Translators: 1: default role name */
 		esc_html__(
 			'Add or remove custom roles. Native WordPress roles cannot be deleted. When a role is deleted, users who only have this role are moved to the default role (%1$s).',
 			'wpss-ultimate-user-management'
 		),
-		esc_html( $default_role )
+		esc_html( $wpss_default_role )
 	);
 	?>
 </p>
@@ -41,23 +41,23 @@ use WpssUserManager\Admin\WPSSRoles;
 		</thead>
 		<tbody>
 		<?php
-		$get_users_per_role = count_users();
-		$protected_roles    = array_diff( WPSSRoles::get_roles_names( false ), WPSSRoles::get_roles_names() );
-		foreach ( WPSSRoles::get_roles_names( false ) as $key => $role ) :
-			$total_users = 0;
-			if ( isset( $get_users_per_role['avail_roles'][ $key ] ) ) :
-				$total_users = $get_users_per_role['avail_roles'][ $key ];
+		$wpss_get_users_per_role = count_users();
+		$wpss_protected_roles    = array_diff( WPSSRoles::get_roles_names( false ), WPSSRoles::get_roles_names() );
+		foreach ( WPSSRoles::get_roles_names( false ) as $wpss_key => $wpss_role ) :
+			$wpss_total_users = 0;
+			if ( isset( $wpss_get_users_per_role['avail_roles'][ $wpss_key ] ) ) :
+				$wpss_total_users = $wpss_get_users_per_role['avail_roles'][ $wpss_key ];
 			endif;
-			$delete_role_label = __( 'Delete Role', 'wpss-ultimate-user-management' );
+			$wpss_delete_role_label = __( 'Delete Role', 'wpss-ultimate-user-management' );
 			?>
-			<tr id='role-<?php echo esc_attr( $key ); ?>' class='role-delete'>
-				<td><?php echo esc_html( $role ); ?></td>
-				<td><?php echo esc_html( $total_users ); ?></td>
-				<?php if ( ! in_array( $key, array_keys( $protected_roles ), true ) ) : ?>
+			<tr id='role-<?php echo esc_attr( $wpss_key ); ?>' class='role-delete'>
+				<td><?php echo esc_html( $wpss_role ); ?></td>
+				<td><?php echo esc_html( "{$wpss_total_users}" ); ?></td>
+				<?php if ( ! in_array( $wpss_key, array_keys( $wpss_protected_roles ), true ) ) : ?>
 					<td>
-					<span title='<?php echo esc_attr( $delete_role_label ); ?>'
-							data-role-id='<?php echo esc_attr( $key ); ?>'
-							data-role-name='<?php echo esc_attr( $role ); ?>'>&times;</span>
+					<span title='<?php echo esc_attr( $wpss_delete_role_label ); ?>'
+							data-role-id='<?php echo esc_attr( $wpss_key ); ?>'
+							data-role-name='<?php echo esc_attr( $wpss_role ); ?>'>&times;</span>
 					</td>
 				<?php else : ?>
 					<td></td>
@@ -68,7 +68,7 @@ use WpssUserManager\Admin\WPSSRoles;
 		<tfoot>
 		<tr>
 			<td colspan="2"><?php esc_html_e( 'Total Users', 'wpss-ultimate-user-management' ); ?></td>
-			<td><?php echo esc_html( $get_users_per_role['total_users'] ); ?></td>
+			<td><?php echo esc_html( "{$wpss_get_users_per_role['total_users']}" ); ?></td>
 		</tr>
 		</tfoot>
 	</table>

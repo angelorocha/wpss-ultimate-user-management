@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<ruleset name="Rolecraft Code Standards">
+    <description>Wordpress rules.</description>
+    <config name="testVersion" value="8.0-"/>
+    <arg name="basepath" value="."/>
+    <arg value="p"/>
+    <arg value="s"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+
+    <!-- Dir to analyse -->
+    <file>admin/classes/</file>
+    <file>admin/templates/</file>
+    <file>wpss-ultimate-user-management.php</file>
+
+    <!-- Dir to ignore -->
+    <exclude-pattern>vendor/</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>node_modules/</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>tests/</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+
+    <!-- WordPress patterns -->
+    <rule ref="WordPress">
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+    </rule>
+
+    <!-- Plugin text domain -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="wpss-ultimate-user-management"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Define global prefix -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="wpss"/>
+                <element value="wpss_user_manager"/>
+                <element value="wpss_urcm"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Allow modern php class names -->
+    <rule ref="WordPress.Files.FileName">
+            <severity>0</severity>
+    </rule>
+
+    <!-- Force tabs -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+
+    <!-- Config tab size  -->
+    <arg name="tab-width" value="4"/>
+
+    <rule ref="PEAR.Functions.FunctionCallSignature">
+        <properties>
+            <property name="indent" value="4"/>
+        </properties>
+    </rule>
+</ruleset>

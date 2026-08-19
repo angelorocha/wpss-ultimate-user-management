@@ -16,7 +16,7 @@ use WpssUserManager\Admin\WPSSUserRolesCapsManager;
 use WpssUserManager\Admin\RoleCraftRequest;
 use WpssUserManager\Admin\WPSSRoles;
 
-$nonce = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
+$wpss_nonce = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 ?>
 <form method="POST" action="" class="wpss-menage-admin-menus">
 	<p>
@@ -27,25 +27,25 @@ $nonce = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		<strong><?php esc_html_e( 'Select role:', 'wpss-ultimate-user-management' ); ?></strong>
 	</label>
 	<?php
-	$checked     = [];
-	$selected    = '';
-	$remove_menu = RoleCraftRequest::post( 'wpss-get-role-to-remove-menu', false, $nonce );
-	if ( ! empty( $remove_menu ) ) :
-		$selected = $remove_menu;
-		if ( isset( WPSSAdminPages::get_option()[ $remove_menu ] ) ) :
-			$checked = WPSSAdminPages::get_option()[ $remove_menu ];
+	$wpss_checked     = [];
+	$wpss_selected    = '';
+	$wpss_remove_menu = RoleCraftRequest::post( 'wpss-get-role-to-remove-menu', false, $wpss_nonce );
+	if ( ! empty( $wpss_remove_menu ) ) :
+		$wpss_selected = $wpss_remove_menu;
+		if ( isset( WPSSAdminPages::get_option()[ $wpss_remove_menu ] ) ) :
+			$wpss_checked = WPSSAdminPages::get_option()[ $wpss_remove_menu ];
 		endif;
 	endif;
 	?>
 	<select name="wpss-get-role-to-remove-menu" id="wpss-roles-list" onchange="this.form.submit()">
 		<option value="">------------------</option>
 		<?php
-		foreach ( WPSSRoles::get_roles_names( false ) as $role => $name ) :
-			$role_value  = $role;
-			$is_selected = $selected === $role ? ' selected' : '';
+		foreach ( WPSSRoles::get_roles_names( false ) as $wpss_role => $wpss_name ) :
+			$wpss_role_value  = $wpss_role;
+			$wpss_is_selected = $wpss_selected === $wpss_role ? ' selected' : '';
 			?>
-			<option value="<?php echo esc_attr( $role_value ); ?>" <?php echo esc_attr( $is_selected ); ?>>
-				<?php echo esc_html( $name ); ?>
+			<option value="<?php echo esc_attr( $wpss_role_value ); ?>" <?php echo esc_attr( $wpss_is_selected ); ?>>
+				<?php echo esc_html( $wpss_name ); ?>
 			</option>
 		<?php endforeach; ?>
 	</select>
@@ -56,23 +56,23 @@ $nonce = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 	<hr>
 	<ul class="pages-list">
 		<?php
-		$menus = WPSSAdminPages::get_menu_list();
-		$count = 0;
-		foreach ( $menus as $key => $val ) :
-			++$count;
-			$check = ( in_array( $key, $checked, true ) ? ' checked' : '' );
+		$wpss_menus = WPSSAdminPages::get_menu_list();
+		$wpss_count = 0;
+		foreach ( $wpss_menus as $wpss_key => $wpss_val ) :
+			++$wpss_count;
+			$wpss_check = ( in_array( $wpss_key, $wpss_checked, true ) ? ' checked' : '' );
 			?>
 			<li>
-				<label for="menu-item-<?php echo esc_attr( $count ); ?>">
-					<input type="checkbox" id="menu-item-<?php echo esc_attr( $count ); ?>"
+				<label for="menu-item-<?php echo esc_attr( "{$wpss_count}" ); ?>">
+					<input type="checkbox" id="menu-item-<?php echo esc_attr( "{$wpss_count}" ); ?>"
 							name="wpss-show-menu-item[]"
-							value="<?php echo esc_attr( $key ); ?>"<?php echo esc_attr( $check ); ?>>
-					<?php echo esc_html( $val ); ?>
+							value="<?php echo esc_attr( $wpss_key ); ?>"<?php echo esc_attr( $wpss_check ); ?>>
+					<?php echo esc_html( $wpss_val ); ?>
 				</label>
 			</li>
 			<?php
 		endforeach;
-		$count = 0;
+		$wpss_count = 0;
 		?>
 	</ul>
 	<div class="role-editor-messages d-none"></div>

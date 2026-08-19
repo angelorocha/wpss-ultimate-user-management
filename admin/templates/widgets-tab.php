@@ -15,11 +15,11 @@ use WpssUserManager\Admin\WPSSPluginHelper;
 use WpssUserManager\Admin\WPSSRoles;
 use WpssUserManager\Admin\WPSSWidgets;
 
-$get_widgets   = WPSSWidgets::get_admin_widgets();
-$get_widget_op = WPSSPluginHelper::get_option( 'wpss_hide_widgets' );
-if ( ! empty( $get_widget_op ) ) :
-	$get_widget_op = json_decode( $get_widget_op, true );
-	$get_widget_op = $get_widget_op['wpss_hide_widget'] ?? [];
+$wpss_get_widgets   = WPSSWidgets::get_admin_widgets();
+$wpss_get_widget_op = WPSSPluginHelper::get_option( 'wpss_hide_widgets' );
+if ( ! empty( $wpss_get_widget_op ) ) :
+	$wpss_get_widget_op = json_decode( $wpss_get_widget_op, true );
+	$wpss_get_widget_op = $wpss_get_widget_op['wpss_hide_widget'] ?? [];
 endif;
 ?>
 <div class="wpss-widgets-tab">
@@ -33,24 +33,24 @@ endif;
 	
 	<form id="wpss-widgets-permissions" method="post" action="">
 		<?php
-		$list_roles = WPSSRoles::get_roles_names( false );
-		unset( $list_roles['administrator'] );
-		if ( $get_widgets ) :
+		$wpss_list_roles = WPSSRoles::get_roles_names( false );
+		unset( $wpss_list_roles['administrator'] );
+		if ( $wpss_get_widgets ) :
 			?>
-			<?php foreach ( $list_roles as $role => $name ) : ?>
-				<h4><?php echo esc_attr( $name ); ?></h4>
+			<?php foreach ( $wpss_list_roles as $wpss_role => $wpss_name ) : ?>
+				<h4><?php echo esc_attr( $wpss_name ); ?></h4>
 				<div class="row">
-					<?php foreach ( $get_widgets as $key => $widget ) : ?>
+					<?php foreach ( $wpss_get_widgets as $wpss_key => $wpss_widget ) : ?>
 						<div class="col-md-3">
-							<label for="wpss_widget_<?php echo esc_attr( "$key.$role" ); ?>">
+							<label for="wpss_widget_<?php echo esc_attr( "$wpss_key.$wpss_role" ); ?>">
 								<input type="checkbox"
-										id="wpss_widget_<?php echo esc_attr( "$key.$role" ); ?>"
-										name="wpss_hide_widget[<?php echo esc_attr( $role ); ?>][]"
-									<?php if ( ! empty( $get_widget_op[ $role ] ) ) : ?>
-										<?php checked( in_array( $key, $get_widget_op[ $role ], true ) ); ?>
+										id="wpss_widget_<?php echo esc_attr( "$wpss_key.$wpss_role" ); ?>"
+										name="wpss_hide_widget[<?php echo esc_attr( $wpss_role ); ?>][]"
+									<?php if ( ! empty( $wpss_get_widget_op[ $wpss_role ] ) ) : ?>
+										<?php checked( in_array( $wpss_key, $wpss_get_widget_op[ $wpss_role ], true ) ); ?>
 									<?php endif; ?>
-										value="<?php echo esc_attr( $key ); ?>">
-								<?php echo esc_html( $widget['name'] ); ?>
+										value="<?php echo esc_attr( $wpss_key ); ?>">
+								<?php echo esc_html( $wpss_widget['name'] ); ?>
 							</label>
 						</div>
 					<?php endforeach; ?>

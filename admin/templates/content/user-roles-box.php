@@ -13,32 +13,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use WpssUserManager\Admin\WPSSRoles;
 
-$user_id   = $template['args'] ?? false;
-$user_data = get_userdata( $user_id );
-$user_name = $user_data->display_name;
+$wpss_user_id   = $template['args'] ?? false;
+$wpss_user_data = get_userdata( $wpss_user_id );
+$wpss_user_name = $wpss_user_data->display_name;
 ?>
 
 <div class="wpss-user-roles-box">
 	<span class="wpss-close-roles-box">&times;</span>
 	<div class="box-header">
 		<strong class="wpss-user-name">
-			<span data-user-id="<?php echo esc_attr( $user_id ); ?>">#<?php echo esc_html( $user_id ); ?></span>
-			- <?php echo esc_html( $user_name ); ?>
+			<span data-user-id="<?php echo esc_attr( $wpss_user_id ); ?>">#<?php echo esc_html( $wpss_user_id ); ?></span>
+			- <?php echo esc_html( $wpss_user_name ); ?>
 		</strong>
 	</div>
 	<form method="post" action="">
 		<div class="wpss-input-wrapper">
 			<?php
-			foreach ( WPSSRoles::get_roles_names( false ) as $role_key => $role_name ) :
-				$key     = esc_html( $role_key );
-				$name    = esc_html( $role_name );
-				$checked = ( in_array( $key, $user_data->roles, true ) ? ' checked' : '' );
+			foreach ( WPSSRoles::get_roles_names( false ) as $wpss_role_key => $wpss_role_name ) :
+				$wpss_key     = esc_html( $wpss_role_key );
+				$wpss_name    = esc_html( $wpss_role_name );
+				$wpss_checked = ( in_array( $wpss_key, $wpss_user_data->roles, true ) ? ' checked' : '' );
 				?>
-				<label for="wpss-add-role-to-user-<?php echo esc_attr( $key ); ?>">
+				<label for="wpss-add-role-to-user-<?php echo esc_attr( $wpss_key ); ?>">
 					<input type="checkbox" name="wpss-add-role-to-user[]"
-							id="wpss-add-role-to-user-<?php echo esc_attr( $key ); ?>"
-							value="<?php echo esc_attr( $key ); ?>"<?php echo esc_attr( $checked ); ?>>
-					<?php echo esc_html( $role_name ); ?>
+							id="wpss-add-role-to-user-<?php echo esc_attr( $wpss_key ); ?>"
+							value="<?php echo esc_attr( $wpss_key ); ?>"<?php echo esc_attr( $wpss_checked ); ?>>
+					<?php echo esc_html( $wpss_role_name ); ?>
 				</label>
 			<?php endforeach; ?>
 		</div>

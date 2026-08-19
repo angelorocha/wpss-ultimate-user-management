@@ -11,15 +11,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$user_object = $template['args'] ?? false;
-if ( $user_object ) :
+$wpss_user_object = $template['args'] ?? false;
+if ( $wpss_user_object ) :
 	printf(
 		'<a href="#" title="%s" data-user-id="%s" aria-label="%s" class="wpss-open-user-role-editor">%s</a>',
 		/* Translators: %s is user display name */
-		esc_attr( sprintf( __( 'Manage roles for %s', 'wpss-ultimate-user-management' ), $user_object->display_name ) ),
-		esc_attr( $user_object->ID ),
+		esc_attr( sprintf( __( 'Manage roles for %s', 'wpss-ultimate-user-management' ), $wpss_user_object->display_name ) ),
+		esc_attr( $wpss_user_object->ID ),
 		/* Translators: %s is user display name */
-		esc_attr( sprintf( __( 'Manage roles for %s', 'wpss-ultimate-user-management' ), $user_object->display_name ) ),
+		esc_attr( sprintf( __( 'Manage roles for %s', 'wpss-ultimate-user-management' ), $wpss_user_object->display_name ) ),
 		esc_html__( 'Permissions', 'wpss-ultimate-user-management' )
 	);
 endif;

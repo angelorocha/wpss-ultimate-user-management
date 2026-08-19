@@ -7,7 +7,7 @@
 
 namespace WpssUserManager\Admin;
 
-use JetBrains\PhpStorm\NoReturn;
+use WP_Widget;
 
 /** Prevent direct access */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -64,7 +64,7 @@ class WPSSWidgets {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function save_widget_options(): void {
+	public function save_widget_options(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce       = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$widget_data = RoleCraftRequest::post( 'wpss_widgets', false, $nonce );
@@ -83,7 +83,7 @@ class WPSSWidgets {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function save_individual_widgets_permissions(): void {
+	public function save_individual_widgets_permissions(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce       = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$widget_data = RoleCraftRequest::post( 'individual_widgets', false, $nonce );
@@ -99,12 +99,12 @@ class WPSSWidgets {
 	/**
 	 * Check if any rule exists to show/hide this widget on the frontend for the current user's role.
 	 *
-	 * @param array      $instance Widget settings.
-	 * @param \WP_Widget $widget Widget instance.
+	 * @param array     $instance Widget settings.
+	 * @param WP_Widget $widget Widget instance.
 	 * @return array|bool
 	 * @since 1.0.0
 	 */
-	public function hide_individual_widgets( $instance, $widget ): array|bool {
+	public function hide_individual_widgets( array $instance, WP_Widget $widget ): array|bool {
 		$hide_widgets = WPSSPluginHelper::get_option( 'wpss_individual_widgets' );
 		if ( $hide_widgets ) {
 			$hide_widgets = json_decode( $hide_widgets, true );
@@ -171,7 +171,7 @@ class WPSSWidgets {
 	 * @return string
 	 * @since 1.0.0
 	 */
-	public static function get_widget_title( $widget_id ): string {
+	public static function get_widget_title( string $widget_id ): string {
 		global $wp_registered_widgets;
 		if ( ! isset( $wp_registered_widgets[ $widget_id ] ) ) {
 			return '';

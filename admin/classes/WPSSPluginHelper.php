@@ -97,7 +97,7 @@ class WPSSPluginHelper {
 				update_blog_option( get_current_blog_id(), $option, $value );
 			}
 		} else {
-			update_option( $option, $value, 'yes' );
+			update_option( $option, $value, true );
 		}
 	}
 

@@ -2,12 +2,46 @@
   "name": "wpss/wpss-ultimate-user-management",
   "description": "WPSS Users, roles and capabilities management",
   "type": "wordpress-plugin",
-  "keywords": ["wordpress", "plugin", "metabox"],
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "metabox"
+  ],
   "license": "GNU General Public License v3 or later",
   "autoload": {
     "psr-4": {
       "WpssUserManager\\Admin\\": "admin/classes/"
     }
+  },
+  "require-dev": {
+    "brain/monkey": "^2.6",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "mockery/mockery": "^1.6",
+    "pestphp/pest": "^2.0",
+    "phpstan/phpstan": "^2.0",
+    "szepeviktor/phpstan-wordpress": "^2.0",
+    "wp-coding-standards/wpcs": "^3.0"
+  },
+  "scripts": {
+    "test": "pest",
+    "test:coverage": "pest --coverage",
+    "phpcs": "phpcs --standard=phpcs.xml.dist",
+    "phpcbf": "phpcbf --standard=phpcs.xml.dist",
+    "phpstan": "phpstan analyse --memory-limit=1G",
+    "check": [
+      "@phpcbf",
+      "@phpcs",
+      "@phpstan"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "process-timeout": 0
   },
   "authors": [
     {
