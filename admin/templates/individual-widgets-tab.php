@@ -19,8 +19,9 @@ $wpss_get_blocks    = WPSSWidgets::get_widget_blocks();
 $wpss_get_widget_op = WPSSPluginHelper::get_option( 'wpss_individual_widgets' );
 if ( ! empty( $wpss_get_widget_op ) ) :
 	$wpss_get_widget_op = json_decode( $wpss_get_widget_op, true );
-	$wpss_get_widget_op = $get_widget_op['wpss_individual_widgets'] ?? [];
+	$wpss_get_widget_op = $wpss_get_widget_op['wpss_individual_widgets'] ?? [];
 endif;
+
 ?>
 <div class="wpss-widgets-tab">
 	<p>

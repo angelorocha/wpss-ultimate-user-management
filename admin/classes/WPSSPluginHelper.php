@@ -31,8 +31,14 @@ class WPSSPluginHelper {
 	 * @since 1.0.0
 	 */
 	public static function in_array_m( string $search, array $haystack, bool $strict = false ): bool {
-		// phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual -- intentional: the $strict param lets callers opt out of strict comparison.
-		return array_any( $haystack, fn( $item ) => $strict ? $item === $search : $item == $search || ( is_array( $item ) && self::in_array_m( $search, $item, $strict ) ) );
+		foreach ( $haystack as $item ) {
+			// phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual -- intentional: the $strict param lets callers opt out of strict comparison.
+			if ( $strict ? $item === $search : $item == $search || ( is_array( $item ) && self::in_array_m( $search, $item, $strict ) ) ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

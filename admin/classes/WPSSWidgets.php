@@ -109,8 +109,10 @@ class WPSSWidgets {
 		if ( $hide_widgets ) {
 			$hide_widgets = json_decode( $hide_widgets, true );
 			$hide_widgets = $hide_widgets['wpss_individual_widgets'] ?? [];
-			if ( array_any( $hide_widgets, fn( $value, $key ) => current_user_can( $key ) && in_array( $widget->id, $value, true ) ) ) {
-				return false;
+			foreach ( $hide_widgets as $key => $value ) {
+				if ( current_user_can( $key ) && in_array( $widget->id, $value, true ) ) {
+					return false;
+				}
 			}
 		}
 		return $instance;
