@@ -5,7 +5,7 @@ Tags: user roles, capabilities, access control, content restriction, admin menu
 Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -149,6 +149,13 @@ No. The plugin provides a graphical interface for managing roles, capabilities, 
 10. The role-assignment popup opened from the "Permissions" link on the Users list screen.
 
 == Changelog ==
+= 1.2.3 =
+* Fix missing composer.json file
+
+= 1.2.2 =
+* Add phpcs, phpbf and phpstan;
+* Update composer.json deps versions;
+* Improve code quality for all plugin files;
 
 = 1.2.1 =
 * Removed unnecessary unauthenticated AJAX action registrations and replaced a role-based capability check with a proper WordPress capability.
