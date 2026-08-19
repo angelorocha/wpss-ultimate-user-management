@@ -2,7 +2,6 @@
 .gitignore
 .github
 .distignore
-.phpcs.xml.dist
 .editorconfig
 phpcs.xml.dist
 phpcs.xml
