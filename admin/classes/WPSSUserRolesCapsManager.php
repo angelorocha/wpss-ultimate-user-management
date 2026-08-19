@@ -56,9 +56,9 @@ class WPSSUserRolesCapsManager {
 	 * Define plugin assets version
 	 *
 	 * @since 1.0.0
-	 * @var int
+	 * @var string
 	 */
-	private static int $plugin_file_version = 20261408;
+	private static string $plugin_file_version = '20261408';
 
 	/**
 	 * Initialize the plugin
@@ -71,7 +71,7 @@ class WPSSUserRolesCapsManager {
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
 				'nonce'    => wp_create_nonce( self::$nonce ),
 				'i18n'     => [
-					'no_changes_made' => __('No changes made', 'wpss-ultimate-user-management'),
+					'no_changes_made' => __( 'No changes made', 'wpss-ultimate-user-management' ),
 				],
 			];
 		}

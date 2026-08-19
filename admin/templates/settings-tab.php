@@ -25,11 +25,11 @@ use WpssUserManager\Admin\WPSSRoles;
 		<?php esc_html_e( 'When user have no roles, assign user in this role: ', 'wpss-ultimate-user-management' ); ?>
 		<select required="required" id="wpss-default-role-select" name="wpss_default_role">
 			<?php
-			foreach ( WPSSRoles::get_roles_names( false ) as $role => $name ) :
-				$selected = WPSSPluginHelper::get_option( 'wpss_default_role' ) === $role ? 'selected' : '';
+			foreach ( WPSSRoles::get_roles_names( false ) as $wpss_role => $wpss_name ) :
+				$wpss_selected = WPSSPluginHelper::get_option( 'wpss_default_role' ) === $wpss_role ? 'selected' : '';
 				?>
-				<option value='<?php echo esc_attr( $role ); ?>' <?php echo esc_attr( $selected ); ?>>
-					<?php echo esc_html( $name ); ?>
+				<option value='<?php echo esc_attr( $wpss_role ); ?>' <?php echo esc_attr( $wpss_selected ); ?>>
+					<?php echo esc_html( $wpss_name ); ?>
 				</option>
 			<?php endforeach; ?>
 		</select>
@@ -51,20 +51,20 @@ use WpssUserManager\Admin\WPSSRoles;
 	<?php esc_html_e( 'Delete all plugin data on deactivate: ', 'wpss-ultimate-user-management' ); ?>
 	<div class="radio-container">
 		<?php
-		$radio_option_values = [
+		$wpss_radio_option_values = [
 			0 => __( 'No', 'wpss-ultimate-user-management' ),
 			1 => __( 'Yes', 'wpss-ultimate-user-management' ),
 		];
-		foreach ( $radio_option_values as $val => $label ) :
-			$checked = (int) WPSSPluginHelper::get_option( 'wpss_delete_plugin_data' ) === $val ? 'checked' : '';
+		foreach ( $wpss_radio_option_values as $wpss_val => $wpss_label ) :
+			$wpss_checked = (int) WPSSPluginHelper::get_option( 'wpss_delete_plugin_data' ) === $wpss_val ? 'checked' : '';
 			?>
-			<label for="wpss-plugin-data-<?php echo esc_attr( $val ); ?>">
+			<label for="wpss-plugin-data-<?php echo esc_attr( "{$wpss_val}" ); ?>">
 				<input type='radio'
 						name='wpss_delete_plugin_data'
-						id='wpss-plugin-data-<?php echo esc_attr( $val ); ?>'
-						value='<?php echo esc_attr( $val ); ?>'
-					<?php echo esc_attr( $checked ); ?>>
-				<?php echo esc_html( $label ); ?>
+						id='wpss-plugin-data-<?php echo esc_attr( "{$wpss_val}" ); ?>'
+						value='<?php echo esc_attr( "{$wpss_val}" ); ?>'
+					<?php echo esc_attr( $wpss_checked ); ?>>
+				<?php echo esc_html( $wpss_label ); ?>
 			</label>
 		<?php endforeach; ?>
 	</div>
@@ -75,24 +75,24 @@ use WpssUserManager\Admin\WPSSRoles;
 	</strong>
 	<div class="new-users-roles">
 		<?php
-		$roles = WPSSRoles::get_roles_names( false );
-		if ( ! empty( $roles ) ) :
-			unset( $roles['administrator'] );
-			unset( $roles['subscriber'] );
-			$get_users_roles = WPSSPluginHelper::get_option( 'wpss_roles_to_new_users' );
-			if ( ! empty( $get_users_roles ) ) :
-				$get_users_roles = json_decode( $get_users_roles, true );
+		$wpss_roles = WPSSRoles::get_roles_names( false );
+		if ( ! empty( $wpss_roles ) ) :
+			unset( $wpss_roles['administrator'] );
+			unset( $wpss_roles['subscriber'] );
+			$wpss_get_users_roles = WPSSPluginHelper::get_option( 'wpss_roles_to_new_users' );
+			if ( ! empty( $wpss_get_users_roles ) ) :
+				$wpss_get_users_roles = json_decode( $wpss_get_users_roles, true );
 			else :
-				$get_users_roles = [];
+				$wpss_get_users_roles = [];
 			endif;
-			foreach ( $roles as $key => $role ) :
+			foreach ( $wpss_roles as $wpss_key => $wpss_role ) :
 				?>
-				<label for="user-role-<?php echo esc_attr( $key ); ?>">
+				<label for="user-role-<?php echo esc_attr( $wpss_key ); ?>">
 					<input type="checkbox" name="wpss_roles_to_new_users[]"
-							id="user-role-<?php echo esc_attr( $key ); ?>"
-							value="<?php echo esc_attr( $key ); ?>"
-						<?php echo esc_attr( checked( ! in_array( $key, $get_users_roles, true ), '', false ) ); ?>>
-					<?php echo esc_html( $role ); ?>
+							id="user-role-<?php echo esc_attr( $wpss_key ); ?>"
+							value="<?php echo esc_attr( $wpss_key ); ?>"
+						<?php echo esc_attr( checked( ! in_array( $wpss_key, $wpss_get_users_roles, true ), '', false ) ); ?>>
+					<?php echo esc_html( $wpss_role ); ?>
 				</label>
 			<?php endforeach; ?>
 		<?php endif; ?>
@@ -107,35 +107,35 @@ use WpssUserManager\Admin\WPSSRoles;
 		if ( ! empty( $wpss_post_types['attachment'] ) ) :
 			unset( $wpss_post_types['attachment'] );
 		endif;
-		$get_access_cpt = WPSSPluginHelper::get_option( 'wpss_cpt_access_control' );
-		if ( ! empty( $get_access_cpt ) ) :
-			$get_access_cpt = json_decode( $get_access_cpt, true );
+		$wpss_get_access_cpt = WPSSPluginHelper::get_option( 'wpss_cpt_access_control' );
+		if ( ! empty( $wpss_get_access_cpt ) ) :
+			$wpss_get_access_cpt = json_decode( $wpss_get_access_cpt, true );
 		else :
-			$get_access_cpt = [];
+			$wpss_get_access_cpt = [];
 		endif;
-		foreach ( $wpss_post_types as $cpt_key => $wpss_post_type ) :
+		foreach ( $wpss_post_types as $wpss_cpt_key => $wpss_post_type ) :
 			?>
-			<label for="wpss_cpt_access_control_<?php echo esc_attr( $cpt_key ); ?>">
+			<label for="wpss_cpt_access_control_<?php echo esc_attr( $wpss_cpt_key ); ?>">
 				<input type="checkbox"
-						id="wpss_cpt_access_control_<?php echo esc_attr( $cpt_key ); ?>"
-						name="wpss_cpt_access_control[]" value="<?php echo esc_attr( $cpt_key ); ?>"
-					<?php echo esc_attr( checked( ! in_array( $cpt_key, $get_access_cpt, true ), '', false ) ); ?>>
-				<?php echo esc_attr( get_post_type_object( $cpt_key )->label ); ?>
+						id="wpss_cpt_access_control_<?php echo esc_attr( $wpss_cpt_key ); ?>"
+						name="wpss_cpt_access_control[]" value="<?php echo esc_attr( $wpss_cpt_key ); ?>"
+					<?php echo esc_attr( checked( ! in_array( $wpss_cpt_key, $wpss_get_access_cpt, true ), '', false ) ); ?>>
+				<?php echo esc_attr( get_post_type_object( $wpss_cpt_key )->label ); ?>
 			</label>
 		<?php endforeach; ?>
 	</div>
 	<?php
-	$access_message = WPSSPluginHelper::get_option( 'wpss_cpt_access_message' );
+	$wpss_access_message = WPSSPluginHelper::get_option( 'wpss_cpt_access_message' );
 	?>
 	<label for="wpss_cpt_access_message">
 		<?php esc_html_e( 'Type a message to show when user no have access to content:', 'wpss-ultimate-user-management' ); ?>
 	</label>
 	<?php
-	$editor_config = [
+	$wpss_editor_config = [
 		'textarea_rows' => 5,
 		'quicktags'     => false,
 	];
-	wp_editor( wp_kses_post( $access_message ), 'wpss_cpt_access_message', $editor_config );
+	wp_editor( wp_kses_post( $wpss_access_message ), 'wpss_cpt_access_message', $wpss_editor_config );
 	?>
 	<hr>
 	<strong>
@@ -143,21 +143,21 @@ use WpssUserManager\Admin\WPSSRoles;
 	</strong>
 	<div class="new-users-roles">
 		<?php
-		$get_hide_admin_bar = WPSSPluginHelper::get_option( 'wpss_hide_admin_bar' );
-		if ( ! empty( $get_hide_admin_bar ) ) :
-			$get_hide_admin_bar = json_decode( $get_hide_admin_bar, true );
+		$wpss_get_hide_admin_bar = WPSSPluginHelper::get_option( 'wpss_hide_admin_bar' );
+		if ( ! empty( $wpss_get_hide_admin_bar ) ) :
+			$wpss_get_hide_admin_bar = json_decode( $wpss_get_hide_admin_bar, true );
 		else :
-			$get_hide_admin_bar = [];
+			$wpss_get_hide_admin_bar = [];
 		endif;
-		$admin_bar_roles = WPSSRoles::get_roles_names( false );
-		foreach ( $admin_bar_roles as $key => $role ) :
+		$wpss_admin_bar_roles = WPSSRoles::get_roles_names( false );
+		foreach ( $wpss_admin_bar_roles as $wpss_key => $wpss_role ) :
 			?>
-			<label for="hide-admin-bar-<?php echo esc_attr( $key ); ?>">
+			<label for="hide-admin-bar-<?php echo esc_attr( $wpss_key ); ?>">
 				<input type="checkbox" name="wpss_hide_admin_bar[]"
-						id="hide-admin-bar-<?php echo esc_attr( $key ); ?>"
-						value="<?php echo esc_attr( $key ); ?>"
-					<?php echo esc_attr( checked( ! in_array( $key, $get_hide_admin_bar, true ), '', false ) ); ?>>
-				<?php echo esc_html( $role ); ?>
+						id="hide-admin-bar-<?php echo esc_attr( $wpss_key ); ?>"
+						value="<?php echo esc_attr( $wpss_key ); ?>"
+					<?php echo esc_attr( checked( ! in_array( $wpss_key, $wpss_get_hide_admin_bar, true ), '', false ) ); ?>>
+				<?php echo esc_html( $wpss_role ); ?>
 			</label>
 		<?php endforeach; ?>
 	</div>

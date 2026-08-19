@@ -7,8 +7,6 @@
 
 namespace WpssUserManager\Admin;
 
-use JetBrains\PhpStorm\NoReturn;
-
 /** Prevent direct access */
 if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
@@ -78,7 +76,7 @@ class WPSSAdminPages {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function insert_options_action(): void {
+	public function insert_options_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce    = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_data = RoleCraftRequest::post( 'wpss_admin_menus', false, $nonce );
@@ -144,7 +142,7 @@ class WPSSAdminPages {
 				/**
 				 * Strip menu notification badges from the option title.
 				 *
-				 * @var array $menu_title Regex match result.
+				 * @var array{}|array<int, string> $menu_title
 				 */
 				preg_match( '/(?<=^|>).*?(?=<|$)/s', $menu[0], $menu_title );
 				$get_menus[ $menu[2] ] = esc_attr( $menu_title[0] );

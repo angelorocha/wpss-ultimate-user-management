@@ -31,14 +31,8 @@ class WPSSPluginHelper {
 	 * @since 1.0.0
 	 */
 	public static function in_array_m( string $search, array $haystack, bool $strict = false ): bool {
-		foreach ( $haystack as $item ) {
-			// phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual -- intentional: the $strict param lets callers opt out of strict comparison.
-			if ( $strict ? $item === $search : $item == $search || ( is_array( $item ) && self::in_array_m( $search, $item, $strict ) ) ) {
-				return true;
-			}
-		}
-
-		return false;
+		// phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual -- intentional: the $strict param lets callers opt out of strict comparison.
+		return array_any( $haystack, fn( $item ) => $strict ? $item === $search : $item == $search || ( is_array( $item ) && self::in_array_m( $search, $item, $strict ) ) );
 	}
 
 	/**
@@ -97,7 +91,7 @@ class WPSSPluginHelper {
 				update_blog_option( get_current_blog_id(), $option, $value );
 			}
 		} else {
-			update_option( $option, $value, 'yes' );
+			update_option( $option, $value, true );
 		}
 	}
 

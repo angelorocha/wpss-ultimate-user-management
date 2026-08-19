@@ -5,7 +5,7 @@ Tags: user roles, capabilities, access control, content restriction, admin menu
 Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

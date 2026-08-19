@@ -1,0 +1,49 @@
+name: PHP Quality Assurance
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  validate-and-format:
+    name: Validate and Format Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer:v2
+          coverage: none
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Run PHPCBF (Auto Fix Indentation & Style)
+        run: composer phpcbf || true
+
+      - name: Commit Automated Fixes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-fix code formatting with phpcbf"
+          file_pattern: "**/*.php"
+
+      - name: Run PHPCS Check
+        run: composer phpcs
+
+      - name: Run PHPStan Check
+        run: composer phpstan

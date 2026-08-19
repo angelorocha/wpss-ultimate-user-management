@@ -17,32 +17,32 @@ use WpssUserManager\Admin\RoleCraftRequest;
 use WpssUserManager\Admin\WPSSUsers;
 use WpssUserManager\Admin\WPSSUserRolesCapsManager;
 
-$nonce = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
+$wpss_nonce = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 ?>
 <p>
 	<?php esc_html_e( 'Select the user to add or remove access permissions. A user can own one or more permissions.', 'wpss-ultimate-user-management' ); ?>
 </p>
 <hr>
 <?php
-$search = RoleCraftRequest::get( 'wpss-user-search', $nonce );
+$wpss_search = RoleCraftRequest::get( 'wpss-user-search', $wpss_nonce );
 ?>
 <form method="get" action="<?php echo esc_url( admin_url() ); ?>" class="wpss-user-select">
 	<input type="hidden" name="page" value="wpss-ultimate-user-management-admin-menu">
 	<input type="hidden" name="tab" value="users-tab">
 	<label for="wpss-user-search">
 		<strong><?php esc_html_e( 'Search User', 'wpss-ultimate-user-management' ); ?>:</strong>
-		<input type="search" value="<?php echo esc_attr( $search ); ?>" name="wpss-user-search" id="wpss-user-search" required="required">
+		<input type="search" value="<?php echo esc_attr( $wpss_search ); ?>" name="wpss-user-search" id="wpss-user-search" required="required">
 		
 		<button type="submit" class="button-primary">
 			<?php esc_html_e( 'Search', 'wpss-ultimate-user-management' ); ?>
 		</button>
 	</label>
 	<?php
-	$template = [
+	$wpss_template = [
 		'template' => 'content/users-table',
-		'args'     => WPSSUsers::get_users( WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ), $search ),
+		'args'     => WPSSUsers::get_users( WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ), $wpss_search ),
 	];
-	WPSSAdminFrontend::render( $template );
+	WPSSAdminFrontend::render( $wpss_template );
 	?>
 </form><!-- .wpss-user-select -->
 

@@ -16,15 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @var array $template
  */
-$args    = $template['args'];
-$message = sprintf(
+$wpss_args    = $template['args'];
+$wpss_message = sprintf(
 /* Translators: %s role name */
 	_n(
 		'Role %s successfully removed',
 		'Roles %s successfully removed',
-		$args[0],
+		$wpss_args[0],
 		'wpss-ultimate-user-management'
 	),
-	implode( ',', $args[1] )
+	implode( ',', $wpss_args[1] )
 );
-echo esc_html( $message ) . '<br>';
+echo esc_html( $wpss_message ) . '<br>';

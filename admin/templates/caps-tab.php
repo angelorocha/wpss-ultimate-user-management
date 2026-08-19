@@ -23,8 +23,12 @@ use WpssUserManager\Admin\WPSSRoles;
 		<strong><?php esc_html_e( 'Select the role', 'wpss-ultimate-user-management' ); ?>: </strong>
 		<select required="required" id="wpss-role-select" name="wpss-role-select">
 			<option value="">-----------</option>
-			<?php foreach ( WPSSRoles::get_roles_names() as $role => $name ) : ?>
-				<option value="<?php echo esc_attr( $role ); ?>"><?php echo esc_attr( $name ); ?></option>
+			<?php
+			$wpss_get_system_roles = WPSSRoles::get_roles_names( false );
+			unset( $wpss_get_system_roles['administrator'] );
+			foreach ( $wpss_get_system_roles as $wpss_role => $wpss_name ) :
+				?>
+				<option value="<?php echo esc_attr( $wpss_role ); ?>"><?php echo esc_attr( $wpss_name ); ?></option>
 			<?php endforeach; ?>
 		</select>
 	</label>

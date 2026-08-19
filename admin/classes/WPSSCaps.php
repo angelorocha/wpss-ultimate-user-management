@@ -7,8 +7,6 @@
 
 namespace WpssUserManager\Admin;
 
-use JetBrains\PhpStorm\NoReturn;
-
 /** Prevent direct access */
 if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
@@ -21,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 class WPSSCaps {
-	
+
 	/**
 	 * Instance of this class.
 	 *
@@ -29,7 +27,7 @@ class WPSSCaps {
 	 * @since 1.0.0
 	 */
 	protected static ?object $instance = null;
-	
+
 	/**
 	 * Excluded post types capabilities
 	 *
@@ -46,7 +44,7 @@ class WPSSCaps {
 		'wp_block',
 		'wp_template',
 	];
-	
+
 	/**
 	 * Excluded taxonomies capabilities
 	 *
@@ -54,7 +52,7 @@ class WPSSCaps {
 	 * @var array
 	 */
 	private static array $taxonomy_filter = [ 'nav_menu', 'link_category', 'wp_theme' ];
-	
+
 	/**
 	 * Register the AJAX actions for reading and setting role capabilities.
 	 *
@@ -63,11 +61,11 @@ class WPSSCaps {
 	public function __construct() {
 		/** Ajax call to get role capabilities */
 		add_action( 'wp_ajax_wpss_get_role_capabilities_action', [ $this, 'get_role_capabilities_action' ] );
-		
+
 		/** Ajax call to set capabilities to a role */
 		add_action( 'wp_ajax_wpss_set_capabilities_to_role_action', [ $this, 'set_capabilities_to_role_action' ] );
 	}
-	
+
 	/**
 	 * Get class instance
 	 *
@@ -78,17 +76,17 @@ class WPSSCaps {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
-		
+
 		return self::$instance;
 	}
-	
+
 	/**
 	 * Set capabilities to role
 	 *
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function set_capabilities_to_role_action(): void {
+	public function set_capabilities_to_role_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce         = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_data_caps = RoleCraftRequest::post( 'capabilities', false, $nonce );
@@ -96,7 +94,7 @@ class WPSSCaps {
 		$role = RoleCraftRequest::post( 'role', false, $nonce );
 		if ( $role ) {
 			$instance     = self::instance();
-			$capabilities = ! empty( $get_caps ) ? array_unique( $get_caps[ 'wpss-caps-to-role' ] ) : [];
+			$capabilities = ! empty( $get_caps ) ? array_unique( $get_caps['wpss-caps-to-role'] ) : [];
 			$capabilities = array_map( fn( $sanitize ) => sanitize_text_field( $sanitize ), $capabilities );
 			/** Insert role capabilities */
 			$instance->set_role_caps( $role, $capabilities );
@@ -105,14 +103,14 @@ class WPSSCaps {
 		}
 		wp_die();
 	}
-	
+
 	/**
 	 * Get capabilities form from role
 	 *
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function get_role_capabilities_action(): void {
+	public function get_role_capabilities_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce     = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$role_caps = RoleCraftRequest::post( 'role_caps', false, $nonce );
@@ -125,7 +123,7 @@ class WPSSCaps {
 		}
 		wp_die();
 	}
-	
+
 	/**
 	 * Get all available WordPress Capabilities
 	 *
@@ -140,7 +138,7 @@ class WPSSCaps {
 	 */
 	public static function get_caps( string $type ): ?array {
 		$instance = self::instance();
-		
+
 		return match ( $type ) {
 			'admin' => $instance->admin_capabilities(),
 			'tax' => $instance->get_taxonomies_capabilities_list(),
@@ -149,7 +147,7 @@ class WPSSCaps {
 			default => null,
 		};
 	}
-	
+
 	/**
 	 * Get capabilities from a role.
 	 *
@@ -161,12 +159,12 @@ class WPSSCaps {
 	public static function get_cap_by_role( string $role ): array {
 		return array_keys( get_role( $role )->capabilities );
 	}
-	
+
 	/**
 	 * Insert capabilities to a role.
 	 *
 	 * @param string $role Role slug.
-	 * @param array $capabilities Capability names to add.
+	 * @param array  $capabilities Capability names to add.
 	 *
 	 * @since 1.0.0
 	 */
@@ -190,12 +188,12 @@ class WPSSCaps {
 			);
 		}
 	}
-	
+
 	/**
 	 * Remove capabilities from a role.
 	 *
 	 * @param string $role Role slug.
-	 * @param array $capabilities Capability names the role should keep; any other capability is removed.
+	 * @param array  $capabilities Capability names the role should keep; any other capability is removed.
 	 * @return void
 	 * @since 1.0.0
 	 */
@@ -220,7 +218,7 @@ class WPSSCaps {
 			);
 		}
 	}
-	
+
 	/**
 	 * Retrieve admin capabilities, hide post type and taxonomy capabilities
 	 *
@@ -234,15 +232,15 @@ class WPSSCaps {
 				$admin_caps[] = $key;
 			}
 		}
-		
+
 		/** Avoid errors if this capability are removed */
 		if ( in_array( 'read', $admin_caps, true ) ) {
 			unset( $admin_caps[ array_search( 'read', $admin_caps, true ) ] );
 		}
-		
+
 		return $admin_caps;
 	}
-	
+
 	/**
 	 * Get all post type and taxonomy capabilities
 	 *
@@ -252,7 +250,7 @@ class WPSSCaps {
 	private function capabilities(): array {
 		return array_merge( self::get_post_type_capabilities_list(), self::get_taxonomies_capabilities_list() );
 	}
-	
+
 	/**
 	 * Get post types capabilities list
 	 *
@@ -266,14 +264,14 @@ class WPSSCaps {
 				$post_types[ get_post_type_object( $post_type )->name ] = json_decode( wp_json_encode( get_post_type_object( $post_type )->cap ), true );
 				/** Avoid errors if this capability are removed */
 				if ( in_array( 'read', $post_types[ get_post_type_object( $post_type )->name ], true ) ) {
-					unset( $post_types[ get_post_type_object( $post_type )->name ][ 'read' ] );
+					unset( $post_types[ get_post_type_object( $post_type )->name ]['read'] );
 				}
 			}
 		}
-		
+
 		return $post_types;
 	}
-	
+
 	/**
 	 * Get taxonomies capabilities list
 	 *
@@ -292,7 +290,7 @@ class WPSSCaps {
 				}
 			}
 		}
-		
+
 		return $tax;
 	}
 }

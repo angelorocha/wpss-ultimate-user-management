@@ -15,11 +15,11 @@ use WpssUserManager\Admin\WPSSPluginHelper;
 use WpssUserManager\Admin\WPSSRoles;
 use WpssUserManager\Admin\WPSSWidgets;
 
-$get_blocks    = WPSSWidgets::get_widget_blocks();
-$get_widget_op = WPSSPluginHelper::get_option( 'wpss_individual_widgets' );
-if ( ! empty( $get_widget_op ) ) :
-	$get_widget_op = json_decode( $get_widget_op, true );
-	$get_widget_op = $get_widget_op['wpss_individual_widgets'] ?? [];
+$wpss_get_blocks    = WPSSWidgets::get_widget_blocks();
+$wpss_get_widget_op = WPSSPluginHelper::get_option( 'wpss_individual_widgets' );
+if ( ! empty( $wpss_get_widget_op ) ) :
+	$wpss_get_widget_op = json_decode( $wpss_get_widget_op, true );
+	$wpss_get_widget_op = $get_widget_op['wpss_individual_widgets'] ?? [];
 endif;
 ?>
 <div class="wpss-widgets-tab">
@@ -33,40 +33,40 @@ endif;
 	
 	<form id="wpss-individual-widgets-permissions" method="post" action="">
 		<?php
-		$list_roles = WPSSRoles::get_roles_names( false );
-		unset( $list_roles['administrator'] );
+		$wpss_list_roles = WPSSRoles::get_roles_names( false );
+		unset( $wpss_list_roles['administrator'] );
 		global $wp_registered_widgets;
 		global $wp_registered_sidebars;
-		if ( $get_blocks ) :
-			foreach ( $list_roles as $role => $name ) :
+		if ( $wpss_get_blocks ) :
+			foreach ( $wpss_list_roles as $wpss_role => $wpss_name ) :
 				?>
-				<h4><?php echo esc_attr( $name ); ?></h4>
+				<h4><?php echo esc_attr( $wpss_name ); ?></h4>
 				<div class="row block-item">
-					<?php foreach ( $get_blocks as $sidebar => $block ) : ?>
+					<?php foreach ( $wpss_get_blocks as $wpss_sidebar => $wpss_block ) : ?>
 						<div class="col-md-12 block-item-title">
-							<?php if ( ! empty( $wp_registered_sidebars[ $sidebar ] ) ) : ?>
+							<?php if ( ! empty( $wp_registered_sidebars[ $wpss_sidebar ] ) ) : ?>
 								<strong>
-									&raquo; <?php echo esc_html( $wp_registered_sidebars[ $sidebar ]['name'] ); ?>:
+									&raquo; <?php echo esc_html( $wp_registered_sidebars[ $wpss_sidebar ]['name'] ); ?>:
 								</strong>
 							<?php endif; ?>
 						</div>
-						<?php if ( ! empty( $block ) && is_array( $block ) ) : ?>
-							<?php foreach ( $block as $b ) : ?>
+						<?php if ( ! empty( $wpss_block ) && is_array( $wpss_block ) ) : ?>
+							<?php foreach ( $wpss_block as $wpss_b ) : ?>
 								<div class="col-md-3">
-									<label for="wpss-block-<?php echo esc_attr( $sidebar . $role . $b ); ?>">
+									<label for="wpss-block-<?php echo esc_attr( $wpss_sidebar . $wpss_role . $wpss_b ); ?>">
 										<input type="checkbox"
-												name="wpss_individual_widgets[<?php echo esc_attr( $role ); ?>][]"
-												id="wpss-block-<?php echo esc_attr( $sidebar . $role . $b ); ?>"
-												<?php if ( ! empty( $get_widget_op[ $role ] ) ) : ?>
-													<?php checked( in_array( $b, $get_widget_op[ $role ], true ) ); ?>
+												name="wpss_individual_widgets[<?php echo esc_attr( $wpss_role ); ?>][]"
+												id="wpss-block-<?php echo esc_attr( $wpss_sidebar . $wpss_role . $wpss_b ); ?>"
+												<?php if ( ! empty( $wpss_get_widget_op[ $wpss_role ] ) ) : ?>
+													<?php checked( in_array( $wpss_b, $wpss_get_widget_op[ $wpss_role ], true ) ); ?>
 												<?php endif; ?>
-												value="<?php echo esc_attr( $b ); ?>">
+												value="<?php echo esc_attr( $wpss_b ); ?>">
 										<?php
-										$widget_title = WPSSWidgets::get_widget_title( $b );
-										if ( empty( $widget_title ) ) :
-											$widget_title = $wp_registered_widgets[ $b ]['name'] . " ({$wp_registered_widgets[ $b ]['id']})";
+										$wpss_widget_title = WPSSWidgets::get_widget_title( $wpss_b );
+										if ( empty( $wpss_widget_title ) ) :
+											$wpss_widget_title = $wp_registered_widgets[ $wpss_b ]['name'] . " ({$wp_registered_widgets[ $wpss_b ]['id']})";
 										endif;
-										echo esc_html( $widget_title );
+										echo esc_html( $wpss_widget_title );
 										?>
 									</label>
 								</div>

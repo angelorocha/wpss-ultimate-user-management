@@ -9,20 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
 	exit;
 }
-if (
-	is_array( spl_autoload_functions() )
-	&& in_array( '__autoload', spl_autoload_functions(), true )
-) {
+if ( is_array( spl_autoload_functions() ) && in_array( '__autoload', spl_autoload_functions(), true ) ) {
 	spl_autoload_register( '__autoload' );
 }
 if ( ! function_exists( 'wpss_autoload' ) ) {
 	/**
 	 * Register a PSR-4 autoloader for each namespace declared in composer.json.
 	 *
-	 * @param string $dir Absolute path to the plugin directory.
+	 * @param string|null $dir Absolute path to the plugin directory.
 	 * @return void
 	 */
-	function wpss_autoload( $dir ): void {
+	function wpss_autoload( ?string $dir = null ): void {
+		$dir = $dir ?? plugin_dir_path( __FILE__ );
 		if ( ! file_exists( "$dir/composer.json" ) ) {
 			return;
 		}

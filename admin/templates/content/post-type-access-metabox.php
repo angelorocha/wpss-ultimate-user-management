@@ -17,11 +17,11 @@ use WpssUserManager\Admin\WPSSRoles;
 
 $wpss_roles             = WPSSRoles::get_roles_names( false );
 $wpss_access_option_key = WPSSContentAccess::$wpss_post_type_access_key;
-$get_access_meta        = get_post_meta( get_the_ID(), $wpss_access_option_key, true );
-if ( $get_access_meta ) :
-	$get_access_meta = json_decode( $get_access_meta, true );
+$wpss_get_access_meta   = get_post_meta( get_the_ID(), $wpss_access_option_key, true );
+if ( $wpss_get_access_meta ) :
+	$wpss_get_access_meta = json_decode( $wpss_get_access_meta, true );
 else :
-	$get_access_meta = [];
+	$wpss_get_access_meta = [];
 endif;
 if ( ! empty( $wpss_roles ) ) : ?>
 	<ul>
@@ -32,7 +32,7 @@ if ( ! empty( $wpss_roles ) ) : ?>
 							id="<?php echo esc_html( "$wpss_access_option_key-$wpss_role_key" ); ?>"
 							name="<?php echo esc_attr( "{$wpss_access_option_key}[]" ); ?>"
 							value="<?php echo esc_attr( $wpss_role_key ); ?>"
-						<?php echo esc_attr( checked( in_array( $wpss_role_key, $get_access_meta, true ) ) ); ?>>
+						<?php echo esc_attr( checked( in_array( $wpss_role_key, $wpss_get_access_meta, true ) ) ); ?>>
 					<?php echo esc_attr( $wpss_role_name ); ?>
 				</label>
 			</li>

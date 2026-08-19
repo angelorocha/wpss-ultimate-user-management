@@ -20,7 +20,7 @@ use WpssUserManager\Admin\WPSSPluginHelper;
  *
  * @var array $template
  */
-$users = $template['args'];
+$wpss_users = $template['args'];
 ?>
 <table class="wpss-user-role-editor-table widefat fixed striped table-view-list users nowrap">
 	<caption class="d-none"><?php esc_html_e( 'User Details', 'wpss-ultimate-user-management' ); ?></caption>
@@ -32,13 +32,13 @@ $users = $template['args'];
 	</tr>
 	</thead>
 	<tbody>
-	<?php foreach ( $users as $id => $user ) : ?>
-		<?php if ( 'total' !== $id ) : ?>
+	<?php foreach ( $wpss_users as $wpss_id => $wpss_user ) : ?>
+		<?php if ( 'total' !== $wpss_id ) : ?>
 			<tr>
-				<td><?php echo esc_html( $id ); ?></td>
-				<td><?php echo esc_html( $user ); ?></td>
+				<td><?php echo esc_html( $wpss_id ); ?></td>
+				<td><?php echo esc_html( $wpss_user ); ?></td>
 				<td>
-					<span class="wpss-user-edit-link" data-user-id="<?php echo esc_attr( $id ); ?>">
+					<span class="wpss-user-edit-link" data-user-id="<?php echo esc_attr( $wpss_id ); ?>">
 						<?php esc_html_e( 'Edit', 'wpss-ultimate-user-management' ); ?>
 					</span>
 				</td>
@@ -48,12 +48,12 @@ $users = $template['args'];
 	</tbody>
 </table>
 <hr>
-<?php $rpp = (int) WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ); ?>
+<?php $wpss_rpp = (int) WPSSPluginHelper::get_option( 'wpss_user_entries_screen' ); ?>
 <div class='wpss-user-paginate'>
 	<?php
-	$paginate = WPSSUsers::paginate_users( $rpp, esc_html( $users['total'] ) );
-	if ( $paginate ) :
-		echo wp_kses( $paginate, WPSSAdminFrontend::sanitize_output() );
+	$wpss_paginate = WPSSUsers::paginate_users( $wpss_rpp, (int) $wpss_users['total'] );
+	if ( $wpss_paginate ) :
+		echo wp_kses( $wpss_paginate, WPSSAdminFrontend::sanitize_output() );
 	endif;
 	?>
 </div>

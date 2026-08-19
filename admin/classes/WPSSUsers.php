@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use JetBrains\PhpStorm\NoReturn;
 use WP_User;
 use WP_User_Query;
 
@@ -74,7 +73,7 @@ class WPSSUsers {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function open_user_roles_box(): void {
+	public function open_user_roles_box(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		if ( current_user_can( 'manage_options' ) ) {
 			$nonce   = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
@@ -92,7 +91,7 @@ class WPSSUsers {
 	/**
 	 * Show add role link on native WordPress list user page.
 	 *
-	 * @param array    $actions Existing row actions.
+	 * @param array   $actions Existing row actions.
 	 * @param WP_User $user_object User the row belongs to.
 	 * @return array
 	 * @since 1.2.0
@@ -117,7 +116,7 @@ class WPSSUsers {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function get_user_details_action(): void {
+	public function get_user_details_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$instance  = self::instance();
 		$nonce     = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
@@ -137,7 +136,7 @@ class WPSSUsers {
 	 *
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function set_user_roles_action(): void {
+	public function set_user_roles_action(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce              = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_user_role_data = RoleCraftRequest::post( 'user_roles', false, $nonce );
@@ -279,16 +278,15 @@ class WPSSUsers {
 			'search' => RoleCraftRequest::get( 'search', $nonce ),
 		] : [ 'cpage' => '%#%' ];
 
-		return paginate_links(
-			[
-				'base'      => add_query_arg( $args ),
-				'format'    => '',
-				'prev_text' => '&laquo;',
-				'next_text' => '&raquo;',
-				'total'     => ceil( $total / $rpp ),
-				'current'   => $page,
-			]
-		);
+		$paginate_args = [
+			'base'      => add_query_arg( $args ),
+			'format'    => '',
+			'prev_text' => '&laquo;',
+			'next_text' => '&raquo;',
+			'total'     => (int) ceil( $total / $rpp ),
+			'current'   => $page,
+		];
+		return paginate_links( $paginate_args );
 	}
 
 	/**

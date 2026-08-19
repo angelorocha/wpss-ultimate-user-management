@@ -7,8 +7,6 @@
 
 namespace WpssUserManager\Admin;
 
-use JetBrains\PhpStorm\NoReturn;
-
 /** Prevent direct access */
 if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.0 403 Forbidden' );
@@ -60,7 +58,7 @@ class WPSSPluginSettings {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	#[NoReturn] public function save_settings(): void {
+	public function save_settings(): void {
 		WPSSUserRolesCapsManager::wpss_ajax_check_referer();
 		$nonce             = wp_create_nonce( WPSSUserRolesCapsManager::nonce() );
 		$get_settings_data = RoleCraftRequest::post( 'settings', false, $nonce );
