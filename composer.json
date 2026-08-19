@@ -25,8 +25,8 @@
   "scripts": {
     "test": "pest",
     "test:coverage": "pest --coverage",
-    "phpcs": "phpcs -p -s --colors",
-    "phpcbf": "phpcbf",
+    "phpcs": "phpcs --standard=phpcs.xml.dist",
+    "phpcbf": "phpcbf --standard=phpcs.xml.dist",
     "phpstan": "phpstan analyse --memory-limit=1G",
     "check": [
       "@phpcbf",
