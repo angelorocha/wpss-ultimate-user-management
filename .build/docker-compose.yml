@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  wordpress:
+    container_name: rolecraft_wp_test
+    image: wordpress:latest
+    ports:
+      - "8181:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./build_test/wpss-ultimate-user-management:/var/www/html/wp-content/plugins/wpss-ultimate-user-management
+    depends_on:
+      - db
+
+  db:
+    container_name: rolecraft_db_test
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress

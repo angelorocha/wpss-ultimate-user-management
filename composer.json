@@ -28,6 +28,8 @@
     "phpcs": "phpcs --standard=phpcs.xml.dist",
     "phpcbf": "phpcbf --standard=phpcs.xml.dist",
     "phpstan": "phpstan analyse --memory-limit=1G",
+    "build": "@php .build/build.php build",
+    "startplugin": "@php .build/build.php startplugin",
     "check": [
       "@phpcbf",
       "@phpcs",

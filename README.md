@@ -89,6 +89,43 @@ Source files to scss: `assets/src/sass/`
 
 Source files to js: `assets/src/js/`
 
+### Code Quality & Standards
+
+To keep the codebase clean and compliant with WordPress coding standards, run the quality assurance scripts before committing changes:
+- Format Code Automatically: `composer phpcbf`
+- Run Static Analysis & Code Style Checks: `composer check`
+>Runs phpcbf, phpcs, and phpstan in sequence to ensure type safety and code quality.
+
+### Local Package Build & Testing
+Before pushing a new release or tag, you can simulate the production build locally to verify that no development artifacts, source files, or local configuration leak into the release package:
+`composer build`
+
+>This cross-platform command uses .distignore to copy only production-ready files into .build/build_test/ and generates a clean distribution archive at .build/wpss-ultimate-user-management.zip. You can directly test this zip file on a clean WordPress installation.
+
+### Local Testing Environment (`composer startplugin`)
+
+RoleCraft includes a automated, ephemeral testing environment powered by Docker and WP-CLI. With a single command, you can spin up a fresh, fully configured WordPress instance running your local build.
+
+#### Prerequisites
+* **Docker & Docker Compose:** Must be installed and running on your system (e.g., Docker Desktop on Windows/macOS or Docker Engine on Linux).
+
+---
+
+#### Features & Lifecycle
+* **Automated Setup:** Compiles the latest plugin assets, starts the Docker containers, installs WordPress silently, and automatically activates the RoleCraft plugin.
+* **Pre-seeded Users:** Automatically seeds the database with **100 test users** across standard WordPress roles (Subscribers, Editors, Contributors, and Authors) for instant permission testing.
+* **Auto-Launch:** Automatically opens `http://localhost:8181/wp-admin` in your default browser once the environment is ready.
+* **Zero Persistence (Ephemeral):** When you close the process (`CTRL+C`), the script gracefully stops and deletes the test containers and temporary database volumes. **No leftover files, images, or orphan containers will clutter your system.**
+
+---
+
+#### How to Use
+
+1. Ensure your Docker daemon is running.
+2. In your terminal, run:
+   ```bash
+   composer startplugin
+
 ### Screenshots
 ![Roles List](./.wordpress-org/screenshot-1.png "Roles List")
 ![Menu Items](./.wordpress-org/screenshot-2.png "Menu Items")

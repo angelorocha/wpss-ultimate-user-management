@@ -2,3 +2,6 @@ node_modules
 phpcs.xml
 vendor
 composer.lock
+.build/build_test
+wpss-ultimate-user-management.zip
+package-lock.json

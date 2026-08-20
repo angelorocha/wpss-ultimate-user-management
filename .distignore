@@ -3,6 +3,7 @@
 .github
 .distignore
 .editorconfig
+.build
 phpcs.xml.dist
 phpcs.xml
 phpstan.neon
@@ -14,4 +15,5 @@ package.json
 package-lock.json
 gulpfile.js
 README.md
+vendor
 *.log
