@@ -45,7 +45,7 @@ if ( 'startplugin' === $action ) {
 		}
 		echo "\n\n5. Removing containers and the temporary test database...\n";
 		system( "docker compose -f \"{$compose_file}\" down -v" );
-		echo "Ambiente limpo com sucesso!\n";
+		echo "Environment successfully cleaned!\n";
 		exit( 0 );
 	};
 	
@@ -82,7 +82,8 @@ if ( 'startplugin' === $action ) {
 		. '--admin_user=\'root\' '
 		. '--admin_password=\'root\' '
 		. '--admin_email=\'admin@example.com\' && '
-		. './wp-cli.phar plugin activate wpss-ultimate-user-management --allow-root"';
+		. './wp-cli.phar plugin activate wpss-ultimate-user-management --allow-root && '
+		. './wp-cli.phar plugin install plugin-check --activate --allow-root"';
 	
 	system( $wp_cli_cmd );
 	

@@ -31,8 +31,8 @@
     "build": "@php .build/build.php build",
     "startplugin": "@php .build/build.php startplugin",
     "check": [
-      "@phpcbf",
-      "@phpcs",
+      "@phpcbf --standard=phpcs.xml.dist",
+      "@phpcs --standard=phpcs.xml.dist",
       "@phpstan"
     ]
   },
