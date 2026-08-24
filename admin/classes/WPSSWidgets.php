@@ -40,7 +40,7 @@ class WPSSWidgets {
 		add_action( 'wp_ajax_save_widget_options', [ $this, 'save_widget_options' ] );
 		add_action( 'wp_ajax_save_individual_widgets_permissions', [ $this, 'save_individual_widgets_permissions' ] );
 
-		/** Check sidebar widget */
+		/** Check the sidebar widget */
 		add_filter( 'widget_display_callback', [ $this, 'hide_individual_widgets' ], 10, 2 );
 	}
 
@@ -151,9 +151,9 @@ class WPSSWidgets {
 	 * @since 1.0.0
 	 */
 	public static function get_widget_blocks(): array {
-		$get_blocks = get_option( 'sidebars_widgets', array() );
+		$get_blocks = WPSSPluginHelper::get_option( 'sidebars_widgets' );
 		if ( ! is_array( $get_blocks ) ) {
-			return array();
+			return [];
 		}
 		unset( $get_blocks['wp_inactive_widgets'] );
 		return array_filter(

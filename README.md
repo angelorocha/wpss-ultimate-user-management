@@ -4,6 +4,9 @@
 
 [![WordPress Version](https://img.shields.io/badge/WordPress-6.1%2B-blue.svg)](https://wordpress.org)
 [![PHP Version](https://img.shields.io/badge/PHP-8.1%2B-777BB4.svg)](https://php.net)
+[![PHP CodeSniffer](https://img.shields.io/badge/code%20style-WordPress--Coding--Standards-blue.svg?style=flat-square&logo=wordpress)](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%205-brightgreen.svg?style=flat-square&logo=php)](https://phpstan.org/)
+[![Plugin Check](https://img.shields.io/badge/Plugin%20Check-passed-success.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/plugin-check/)
 [![License](https://img.shields.io/badge/License-GPL%20v3-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 **RoleCraft User Access Control** is a lightweight and comprehensive access control solution for WordPress that gives administrators precise control over **what users can do, what they can access, and what content they can see**.

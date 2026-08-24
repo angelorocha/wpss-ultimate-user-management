@@ -207,4 +207,22 @@ class WPSSUserRolesCapsManager {
 		}
 		return false;
 	}
+
+	/**
+	 * Retrieve the current plugin version
+	 *
+	 * @return string|null
+	 * @sincc 1.2.4
+	 */
+	public static function plugin_version(): ?string {
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+		if ( defined( 'WPSS_URCM_PLUGIN_FILE' ) ) {
+			$plugin_data = get_plugin_data( WPSS_URCM_PLUGIN_FILE );
+			return $plugin_data['Version'];
+		}
+
+		return null;
+	}
 }
