@@ -27,7 +27,7 @@ $wpss_role_caps = $template['args'];
 	printf(
 	/* Translators: %s is a role name */
 		esc_html__( 'Select the capabilities to the Role %s:', 'wpss-ultimate-user-management' ),
-		esc_html( WPSSRoles::get_roles_names()[ $wpss_role_caps ] )
+		esc_html( WPSSRoles::get_roles_names( false )[ $wpss_role_caps ] )
 	);
 	?>
 </strong>
@@ -72,7 +72,7 @@ $wpss_role_caps = $template['args'];
 				</ul>
 			</div>
 		</div>
-		
+
 		<div class="post-type-caps caps-list">
 			<strong><?php esc_html_e( 'Post Types:', 'wpss-ultimate-user-management' ); ?></strong>
 			<label for="search-cpt-caps" class="d-none">
@@ -109,7 +109,7 @@ $wpss_role_caps = $template['args'];
 				<?php endforeach; ?>
 			</div>
 		</div>
-		
+
 		<div class="tax-caps caps-list">
 			<strong><?php esc_html_e( 'Taxonomies:', 'wpss-ultimate-user-management' ); ?></strong>
 			<label for="search-tax-caps" class="d-none"><?php esc_html_e( 'Search tax cap', 'wpss-ultimate-user-management' ); ?></label>
@@ -144,7 +144,7 @@ $wpss_role_caps = $template['args'];
 			</div>
 		</div>
 	</div>
-	
+
 	<hr>
 	<button class="button-primary"><?php esc_html_e( 'Add', 'wpss-ultimate-user-management' ); ?></button>
 </form>

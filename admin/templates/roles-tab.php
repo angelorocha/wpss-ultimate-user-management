@@ -51,11 +51,17 @@ use WpssUserManager\Admin\WPSSRoles;
 			$wpss_delete_role_label = __( 'Delete Role', 'wpss-ultimate-user-management' );
 			?>
 			<tr id='role-<?php echo esc_attr( $wpss_key ); ?>' class='role-delete'>
-				<td><?php echo esc_html( $wpss_role ); ?></td>
+				<td>
+					<span class="wpss-role-key"><?php echo esc_html( $wpss_key ); ?></span>
+					<?php echo esc_html( $wpss_role ); ?>
+					<a href="<?php echo esc_url( admin_url( 'users.php?role=' . $wpss_key ) ); ?>" title="<?php esc_html_e( 'View users', 'wpss-ultimate-user-management' ); ?>">
+						<?php esc_html_e( 'View users', 'wpss-ultimate-user-management' ); ?>
+					</a>
+				</td>
 				<td><?php echo esc_html( "{$wpss_total_users}" ); ?></td>
 				<?php if ( ! in_array( $wpss_key, array_keys( $wpss_protected_roles ), true ) ) : ?>
 					<td>
-					<span title='<?php echo esc_attr( $wpss_delete_role_label ); ?>'
+					<span class="wpss-delete-current-role" title='<?php echo esc_attr( $wpss_delete_role_label ); ?>'
 							data-role-id='<?php echo esc_attr( $wpss_key ); ?>'
 							data-role-name='<?php echo esc_attr( $wpss_role ); ?>'>&times;</span>
 					</td>
@@ -72,7 +78,7 @@ use WpssUserManager\Admin\WPSSRoles;
 		</tr>
 		</tfoot>
 	</table>
-	
+
 	<div class="role-delete-confirm-msg">
 		<?php esc_html_e( 'Are you sure you want to delete the role:', 'wpss-ultimate-user-management' ); ?>
 		<p class="text-center role-name"><strong></strong></p>
@@ -82,7 +88,7 @@ use WpssUserManager\Admin\WPSSRoles;
 		</p>
 		<strong><?php esc_html_e( 'This action cannot be undone.', 'wpss-ultimate-user-management' ); ?></strong>
 	</div>
-	
+
 	<div class="role-editor-messages d-none"></div>
 </div><!-- .table-container -->
 <hr>

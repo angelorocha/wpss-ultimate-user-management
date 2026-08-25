@@ -5,7 +5,7 @@ Tags: user roles, capabilities, access control, content restriction, admin menu
 Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.3
+Stable tag: 1.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -149,6 +149,17 @@ No. The plugin provides a graphical interface for managing roles, capabilities, 
 10. The role-assignment popup opened from the "Permissions" link on the Users list screen.
 
 == Changelog ==
+
+= 1.3.0 =
+* Add direct link on list roles screen to list users with that role in WordPress users list screen;
+* Add role key on list roles screen;
+* Add direct link on list roles screen to show users with that role in WordPress users list screen;
+* On create new roles, replace hyphen by underscore in role key;
+* Removed global_params from construct to avoid Notice: Function _load_textdomain_just... in WordPress 6.7+
+* Fix warnings on insert cap to role when role is a native WordPress role;
+* Add support to order users on Wordpress users screen by name or role;
+* Before deleting a role, verify whether it is set as the default role in the plugin settings. It resulted in users with no assigned role.
+
 = 1.2.3 =
 * Fix missing composer.json file
 

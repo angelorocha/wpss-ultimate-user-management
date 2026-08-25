@@ -120,6 +120,12 @@ class WPSSRoles {
 		$role_id  = RoleCraftRequest::post( 'role_id', false, $nonce );
 		/** Don't remove WordPress native roles */
 		if ( ! in_array( $role_id, self::$roles_filter, true ) ) {
+			/** If removed role is a default role defined on plugin settings */
+			if ( $role_id === $instance->wpss_set_default_role() ) {
+				/* Translators: %s is a role id */
+				printf( esc_html__( 'The %s role is set as the default for users without a role in the plugin settings. Change the default role before deleting it.', 'wpss-ultimate-user-management' ), esc_html( $role_id ) );
+				wp_die();
+			}
 			/** If user was only a removed role, move him to default role */
 			$instance->move_users_without_role_to_default_role( $role_id );
 			$remove_action = $instance->remove_role( sanitize_text_field( $role_id ) );
@@ -216,6 +222,7 @@ class WPSSRoles {
 		if ( empty( $role_key ) || in_array( $role_key, array_keys( self::get_roles_names() ), true ) ) {
 			return null;
 		}
+		$role_key = str_replace( '-', '_', $role_key );
 		add_role( $role_key, $role_name, [ 'read' => true ] );
 
 		return [

@@ -57,7 +57,7 @@ jQuery(function ($) {
 	let role_id = false;
 	let parent_remove = false;
 	role_delete.each(function () {
-		$(this).on('click', 'span', function () {
+		$(this).on('click', 'span.wpss-delete-current-role', function () {
 			role_name = $(this).attr('data-role-name');
 			role_id = $(this).attr('data-role-id');
 			parent_remove = $('#role-' + role_id);
