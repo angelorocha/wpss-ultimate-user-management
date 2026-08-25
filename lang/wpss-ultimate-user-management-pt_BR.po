@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSS Ultimate User Management\n"
-"POT-Creation-Date: 2026-08-18 15:00-0300\n"
-"PO-Revision-Date: 2026-08-18 15:05-0300\n"
+"POT-Creation-Date: 2026-08-25 16:12-0300\n"
+"PO-Revision-Date: 2026-08-25 16:12-0300\n"
 "Last-Translator: \n"
 "Language-Team: contato@angelorocha.com.br\n"
 "Language: pt_BR\n"
@@ -36,8 +36,8 @@ msgid "Capabilities List"
 msgstr "Lista de Capabilities"
 
 #: admin/classes/WPSSAdminFrontend.php:48
-#: admin/classes/WPSSUserRolesCapsManager.php:162
-#: admin/classes/WPSSUserRolesCapsManager.php:163 admin/templates/main.php:24
+#: admin/classes/WPSSUserRolesCapsManager.php:152
+#: admin/classes/WPSSUserRolesCapsManager.php:153 admin/templates/main.php:24
 msgid "User Management"
 msgstr "Gerenciamento de Usuários"
 
@@ -46,7 +46,7 @@ msgid "Admin/Front Widgets"
 msgstr "Admin/Front Widgets"
 
 #: admin/classes/WPSSAdminFrontend.php:50
-#: admin/templates/individual-widgets-tab.php:27
+#: admin/templates/individual-widgets-tab.php:28
 msgid "Sidebar Widgets"
 msgstr "Sidebar Widgets"
 
@@ -58,11 +58,11 @@ msgstr "Configurações"
 msgid "Template not found..."
 msgstr "Template não encontrado."
 
-#: admin/classes/WPSSAdminPages.php:95
+#: admin/classes/WPSSAdminPages.php:91
 msgid "Select a valid role"
 msgstr "Selecione uma role válida"
 
-#: admin/classes/WPSSAdminPages.php:99
+#: admin/classes/WPSSAdminPages.php:95
 msgid "Options updated successfully"
 msgstr "Opções salvas com sucesso"
 
@@ -74,33 +74,42 @@ msgstr "Sem permissão para acessar este conteúdo."
 msgid "Who can access: "
 msgstr "Quem pode acessar: "
 
-#: admin/classes/WPSSRoles.php:103
+#: admin/classes/WPSSRoles.php:104
 #, php-format
 msgid "Role %s successfully added!"
 msgstr "Role %s adicionada com sucesso!"
 
-#: admin/classes/WPSSRoles.php:105
+#: admin/classes/WPSSRoles.php:106
 msgid "Failed to create role"
 msgstr "Falha ao criar role"
 
-#: admin/classes/WPSSRoles.php:130
+#: admin/classes/WPSSRoles.php:126
+#, php-format
+msgid ""
+"The %s role is set as the default for users without a role in the plugin "
+"settings. Change the default role before deleting it."
+msgstr ""
+"A função %s está definida como padrão para usuários sem função nas "
+"configurações do plugin. Altere a função padrão antes de excluí-la."
+
+#: admin/classes/WPSSRoles.php:136
 #, php-format
 msgid "Role %s successfully removed!"
 msgstr "Role %s removida com sucesso!"
 
-#: admin/classes/WPSSRoles.php:132
+#: admin/classes/WPSSRoles.php:138
 msgid "Failed to remove role"
 msgstr "Falha ao remover role"
 
-#: admin/classes/WPSSUserRolesCapsManager.php:74
+#: admin/classes/WPSSUserRolesCapsManager.php:186
 msgid "No changes made"
 msgstr "Nenhuma alteração realizada"
 
-#: admin/classes/WPSSUsers.php:333
+#: admin/classes/WPSSUsers.php:323
 msgid "Y-m-d H:i:s"
 msgstr "d-m-Y H:i:s"
 
-#: admin/classes/WPSSWidgets.php:79 admin/classes/WPSSWidgets.php:99
+#: admin/classes/WPSSWidgets.php:76 admin/classes/WPSSWidgets.php:95
 msgid "Options saved!"
 msgstr "Opções salvas!"
 
@@ -146,7 +155,7 @@ msgid "Search tax cap"
 msgstr "Buscar tax cap"
 
 #: admin/templates/content/caps-actions.php:149
-#: admin/templates/roles-tab.php:93
+#: admin/templates/roles-tab.php:99
 msgid "Add"
 msgstr "Adicionar"
 
@@ -204,7 +213,7 @@ msgstr "Usuário"
 msgid "Edit"
 msgstr "Editar"
 
-#: admin/templates/individual-widgets-tab.php:29
+#: admin/templates/individual-widgets-tab.php:30
 msgid ""
 "Use this option to show/hide individual Widgets/Blocks in any sidebar. This "
 "option hides Widgets only from the frontend."
@@ -212,7 +221,7 @@ msgstr ""
 "Use esta opção para mostrar/ocultar Widgets/Blocos individualmente em "
 "qualquer sidebar. Esta opção oculta somente Widgets no Frontend."
 
-#: admin/templates/individual-widgets-tab.php:81
+#: admin/templates/individual-widgets-tab.php:82
 #: admin/templates/widgets-tab.php:64
 msgid "Save Options"
 msgstr "Salvar Opções"
@@ -296,7 +305,7 @@ msgstr "Role"
 msgid "Users"
 msgstr "Usuários"
 
-#: admin/templates/roles-tab.php:39 admin/templates/roles-tab.php:80
+#: admin/templates/roles-tab.php:39 admin/templates/roles-tab.php:86
 msgid "Delete"
 msgstr "Deletar"
 
@@ -304,23 +313,27 @@ msgstr "Deletar"
 msgid "Delete Role"
 msgstr "Deletar Role"
 
-#: admin/templates/roles-tab.php:70
+#: admin/templates/roles-tab.php:57 admin/templates/roles-tab.php:58
+msgid "View users"
+msgstr ""
+
+#: admin/templates/roles-tab.php:76
 msgid "Total Users"
 msgstr "Total de Usuários"
 
-#: admin/templates/roles-tab.php:77
+#: admin/templates/roles-tab.php:83
 msgid "Are you sure you want to delete the role:"
 msgstr "Tem certeza que deseja deletar a role:"
 
-#: admin/templates/roles-tab.php:81
+#: admin/templates/roles-tab.php:87
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: admin/templates/roles-tab.php:83
+#: admin/templates/roles-tab.php:89
 msgid "This action cannot be undone."
 msgstr "Esta ação não pode ser desfeita."
 
-#: admin/templates/roles-tab.php:91
+#: admin/templates/roles-tab.php:97
 msgid "Add Role"
 msgstr "Adicionar Role"
 

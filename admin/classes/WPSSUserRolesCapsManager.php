@@ -66,16 +66,6 @@ class WPSSUserRolesCapsManager {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		if ( empty( $this->global_params ) && is_admin() ) {
-			$this->global_params = [
-				'ajax_url' => admin_url( 'admin-ajax.php' ),
-				'nonce'    => wp_create_nonce( self::$nonce ),
-				'i18n'     => [
-					'no_changes_made' => __( 'No changes made', 'wpss-ultimate-user-management' ),
-				],
-			];
-		}
-
 		/** Setup plugin admin menu page */
 		add_action( 'admin_menu', [ $this, 'wpss_user_admin_menu' ] );
 		/** Load plugin text domain */
@@ -92,6 +82,7 @@ class WPSSUserRolesCapsManager {
 		add_action( 'init', [ WPSSPluginSettings::class, 'instance' ] );
 		add_action( 'init', [ WPSSWidgets::class, 'instance' ] );
 		add_action( 'init', [ WPSSContentAccess::class, 'instance' ] );
+		add_action( 'init', [ WPSSUserListPageColumns::class, 'instance' ] );
 	}
 
 	/**
@@ -187,6 +178,15 @@ class WPSSUserRolesCapsManager {
 	public function wpss_scripts_styles(): void {
 		global $pagenow;
 		if ( self::is_plugin_menu_page() || 'users.php' === $pagenow ) {
+			if ( empty( $this->global_params ) && is_admin() ) {
+				$this->global_params = [
+					'ajax_url' => admin_url( 'admin-ajax.php' ),
+					'nonce'    => wp_create_nonce( self::$nonce ),
+					'i18n'     => [
+						'no_changes_made' => __( 'No changes made', 'wpss-ultimate-user-management' ),
+					],
+				];
+			}
 			wp_enqueue_style( self::$plugin_prefix . '-css', WPSS_URCM_PLUGIN_URI . 'assets/css/main.min.css', [], self::$plugin_file_version );
 			wp_enqueue_script( self::$plugin_prefix . '-js', WPSS_URCM_PLUGIN_URI . 'assets/js/js.min.js', [ 'jquery' ], self::$plugin_file_version, true );
 			wp_localize_script( self::$plugin_prefix . '-js', 'wpss_user_management_object', $this->global_params );

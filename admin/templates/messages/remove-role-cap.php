@@ -23,6 +23,6 @@ $wpss_message = sprintf(
 /* Translators: 1: capability name, 2: role name */
 	_n( 'Capability %1$s removed from role %2$s.', 'Capabilities %1$s removed from role %2$s.', $wpss_args[0], 'wpss-ultimate-user-management' ),
 	implode( ', ', $wpss_args[1] ),
-	WPSSRoles::get_roles_names()[ $wpss_args[2] ]
+	WPSSRoles::get_roles_names( false )[ $wpss_args[2] ]
 );
 echo esc_html( $wpss_message ) . '<br>';
