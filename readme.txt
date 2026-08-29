@@ -1,6 +1,6 @@
 === RoleCraft: User Access Control – Roles, Capabilities & Content Restriction ===
-Contributors: angelorocha
-Donate link: https://www.paypal.com/donate?hosted_button_id=DRE7DA2LZBA3U
+Contributors: angelorocha, alkesh7
+Donate link: https://github.com/sponsors/angelorocha
 Tags: user roles, capabilities, access control, content restriction, admin menu
 Requires at least: 6.1
 Tested up to: 7.1
