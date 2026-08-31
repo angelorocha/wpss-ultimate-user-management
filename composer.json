@@ -7,7 +7,7 @@
     "plugin",
     "metabox"
   ],
-  "license": "GNU General Public License v3 or later",
+	"license": "GPL-3.0-or-later",
   "autoload": {
     "psr-4": {
       "WpssUserManager\\Admin\\": "admin/classes/"
@@ -45,12 +45,25 @@
     "sort-packages": true,
     "process-timeout": 0
   },
-  "authors": [
-    {
-      "name": "Angelo Rocha",
-      "email": "contato@angelorocha.com.br"
-    }
-  ],
+	"authors": [
+		{
+			"name": "Angelo Rocha",
+			"email": "contato@angelorocha.com.br",
+			"homepage": "https://angelorocha.com.br",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/angelorocha/wpss-ultimate-user-management/issues",
+		"source": "https://github.com/angelorocha/wpss-ultimate-user-management",
+		"email": "contato@angelorocha.com.br"
+	},
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/angelorocha"
+		}
+	],
   "require": {
     "php": ">8.0"
   }

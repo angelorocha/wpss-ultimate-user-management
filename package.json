@@ -4,15 +4,13 @@
   "description": "WordPress user administrator, roles and capabilities management.",
   "main": "index.js",
   "bugs": "",
-  "homepage": "",
-  "license": "GPL-3.0-or-later",
   "scripts": {
     "build": "gulp",
     "phpcs": "phpcs -a -p --ignore=vendor,node_modules ."
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/angelorocha/wpss-ultimate-user-management"
   },
   "keywords": [
     "Plugin",
@@ -22,10 +20,16 @@
     "Roles",
     "User"
   ],
+  "homepage": "https://angelorocha.com.br",
+  "license": "GPL-3.0-or-later",
   "author": {
     "name": "Angelo Rocha",
     "email": "contato@angelorocha.com.br",
     "url": "https://angelorocha.com.br"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/angelorocha"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
